@@ -216,7 +216,7 @@
     
     
     UILabel *ttLabel = [[UILabel alloc]initWithFrame:CGRectMake((SCREENWIDTH - JZWITH(100)) / 2, 20, JZWITH(100), 44)];
-    ttLabel.text = @"农场";
+    ttLabel.text = @"店铺";
     ttLabel.textAlignment = 1;
     ttLabel.textColor = [UIColor whiteColor];
     ttLabel.font = [UIFont boldSystemFontOfSize:18];

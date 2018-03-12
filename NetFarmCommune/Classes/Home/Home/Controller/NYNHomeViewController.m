@@ -536,6 +536,10 @@
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
+- (void)click{
+    NSLog(@"ghsjdghf");
+}
+
 - (void)SGPageTitleView:(SGPageTitleView *)SGPageTitleView selectedIndex:(NSInteger)selectedIndex {
     [self.pageContentView setPageCententViewCurrentIndex:selectedIndex];
 }
@@ -635,12 +639,14 @@
         }
         NSMutableArray * pic = [[NSMutableArray alloc]init];
         NSMutableArray * name = [[NSMutableArray alloc]init];
+        
         if (_liveDataArr.count>0) {
             for (int i =0 ; i<self.liveDataArr.count; i++) {
                 NSString * str = self.liveDataArr[i][@"pimg"];
                 [pic addObject:str];
                 NSString * str1 = self.liveDataArr[i][@"title"];
                 [name addObject:str1];
+              
             }
             
             [functionChooseCell getLivePicArray:pic textArray:name];
@@ -649,6 +655,22 @@
   
         
         functionChooseCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        
+        functionChooseCell.buttonAction = ^(NYNLiveButton *sender) {
+            NYNFarmCellModel *model = self.bannnerDataArr[sender.indexFB];
+            
+            PersonalCenterVC *vc = [PersonalCenterVC new];
+            vc.hidesBottomBarWhenPushed = YES;
+            vc.ID = model.Id;
+            vc.farmName = model.name;
+            
+            vc.ctype = @"farm";
+            
+            [self.navigationController pushViewController:vc animated:YES];
+        };
+        
+        
         return functionChooseCell;
     }
     else if ((indexPath.section == 2)){

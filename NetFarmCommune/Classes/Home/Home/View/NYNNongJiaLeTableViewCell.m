@@ -54,6 +54,16 @@
 }
 
 
+- (void)buttonClick:(FTHomeButton *)button{
+    
+    // 判断下这个block在控制其中有没有被实现
+    if (self.buttonAction) {
+        // 调用block传入参数
+        self.buttonAction(button);
+    }
+}
+
+
 -(void)setTotalArray:(NSMutableArray *)totalArray{
     _totalArray = totalArray;
     
@@ -74,9 +84,10 @@
         priceLabel.font =[UIFont systemFontOfSize:11];
         priceLabel.textAlignment=NSTextAlignmentCenter;
         
+        [btOne addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        btOne.tag =400+i;
+        btOne.indexFB=i;
         [self.contentView addSubview:priceLabel];
-        
-        
     }
 }
 

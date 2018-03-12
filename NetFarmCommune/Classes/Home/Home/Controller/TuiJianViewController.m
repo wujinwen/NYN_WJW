@@ -35,6 +35,11 @@
 #import "NYNHuoDongViewController.h"
 #import "NYNAuctionModel.h"
 
+#import "GoodsDealVController.h"
+
+#import "NYNDealListModel.h"
+
+
 @interface TuiJianViewController ()<UITableViewDelegate,UITableViewDataSource,GCDAsyncSocketDelegate>
 
 @property (nonatomic,strong) UITableView *homeTable;
@@ -463,8 +468,18 @@
             
             [functionChooseCell getLivePicArray:pic textArray:name];
         }
-        
-        
+        functionChooseCell.buttonAction = ^(NYNLiveButton *sender) {
+            NYNFarmCellModel *model = self.bannnerDataArr[sender.indexFB];
+            
+            PersonalCenterVC *vc = [PersonalCenterVC new];
+            vc.hidesBottomBarWhenPushed = YES;
+            vc.ID = model.Id;
+            vc.farmName = model.name;
+            
+            vc.ctype = @"farm";
+            
+            [self.navigationController pushViewController:vc animated:YES];
+        };
         
         functionChooseCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return functionChooseCell;
@@ -472,6 +487,7 @@
     else if ((indexPath.section == 2)){
         
         NYNNongJiaLeTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"activityCell"];
+        farmLiveTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (farmLiveTableViewCell == nil) {
             farmLiveTableViewCell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([NYNNongJiaLeTableViewCell class]) owner:self options:nil].firstObject;
         }
@@ -479,6 +495,7 @@
             farmLiveTableViewCell.totalArray = _paimaiArr;
             
         }
+        
         
         return farmLiveTableViewCell;
         
@@ -488,6 +505,7 @@
         
         //集市
         FTFarmRecommendTableViewCell *teachCell = [tableView dequeueReusableCellWithIdentifier:@"teachCell"];
+        teachCell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (teachCell == nil) {
             teachCell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([FTFarmRecommendTableViewCell class]) owner:self options:nil].firstObject;
         }
@@ -495,6 +513,16 @@
         if (_marketArray.count>0) {
             teachCell.dataArray =_marketArray;
         }
+        teachCell.buttonAction = ^(NYNMarketButton *sender) {
+            
+            GoodsDealVController *vc = [GoodsDealVController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            vc.productId = _marketArray[sender.tag-400][@"id"];
+//            vc.farmId = _marketArray[sender.tag-400][@"farmId"];
+            
+            [self.navigationController pushViewController:vc animated:YES];
+        };
+        
         
         
         teachCell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -518,6 +546,7 @@
         
         //活动
         FTFarmLiveTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"activityCell"];
+        farmLiveTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (farmLiveTableViewCell == nil) {
             farmLiveTableViewCell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([FTFarmLiveTableViewCell class]) owner:self options:nil].firstObject;
         }

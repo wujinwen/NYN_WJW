@@ -38,6 +38,7 @@
 #import "ChooseLandViewController.h"
 #import "NYNCategoryPageModel.h"
 
+
 @interface NYNWantYangZhiViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *wangtZhongTable;
 @property (nonatomic,strong) NYNGouMaiView* bottomView;

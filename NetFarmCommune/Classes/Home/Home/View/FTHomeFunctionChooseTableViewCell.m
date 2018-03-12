@@ -58,13 +58,25 @@
     float cellTopHeight = JZWITH(5);
     
     for (int i = 0 ; i < picArr.count; i ++) {
-        NYNLiveButton *btOne = [[NYNLiveButton alloc]initWithFrame:CGRectMake(JZWITH(12) + (JZWITH(18) + cellWith) * i,cellTopHeight, cellWith, cellWith + JZHEIGHT(30))];
-        [ btOne.picImageView sd_setImageWithURL:[NSURL URLWithString:picArr[i]] placeholderImage:[UIImage imageNamed:@"占位图"]];
-        btOne.textLabel.text = textArray[i];
-        [self.contentView addSubview:btOne];
+        _btOne = [[NYNLiveButton alloc]initWithFrame:CGRectMake(JZWITH(12) + (JZWITH(18) + cellWith) * i,cellTopHeight, cellWith, cellWith + JZHEIGHT(30))];
+        [_btOne.picImageView sd_setImageWithURL:[NSURL URLWithString:picArr[i]] placeholderImage:[UIImage imageNamed:@"占位图"]];
+        _btOne.textLabel.text = textArray[i];
+        [self.contentView addSubview:_btOne];
+        _btOne.backgroundColor = [UIColor redColor];
+        [_btOne addTarget:self action:@selector(click:) forControlEvents:(UIControlEventTouchUpInside)];
+        _btOne.tag =400+i;
+        _btOne.indexFB=i;
     }
 }
 
+- (void)click:(NYNLiveButton *)sender{
+    
+    NSLog(@"ushd.f");
+    if (self.buttonAction) {
+        // 调用block传入参数
+        self.buttonAction(sender);
+    }
+}
 -(NSMutableArray *)picArr{
     if (!_picArr) {
         _picArr = [[NSMutableArray alloc]initWithArray: @[@"WechatIMG5",@"WechatIMG6",@"WechatIMG7"]];
