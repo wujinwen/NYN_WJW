@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="NYNEarthLocationViewTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="349" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="349" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farm_icon_address2.png" translatesAutoresizingMaskIntoConstraints="NO" id="IAk-4i-WBe">
+                        <rect key="frame" x="10" y="16" width="8" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="8" id="GlV-o6-E0F"/>
+                            <constraint firstAttribute="height" constant="10" id="OTM-Ct-d1q"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farm_icon_phone.png" translatesAutoresizingMaskIntoConstraints="NO" id="LHY-8P-B2G">
+                        <rect key="frame" x="318" y="14.5" width="16" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="MCW-Af-NQV"/>
+                            <constraint firstAttribute="width" constant="16" id="itf-xg-sm9"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成都市高新区天府二街蜀都中心1号楼138号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK8-E8-j7e">
+                        <rect key="frame" x="28" y="0.0" width="205" height="43.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距离8KM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptT-Qp-XyK">
+                        <rect key="frame" x="243" y="0.0" width="50" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="zKJ-kP-gFp"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kdx-3E-qN2">
+                        <rect key="frame" x="305" y="16.5" width="1" height="11"/>
+                        <color key="backgroundColor" red="0.87833553552627563" green="0.87848657369613647" blue="0.87832605838775635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="8jX-l1-xg8"/>
+                            <constraint firstAttribute="height" constant="11" id="gqL-HP-Qw9"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fl-Tq-Hbh">
+                        <rect key="frame" x="306" y="0.0" width="43" height="43.5"/>
+                        <connections>
+                            <action selector="callAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1l3-cM-CkZ"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="LHY-8P-B2G" secondAttribute="trailing" constant="15" id="1g1-2X-QJe"/>
+                    <constraint firstItem="Kdx-3E-qN2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7i8-5j-nVF"/>
+                    <constraint firstItem="IAk-4i-WBe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8mM-Ap-nj6"/>
+                    <constraint firstItem="4fl-Tq-Hbh" firstAttribute="leading" secondItem="Kdx-3E-qN2" secondAttribute="trailing" id="Dmq-sg-gea"/>
+                    <constraint firstItem="IK8-E8-j7e" firstAttribute="leading" secondItem="IAk-4i-WBe" secondAttribute="trailing" constant="10" id="Fpb-O5-1Kz"/>
+                    <constraint firstAttribute="bottom" secondItem="ptT-Qp-XyK" secondAttribute="bottom" id="Hpz-Rp-rtA"/>
+                    <constraint firstItem="LHY-8P-B2G" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OYZ-KK-e7w"/>
+                    <constraint firstItem="IK8-E8-j7e" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="QAW-Aq-RWe"/>
+                    <constraint firstAttribute="trailing" secondItem="4fl-Tq-Hbh" secondAttribute="trailing" id="S4h-y6-yuZ"/>
+                    <constraint firstItem="4fl-Tq-Hbh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Uu2-SQ-YWL"/>
+                    <constraint firstItem="LHY-8P-B2G" firstAttribute="leading" secondItem="Kdx-3E-qN2" secondAttribute="trailing" constant="12" id="Vat-pI-Kno"/>
+                    <constraint firstItem="IAk-4i-WBe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ZSw-vs-EAR"/>
+                    <constraint firstItem="ptT-Qp-XyK" firstAttribute="leading" secondItem="IK8-E8-j7e" secondAttribute="trailing" constant="10" id="dfp-nG-f4c"/>
+                    <constraint firstAttribute="bottom" secondItem="4fl-Tq-Hbh" secondAttribute="bottom" id="erK-J4-DC6"/>
+                    <constraint firstItem="ptT-Qp-XyK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fl3-M9-VbD"/>
+                    <constraint firstItem="Kdx-3E-qN2" firstAttribute="leading" secondItem="ptT-Qp-XyK" secondAttribute="trailing" constant="12" id="uVh-rJ-Snr"/>
+                    <constraint firstAttribute="bottom" secondItem="IK8-E8-j7e" secondAttribute="bottom" id="zpq-GK-nFb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLabel" destination="IK8-E8-j7e" id="4ul-Yf-V8q"/>
+                <outlet property="callButton" destination="4fl-Tq-Hbh" id="Q6U-si-Olo"/>
+                <outlet property="juliLabel" destination="ptT-Qp-XyK" id="YGf-Vo-mNi"/>
+            </connections>
+            <point key="canvasLocation" x="47.5" y="82"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="farm_icon_address2.png" width="8" height="10"/>
+        <image name="farm_icon_phone.png" width="15" height="15"/>
+    </resources>
+</document>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="111" id="KGk-i7-Jjw" customClass="NYNShouHuoPeiSongTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="111"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="355" height="110.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收获配送" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrP-Yq-Eu0">
+                        <rect key="frame" x="10" y="0.0" width="60" height="110.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="HEt-oC-Dsw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（¥1.00/㎡）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyu-sd-ekc">
+                        <rect key="frame" x="70" y="0.0" width="87" height="110.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="87" id="YIz-lw-uJn"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥15.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrd-FC-KkZ">
+                        <rect key="frame" x="223" y="11" width="100" height="89"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="Ioo-t5-w2U"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.97078496217727661" green="0.33727395534515381" blue="0.18140134215354919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farm_icon_notselected2.png" translatesAutoresizingMaskIntoConstraints="NO" id="heR-3n-P2g">
+                        <rect key="frame" x="333" y="49" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="12" id="4nh-z8-09o"/>
+                            <constraint firstAttribute="height" constant="12" id="A0b-sZ-kFR"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mCn-4z-ffr">
+                        <rect key="frame" x="0.0" y="110" width="355" height="0.5"/>
+                        <color key="backgroundColor" red="0.92931067943572998" green="0.92946994304656982" blue="0.92930072546005249" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="IEW-1o-dZs"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="MrP-Yq-Eu0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="0eE-Ue-x2i"/>
+                    <constraint firstItem="Iyu-sd-ekc" firstAttribute="leading" secondItem="MrP-Yq-Eu0" secondAttribute="trailing" id="3j6-sb-JWe"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="hrd-FC-KkZ" secondAttribute="bottom" id="A9w-nc-0jU"/>
+                    <constraint firstItem="MrP-Yq-Eu0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KQk-yx-0P1"/>
+                    <constraint firstItem="heR-3n-P2g" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QaN-X6-33x"/>
+                    <constraint firstItem="mCn-4z-ffr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="R8V-e3-LW7"/>
+                    <constraint firstAttribute="trailing" secondItem="heR-3n-P2g" secondAttribute="trailing" constant="10" id="S6G-QF-HMx"/>
+                    <constraint firstItem="Iyu-sd-ekc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ufo-gc-jVB"/>
+                    <constraint firstAttribute="bottom" secondItem="mCn-4z-ffr" secondAttribute="bottom" id="Wv2-Pe-Qfl"/>
+                    <constraint firstAttribute="bottom" secondItem="Iyu-sd-ekc" secondAttribute="bottom" id="e0R-Xs-mPz"/>
+                    <constraint firstItem="hrd-FC-KkZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="mhU-rx-hpO"/>
+                    <constraint firstItem="heR-3n-P2g" firstAttribute="leading" secondItem="hrd-FC-KkZ" secondAttribute="trailing" constant="10" id="pYS-Uq-UCA"/>
+                    <constraint firstAttribute="bottom" secondItem="MrP-Yq-Eu0" secondAttribute="bottom" id="ss9-ZB-qqO"/>
+                    <constraint firstAttribute="trailing" secondItem="mCn-4z-ffr" secondAttribute="trailing" id="z6m-UN-2I0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="cellLabel" destination="Iyu-sd-ekc" id="yj6-tV-2Uu"/>
+                <outlet property="chooseImageView" destination="heR-3n-P2g" id="cwC-wC-gL8"/>
+                <outlet property="priceLabel" destination="hrd-FC-KkZ" id="pyR-g7-u4i"/>
+                <outlet property="titleLabel" destination="MrP-Yq-Eu0" id="wBg-iC-PDG"/>
+            </connections>
+            <point key="canvasLocation" x="56.5" y="117.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="farm_icon_notselected2.png" width="12" height="12"/>
+    </resources>
+</document>

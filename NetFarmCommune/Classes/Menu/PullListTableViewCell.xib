@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="PullListTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="占位图.png" translatesAutoresizingMaskIntoConstraints="NO" id="vo5-tE-dgX">
+                        <rect key="frame" x="8" y="8" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="0eG-EP-4dy"/>
+                            <constraint firstAttribute="width" constant="50" id="2Rh-Ao-Sm5"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="农场直播" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmt-Og-Aog">
+                        <rect key="frame" x="68" y="8" width="150" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="52T-b4-peo"/>
+                            <constraint firstAttribute="height" constant="21" id="aOa-GG-AAM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="说法农场" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBV-MV-ier">
+                        <rect key="frame" x="69" y="29" width="148" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="观看人数：0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aft-hd-FRR">
+                        <rect key="frame" x="69" y="50" width="160" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hmt-Og-Aog" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="L4U-aq-b2q"/>
+                    <constraint firstItem="hmt-Og-Aog" firstAttribute="leading" secondItem="vo5-tE-dgX" secondAttribute="trailing" constant="10" id="VDU-Ty-g6s"/>
+                    <constraint firstItem="vo5-tE-dgX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="YLg-DM-qGP"/>
+                    <constraint firstItem="vo5-tE-dgX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="pyH-i6-ilk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="farmName" destination="hmt-Og-Aog" id="uG2-hD-MZa"/>
+                <outlet property="listImageView" destination="vo5-tE-dgX" id="UCQ-e3-IAM"/>
+                <outlet property="messsegeFarmLabel" destination="xBV-MV-ier" id="0IQ-Kw-47a"/>
+                <outlet property="numberLabel" destination="Aft-hd-FRR" id="q9l-oE-HzB"/>
+            </connections>
+            <point key="canvasLocation" x="122" y="25"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="占位图.png" width="66" height="74"/>
+    </resources>
+</document>

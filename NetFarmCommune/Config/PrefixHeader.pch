@@ -1,0 +1,166 @@
+//
+//  PrefixHeader.pch
+//  FarmerTreasure
+//
+//  Created by 123 on 17/4/18.
+//  Copyright © 2017年 FarmerTreasure. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "BaseViewController.h"
+
+//一些配置文件
+#import "UIViewExt.h"
+#import "MyControl.h"
+#import <MJRefresh/MJRefresh.h>
+#import "NEAllNetTool.h"
+#import "UserInfoModel.h"
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
+
+
+#import "MJExtension.h"
+#import "UIImageView+WebCache.h"
+
+#import "NYNNetTool.h"
+#import "TZImagePickerController.h"
+
+#import "FTNavigationViewController.h"
+#import "FTLoginViewController.h"
+#import "HUPhotoBrowser.h"
+#import "GCDAsyncSocket.h"
+
+//版本号
+#define nowVesion @"1.0.0"
+
+//测试
+
+//#define BaseUrl @"http://42.51.205.2/"
+
+#define BaseUrl @"http://api.dawangkeji.com/"
+
+//#define BaseUrl @"http:f//192.168.9.200/"
+//#define BaseUrl @"http://dwkjsy1.f3322.net/"
+
+
+#define ImageUrl(A) [NSString stringWithFormat:@"http://222.88.94.204:19100/images/%@",A]
+
+#define BASE_IMG_URL @"11111"
+#define BASEIMGWith(A) [BASE_IMG_URL stringByAppendingString:VALID_STRING(A)]
+
+#define MUST_STRING(_str) ([_str isKindOfClass:[NSString class]]?_str:[NSString stringWithFormat:@"%@",_str])
+#define Time_str(str) ([NSString stringWithFormat:@"%@",str].length < 2 ? [NSString stringWithFormat:@"0%@",str] : [NSString stringWithFormat:@"%@",str])
+
+#define VALID_STRING(_str) ([_str isKindOfClass:[NSString class]]?_str:@"")
+#define VALID_ARRAY(_arr) ([_arr isKindOfClass:[NSArray class]]?_arr:[NSArray array])
+#define VALID_NUMBER(_num) ([_num isKindOfClass:[NSNumber class]]?_num:[NSNumber numberWithInt:0])
+#define VALID_DIC(_dic) ([_dic isKindOfClass:[NSDictionary class]]?_dic:[NSDictionary dictionary])
+
+#ifdef DEBUG
+#define JZLog(...) NSLog(__VA_ARGS__)
+#else
+#define JZLog(...)
+#endif
+
+#define JZLogFunc CHLog(@"%s",__func__)
+
+
+#define PlaceImage     [UIImage imageNamed:@"占位图"]
+#define Imaged(A)       [UIImage imageNamed:A]
+
+//字体
+#ifdef __IPHONE_9_0
+
+#define JZFont(A) [UIFont fontWithName:@"PingFangSC-Regular" size:SCREENWIDTH/375 * A];
+#define JZFontHeaderSemibold(R) [UIFont fontWithName:@"PingFangSC-Semibold" size:SCREENWIDTH/375 * R]
+#define JZFontHeaderLight(R) [UIFont fontWithName:@"PingFangSC-Light" size:SCREENWIDTH/375 * R]
+
+#else
+
+#define JZFontHeaderSemibold(R) [UIFont fontWithName:@"Helvetica" size:SCREENWIDTH/375 * R]
+#define JZFontHeaderLight(R) [UIFont fontWithName:@"Helvetica" size:SCREENWIDTH/375 * R]
+
+#endif
+
+/**账号信息存放路径*/
+#define JNAccountPathFile [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"WFAccount.data"]
+
+//获取用户信息模型
+#define userInfoModel [UserInfoModel shareInstance]
+
+#define SCREENWIDTH [[UIScreen mainScreen]bounds].size.width
+#define SCREENHEIGHT [[UIScreen mainScreen]bounds].size.height
+
+#define CHScaleX [UIScreen mainScreen].bounds.size.width/320
+#define CHScaleY [UIScreen mainScreen].bounds.size.height/568
+
+//带适配的布局
+#define JZWITH(R) (R)/375.0*SCREENWIDTH
+#define JZHEIGHT(R) (R)/667.0*SCREENHEIGHT
+
+#define JZWITH750(R) (R)/750.0*SCREENWIDTH
+#define JZHEIGHT1334(R) (R)/1334.0*SCREENHEIGHT
+
+#define JZWITH(R) (R)/375.0*SCREENWIDTH
+#define JZHEIGHT(R) (R)/667.0*SCREENHEIGHT
+
+
+#define tabbarTintColor [UIColor colorWithRed:1.000 green:0.494 blue:0.486 alpha:1.000]
+#define tabbarBackColor [UIColor colorWithRed:160.0/255.0 green:177.0/255.0 blue:184.0/255.0 alpha:1.0]
+#define KNaviBarTintColor [UIColor colorWithHexString:@"0AAD67" alpha:1]
+#define JZRGBColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(g)/255.0 alpha:1.0]
+#define SelectedColor [UIColor colorWithHexString:@"#34cfc9" alpha:1]
+#define BackGroundColor [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1]
+
+#define Color90b659 [UIColor colorWithHexString:@"90b659" alpha:1]
+#define Colorededed [UIColor colorWithHexString:@"ededed" alpha:1]
+#define Color252827 [UIColor colorWithHexString:@"252827" alpha:1]
+#define Color383938 [UIColor colorWithHexString:@"383938" alpha:1]
+#define Color686868 [UIColor colorWithHexString:@"686868" alpha:1]
+#define Color888888 [UIColor colorWithHexString:@"888888" alpha:1]
+#define Colorf8491a [UIColor colorWithHexString:@"f8491a" alpha:1]
+#define Colore3e3e3 [UIColor colorWithHexString:@"e3e3e3" alpha:1]
+#define Color9ecc5b [UIColor colorWithHexString:@"9ecc5b" alpha:1]
+#define Colorf4f4f4 [UIColor colorWithHexString:@"f4f4f4" alpha:1]
+#define Colorf0f0f0 [UIColor colorWithHexString:@"f0f0f0" alpha:1]
+#define Colorfa9e19 [UIColor colorWithHexString:@"fa9e19" alpha:1]
+#define Colorffa200 [UIColor colorWithHexString:@"ffa200" alpha:1]
+#define Coloreeeeee [UIColor colorWithHexString:@"eeeeee" alpha:1]
+#define Color7b7b7b [UIColor colorWithHexString:@"7b7b7b" alpha:1]
+
+#define Colore87f03 [UIColor colorWithHexString:@"E87F03" alpha:1]
+
+#define Color7b [UIColor colorWithHexString:@"729d32" alpha:1]
+
+#define Color8 [UIColor colorWithHexString:@"90b659" alpha:1]
+
+
+#define RGB238 RGB_COLOR(238, 238, 238)
+#define RGB56  RGB_COLOR(56, 57, 56)
+#define RGB104 RGB_COLOR(104, 104, 104)
+#define RGB136 RGB_COLOR(136, 136, 136)
+#define RGB40  RGB_COLOR(37, 40, 39)
+
+#define RGB144  RGB_COLOR(144, 182, 89)
+
+//NSNotificationCenter
+#define ADD_NTF_OBJ(_name, _sel, _obj) [[NSNotificationCenter defaultCenter] addObserver:self selector:_sel name:_name object:_obj]
+#define ADD_NTF(_name, _sel) ADD_NTF_OBJ(_name, _sel, nil)
+#define POST_NTF(_name, _obj) [[NSNotificationCenter defaultCenter] postNotificationName:_name object:_obj]
+
+//userdefault
+#define JZSaveMyDefault(A,B) [[NSUserDefaults standardUserDefaults] setObject:B forKey:A]
+
+#define JZFetchMyDefault(A) [[NSUserDefaults standardUserDefaults] objectForKey:A]
+#define JZUSERINFO JZFetchMyDefault(@"myUserInfoDic")
+#define SET_USER @"myUserInfoDic"
+#define SET_Location @"myLocation"
+
+//delegate
+#define KAppDelegate ((AppDelegate*)([UIApplication sharedApplication].delegate))
+
+#endif /* PrefixHeader_pch */

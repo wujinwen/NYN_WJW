@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="124" id="KGk-i7-Jjw" customClass="NYNChooseGuanJiaTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="399" height="124"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="399" height="124"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张三" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTs-F4-CqE">
+                        <rect key="frame" x="20" y="16" width="50" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Eni-8b-YdU"/>
+                            <constraint firstAttribute="height" constant="13" id="hNe-no-K15"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farm_icon_female1.png" translatesAutoresizingMaskIntoConstraints="NO" id="0sg-4C-ux4">
+                        <rect key="frame" x="82" y="15" width="35" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="Qe6-kR-zGW"/>
+                            <constraint firstAttribute="height" constant="13" id="WF1-S8-CTA"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26岁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTb-ar-fZb">
+                        <rect key="frame" x="83" y="15" width="35" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="2gv-ze-A9a"/>
+                            <constraint firstAttribute="width" constant="35" id="nXR-NJ-IHT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                        <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张三对种植花草和管理特别在行，工作负责，种植花草的 话可以找他哦" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D91-Pg-rhs">
+                        <rect key="frame" x="20" y="44" width="359" height="31.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="31.5" id="q3H-1G-t7J"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VDZ-Jd-YHn">
+                        <rect key="frame" x="0.0" y="123.5" width="399" height="0.5"/>
+                        <color key="backgroundColor" red="0.92931067943572998" green="0.92946994304656982" blue="0.92930072546005249" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="zeq-RM-82p"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="VDZ-Jd-YHn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4ZI-nt-gmK"/>
+                    <constraint firstAttribute="trailing" secondItem="D91-Pg-rhs" secondAttribute="trailing" constant="20" id="8Im-V2-nKO"/>
+                    <constraint firstItem="D91-Pg-rhs" firstAttribute="top" secondItem="DTs-F4-CqE" secondAttribute="bottom" constant="15" id="APA-uH-BcN"/>
+                    <constraint firstItem="DTs-F4-CqE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="B7O-FT-prh"/>
+                    <constraint firstAttribute="bottom" secondItem="VDZ-Jd-YHn" secondAttribute="bottom" id="HzY-et-VMR"/>
+                    <constraint firstItem="DTs-F4-CqE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Ywu-fV-odz"/>
+                    <constraint firstItem="xTb-ar-fZb" firstAttribute="leading" secondItem="DTs-F4-CqE" secondAttribute="trailing" constant="13" id="ag3-JR-Z2w"/>
+                    <constraint firstItem="0sg-4C-ux4" firstAttribute="leading" secondItem="DTs-F4-CqE" secondAttribute="trailing" constant="12" id="cIA-TM-lK7"/>
+                    <constraint firstItem="xTb-ar-fZb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="j9d-d4-0y5"/>
+                    <constraint firstItem="0sg-4C-ux4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="llo-fH-H0M"/>
+                    <constraint firstItem="D91-Pg-rhs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="rG8-4r-f5S"/>
+                    <constraint firstAttribute="trailing" secondItem="VDZ-Jd-YHn" secondAttribute="trailing" id="uIj-Xo-JDU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contengHeight" destination="q3H-1G-t7J" id="aYq-AP-gAp"/>
+                <outlet property="contentLabel" destination="D91-Pg-rhs" id="R8u-dt-qBH"/>
+                <outlet property="nameLabel" destination="DTs-F4-CqE" id="3C4-L3-FT9"/>
+                <outlet property="nameWidth" destination="Eni-8b-YdU" id="0OY-EW-sXs"/>
+                <outlet property="nianLingImageVIEW" destination="0sg-4C-ux4" id="qyo-5y-cMt"/>
+                <outlet property="nianLingLabel" destination="xTb-ar-fZb" id="Luw-tx-n1i"/>
+            </connections>
+            <point key="canvasLocation" x="64.5" y="92"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="farm_icon_female1.png" width="35" height="13"/>
+    </resources>
+</document>

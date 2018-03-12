@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="152" id="KGk-i7-Jjw" customClass="NYNYangZhiBuyActionTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="152"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="401" height="151.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3U-xn-Mvy">
+                        <rect key="frame" x="10" y="68.5" width="80" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="IZx-6p-Uhv"/>
+                            <constraint firstAttribute="height" constant="15" id="dgN-nP-Yc8"/>
+                        </constraints>
+                        <attributedString key="attributedText">
+                            <fragment content="养殖数量 ">
+                                <attributes>
+                                    <color key="NSColor" red="0.14476379752159119" green="0.15699264407157898" blue="0.15289092063903809" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="*">
+                                <attributes>
+                                    <color key="NSColor" red="0.97091346979141235" green="0.31717371940612793" blue="0.15153557062149048" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farm_button_increase.png" translatesAutoresizingMaskIntoConstraints="NO" id="z5W-8f-Qym">
+                        <rect key="frame" x="149" y="63" width="26" height="26"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="4hP-Hr-Isp"/>
+                            <constraint firstAttribute="width" constant="26" id="iC4-Vs-2gH"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="5Mb-O8-VXs" appends="YES" id="zEe-Uu-TC3"/>
+                        </connections>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGH-3C-gkd">
+                        <rect key="frame" x="122" y="63.5" width="26" height="26"/>
+                        <color key="backgroundColor" red="0.94107431173324585" green="0.94123536348342896" blue="0.94106405973434448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="1hG-d1-hb0"/>
+                            <constraint firstAttribute="width" constant="26" id="2RE-S3-Sni"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farm_button_reduce.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vdn-d7-0at">
+                        <rect key="frame" x="95" y="63" width="26" height="26"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="Exh-gN-lWT"/>
+                            <constraint firstAttribute="width" constant="26" id="vi9-Yc-ARY"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fIe-EZ-g7i" appends="YES" id="Hi5-f9-01y"/>
+                        </connections>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAp-Uk-1ha">
+                        <rect key="frame" x="0.0" y="151" width="401" height="0.5"/>
+                        <color key="backgroundColor" red="0.92931067943572998" green="0.92946994304656982" blue="0.92930072546005249" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="ufP-eO-WlR"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥0.50(¥0.50/只)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99L-LR-jFW">
+                        <rect key="frame" x="241" y="0.0" width="150" height="151"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="qTa-va-Khn"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="99L-LR-jFW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="As0-p3-5TQ"/>
+                    <constraint firstAttribute="trailing" secondItem="99L-LR-jFW" secondAttribute="trailing" constant="10" id="Cup-H7-dCR"/>
+                    <constraint firstAttribute="bottom" secondItem="cAp-Uk-1ha" secondAttribute="bottom" id="EQt-Je-94V"/>
+                    <constraint firstAttribute="trailing" secondItem="cAp-Uk-1ha" secondAttribute="trailing" id="Ibj-HS-62J"/>
+                    <constraint firstItem="p3U-xn-Mvy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="VAC-Rj-YAh"/>
+                    <constraint firstItem="FGH-3C-gkd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Vvy-hi-Lia"/>
+                    <constraint firstItem="z5W-8f-Qym" firstAttribute="leading" secondItem="FGH-3C-gkd" secondAttribute="trailing" constant="1" id="awj-La-y65"/>
+                    <constraint firstItem="Vdn-d7-0at" firstAttribute="leading" secondItem="p3U-xn-Mvy" secondAttribute="trailing" constant="5" id="ccN-jy-snk"/>
+                    <constraint firstItem="p3U-xn-Mvy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ch2-PJ-EmT"/>
+                    <constraint firstItem="cAp-Uk-1ha" firstAttribute="top" secondItem="99L-LR-jFW" secondAttribute="bottom" id="jzQ-ZF-zZF"/>
+                    <constraint firstItem="cAp-Uk-1ha" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nfI-jb-2th"/>
+                    <constraint firstItem="z5W-8f-Qym" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ogd-Kb-ZvH"/>
+                    <constraint firstItem="Vdn-d7-0at" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tAf-lZ-1oA"/>
+                    <constraint firstItem="FGH-3C-gkd" firstAttribute="leading" secondItem="Vdn-d7-0at" secondAttribute="trailing" constant="1" id="wMb-Go-yau"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="countLable" destination="FGH-3C-gkd" id="ajS-KS-2He"/>
+                <outlet property="jiaImageView" destination="z5W-8f-Qym" id="bPX-7G-WRJ"/>
+                <outlet property="jianImageView" destination="Vdn-d7-0at" id="XC3-iN-fuH"/>
+                <outlet property="priceLabel" destination="99L-LR-jFW" id="uLY-E5-AZL"/>
+                <outlet property="timeLabel" destination="p3U-xn-Mvy" id="WBA-yc-2Gl"/>
+            </connections>
+            <point key="canvasLocation" x="151" y="66"/>
+        </tableViewCell>
+        <tapGestureRecognizer id="fIe-EZ-g7i">
+            <connections>
+                <action selector="jianAction:" destination="KGk-i7-Jjw" id="c8Z-Dw-6wy"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="5Mb-O8-VXs">
+            <connections>
+                <action selector="jiaAction:" destination="KGk-i7-Jjw" id="vud-Kt-Wkm"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="farm_button_increase.png" width="25" height="25"/>
+        <image name="farm_button_reduce.png" width="25" height="25"/>
+    </resources>
+</document>

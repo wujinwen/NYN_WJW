@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="146" id="KGk-i7-Jjw" customClass="NYNMeHelpTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="347" height="146"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="347" height="146"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1、农场如何加入平台？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zE-nI-4Om">
+                        <rect key="frame" x="10" y="16" width="150" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="MpZ-yp-fON"/>
+                            <constraint firstAttribute="height" constant="13" id="nPX-p5-Xpf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="答：这里是对该问题进行回答、说明，这里是对该问题进 行回答、说明，这里是对该问题进行回答、说明，这里是 对该问题进行回答、说明" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YD9-rW-mR1">
+                        <rect key="frame" x="31" y="44" width="296" height="47"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.53327292203903198" green="0.53336817026138306" blue="0.53326696157455444" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="YD9-rW-mR1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="31" id="311-dF-MUm"/>
+                    <constraint firstAttribute="trailing" secondItem="YD9-rW-mR1" secondAttribute="trailing" constant="20" id="IB0-VN-hW5"/>
+                    <constraint firstItem="9zE-nI-4Om" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="OHE-15-ou9"/>
+                    <constraint firstItem="9zE-nI-4Om" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="aOk-cP-LGA"/>
+                    <constraint firstItem="YD9-rW-mR1" firstAttribute="top" secondItem="9zE-nI-4Om" secondAttribute="bottom" constant="15" id="sdY-ll-oCn"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="YD9-rW-mR1" id="8CV-1d-mPb"/>
+                <outlet property="titlelabel" destination="9zE-nI-4Om" id="6EE-Rx-JAW"/>
+            </connections>
+            <point key="canvasLocation" x="55.5" y="110"/>
+        </tableViewCell>
+    </objects>
+</document>

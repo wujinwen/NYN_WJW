@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NYNXuanBiaoShiPaiCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="195" height="269"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="195" height="269"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WechatIMG4.png" translatesAutoresizingMaskIntoConstraints="NO" id="ncu-35-Mwy">
+                        <rect key="frame" x="0.0" y="0.0" width="195" height="195"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ncu-35-Mwy" secondAttribute="height" multiplier="1:1" id="DQr-rF-yov"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="木质牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ke9-Vz-uZP">
+                        <rect key="frame" x="10" y="195" width="118" height="74"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥20.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhg-kt-oDM">
+                        <rect key="frame" x="97.5" y="195" width="87.5" height="74"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.97107809782028198" green="0.28893181681632996" blue="0.10147392004728317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ncu-35-Mwy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="LbU-ue-iuh"/>
+                <constraint firstItem="Dhg-kt-oDM" firstAttribute="leading" secondItem="ke9-Vz-uZP" secondAttribute="trailing" constant="-30.5" id="OaS-Zo-xBL"/>
+                <constraint firstAttribute="trailing" secondItem="ncu-35-Mwy" secondAttribute="trailing" id="Qi0-cy-Z5W"/>
+                <constraint firstItem="ke9-Vz-uZP" firstAttribute="top" secondItem="ncu-35-Mwy" secondAttribute="bottom" id="XA5-pq-jdY"/>
+                <constraint firstAttribute="bottom" secondItem="ke9-Vz-uZP" secondAttribute="bottom" id="aOU-eA-w6M"/>
+                <constraint firstItem="ke9-Vz-uZP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="cPn-eS-sCT"/>
+                <constraint firstAttribute="trailing" secondItem="Dhg-kt-oDM" secondAttribute="trailing" constant="10" id="cYF-kS-kDX"/>
+                <constraint firstItem="Dhg-kt-oDM" firstAttribute="width" secondItem="ke9-Vz-uZP" secondAttribute="width" constant="-30.5" id="iWG-1V-ikT"/>
+                <constraint firstItem="Dhg-kt-oDM" firstAttribute="top" secondItem="ncu-35-Mwy" secondAttribute="bottom" id="j2o-7a-g86"/>
+                <constraint firstAttribute="bottom" secondItem="Dhg-kt-oDM" secondAttribute="bottom" id="nDh-NU-ay0"/>
+                <constraint firstItem="ncu-35-Mwy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="oo9-aB-0b3"/>
+            </constraints>
+            <size key="customSize" width="195" height="269"/>
+            <connections>
+                <outlet property="cellPeiceLabel" destination="Dhg-kt-oDM" id="wlR-7X-uuS"/>
+                <outlet property="cellname" destination="ke9-Vz-uZP" id="1a5-Xe-0DK"/>
+                <outlet property="iconImageView" destination="ncu-35-Mwy" id="tqh-Td-tQc"/>
+            </connections>
+            <point key="canvasLocation" x="-27.5" y="62.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="WechatIMG4.png" width="300" height="300"/>
+    </resources>
+</document>

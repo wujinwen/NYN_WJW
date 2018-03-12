@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="121" id="KGk-i7-Jjw" customClass="NYNShengWuFeiTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="354" height="121"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="354" height="121"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farm_icon_notselected.png" translatesAutoresizingMaskIntoConstraints="NO" id="SEL-cR-lap">
+                        <rect key="frame" x="37" y="54" width="13" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="13" id="NjU-M9-dpw"/>
+                            <constraint firstAttribute="height" constant="13" id="ghQ-AB-eWX"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="生物肥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLO-55-r3B">
+                        <rect key="frame" x="60" y="54.5" width="100" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="OFs-qi-hjw"/>
+                            <constraint firstAttribute="height" constant="12" id="leZ-I3-AUa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoR-wp-dwR">
+                        <rect key="frame" x="243" y="53.5" width="100" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="OaC-4i-fG1"/>
+                            <constraint firstAttribute="width" constant="100" id="pTq-hl-Vmk"/>
+                        </constraints>
+                        <attributedString key="attributedText">
+                            <fragment content="¥1.00">
+                                <attributes>
+                                    <color key="NSColor" red="0.97107809782028198" green="0.28893181681632996" blue="0.10147392004728317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <font key="NSFont" metaFont="system"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="/">
+                                <attributes>
+                                    <font key="NSFont" metaFont="system"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="㎡">
+                                <attributes>
+                                    <font key="NSFont" size="13" name=".PingFangSC-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YM3-rW-nga">
+                        <rect key="frame" x="10" y="120.5" width="344" height="0.5"/>
+                        <color key="backgroundColor" red="0.89009910821914673" green="0.89025193452835083" blue="0.89008945226669312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="WKr-2n-8Is"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLN-yl-fU6">
+                        <rect key="frame" x="0.0" y="0.0" width="354" height="120.5"/>
+                        <connections>
+                            <action selector="cellClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="CTu-1C-L2O"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="YM3-rW-nga" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="1Gv-yG-sdA"/>
+                    <constraint firstItem="EoR-wp-dwR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1hn-g9-bLb"/>
+                    <constraint firstAttribute="bottom" secondItem="YM3-rW-nga" secondAttribute="bottom" id="3XM-f6-roI"/>
+                    <constraint firstAttribute="bottom" secondItem="kLN-yl-fU6" secondAttribute="bottom" id="BOe-ZQ-gIL"/>
+                    <constraint firstItem="kLN-yl-fU6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="JJI-eY-tq1"/>
+                    <constraint firstItem="kLN-yl-fU6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="VLu-oW-XoO"/>
+                    <constraint firstItem="SLO-55-r3B" firstAttribute="leading" secondItem="SEL-cR-lap" secondAttribute="trailing" constant="10" id="YNL-xm-Wcd"/>
+                    <constraint firstAttribute="trailing" secondItem="YM3-rW-nga" secondAttribute="trailing" id="dtY-6C-NWk"/>
+                    <constraint firstItem="SEL-cR-lap" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="37" id="jhv-o0-jFO"/>
+                    <constraint firstAttribute="trailing" secondItem="kLN-yl-fU6" secondAttribute="trailing" id="mGJ-ZG-i3r"/>
+                    <constraint firstAttribute="trailing" secondItem="EoR-wp-dwR" secondAttribute="trailing" constant="11" id="q0O-Y5-fHf"/>
+                    <constraint firstItem="SLO-55-r3B" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="r1M-Tn-hgh"/>
+                    <constraint firstItem="SEL-cR-lap" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zdV-e5-WAS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="chooseImageView" destination="SEL-cR-lap" id="YWc-zU-Wrb"/>
+                <outlet property="danWeiLabel" destination="EoR-wp-dwR" id="P7R-7P-FvE"/>
+                <outlet property="iconLabel" destination="SLO-55-r3B" id="W7I-Z1-Rb8"/>
+                <outlet property="xiaView" destination="YM3-rW-nga" id="CBg-XV-IAD"/>
+            </connections>
+            <point key="canvasLocation" x="42" y="90.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="farm_icon_notselected.png" width="17" height="17"/>
+    </resources>
+</document>

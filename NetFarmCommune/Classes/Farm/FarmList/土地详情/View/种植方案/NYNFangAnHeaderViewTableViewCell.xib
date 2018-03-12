@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="86" id="KGk-i7-Jjw" customClass="NYNFangAnHeaderViewTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="368" height="130"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="368" height="129.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="farm_icon_notselected2.png" translatesAutoresizingMaskIntoConstraints="NO" id="yNM-3l-IKn">
+                        <rect key="frame" x="10" y="38" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="I31-qO-nUy"/>
+                            <constraint firstAttribute="width" constant="12" id="vME-Yh-57W"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="¥75.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A77-4G-Q7w">
+                        <rect key="frame" x="307" y="14" width="50" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="XdO-Zu-ZEJ"/>
+                            <constraint firstAttribute="width" constant="50" id="YAH-p9-nme"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.97107809782028198" green="0.28893181681632996" blue="0.10147392004728317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BcE-a3-nIF">
+                        <rect key="frame" x="10" y="129" width="358" height="0.5"/>
+                        <color key="backgroundColor" red="0.93323183059692383" green="0.9333917498588562" blue="0.93322181701660156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="BvJ-Pe-fNV"/>
+                        </constraints>
+                    </view>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="草料  评价1.5元/天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8y-8W-Kdx">
+                        <rect key="frame" x="37" y="34" width="226" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="喂养食材" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27X-Mn-IBE">
+                        <rect key="frame" x="37" y="14" width="200" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="E3W-GM-cd9"/>
+                            <constraint firstAttribute="height" constant="15" id="rxC-Bb-x41"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STSongti-SC-Regular" family="Songti SC" pointSize="15"/>
+                        <color key="textColor" red="0.14476379752159119" green="0.15699264407157898" blue="0.15289092063903809" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="A77-4G-Q7w" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8pT-ik-ohF"/>
+                    <constraint firstItem="27X-Mn-IBE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8vK-XB-0sO"/>
+                    <constraint firstItem="yNM-3l-IKn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JyK-zo-Mmd"/>
+                    <constraint firstItem="BcE-a3-nIF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="W8n-fO-Rky"/>
+                    <constraint firstAttribute="trailing" secondItem="BcE-a3-nIF" secondAttribute="trailing" id="Y7A-tQ-2SG"/>
+                    <constraint firstItem="yNM-3l-IKn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="aNz-e2-fOd"/>
+                    <constraint firstAttribute="bottom" secondItem="BcE-a3-nIF" secondAttribute="bottom" id="fl1-2I-HTR"/>
+                    <constraint firstAttribute="trailing" secondItem="A77-4G-Q7w" secondAttribute="trailing" constant="11" id="fts-Sc-mct"/>
+                    <constraint firstItem="27X-Mn-IBE" firstAttribute="leading" secondItem="yNM-3l-IKn" secondAttribute="trailing" constant="15" id="tl8-LA-cgV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="chooseImageView" destination="yNM-3l-IKn" id="iKZ-zW-gsi"/>
+                <outlet property="iconLabel" destination="27X-Mn-IBE" id="Lfz-xa-eWA"/>
+                <outlet property="priceLabel" destination="A77-4G-Q7w" id="XpD-Dk-DEx"/>
+                <outlet property="xiaView" destination="BcE-a3-nIF" id="T1A-UR-FtK"/>
+            </connections>
+            <point key="canvasLocation" x="49" y="73"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="farm_icon_notselected2.png" width="12" height="12"/>
+    </resources>
+</document>

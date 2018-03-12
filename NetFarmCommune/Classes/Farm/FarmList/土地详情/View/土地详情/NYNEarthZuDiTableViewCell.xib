@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="138" id="KGk-i7-Jjw" customClass="NYNEarthZuDiTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="417" height="138"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="417" height="137.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="面积：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c69-wy-A3m">
+                        <rect key="frame" x="10" y="15" width="70" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="8Tq-43-NLg"/>
+                            <constraint firstAttribute="height" constant="25" id="Gva-6z-0RL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farm_button_reduce.png" translatesAutoresizingMaskIntoConstraints="NO" id="lGY-0T-xaO">
+                        <rect key="frame" x="55" y="21" width="25" height="25"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="fC3-aq-iBA"/>
+                            <constraint firstAttribute="width" constant="25" id="xsz-e6-o5y"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="xA1-1l-TXF" appends="YES" id="LuE-Zb-Wsr"/>
+                        </connections>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wh6-Ib-QAw">
+                        <rect key="frame" x="81" y="21" width="25" height="25"/>
+                        <color key="backgroundColor" red="0.94107431173324585" green="0.94123536348342896" blue="0.94106405973434448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="eEd-aC-7f2"/>
+                            <constraint firstAttribute="width" constant="25" id="t6B-X8-1Qq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="㎡" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2A-vY-bAx">
+                        <rect key="frame" x="133" y="21" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="LxH-Fz-bOQ"/>
+                            <constraint firstAttribute="width" constant="25" id="uRD-AC-yoV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farm_button_increase.png" translatesAutoresizingMaskIntoConstraints="NO" id="OqA-2t-qU7">
+                        <rect key="frame" x="107" y="21" width="25" height="25"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="MkS-iW-ZoR"/>
+                            <constraint firstAttribute="height" constant="25" id="V5V-r7-WMm"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Vt2-gK-ShB" appends="YES" id="YGW-ne-VQ7"/>
+                        </connections>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOY-3l-tVJ">
+                        <rect key="frame" x="130" y="90" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="n53-Sv-ZEQ"/>
+                            <constraint firstAttribute="width" constant="25" id="ngK-4K-SuY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8W-Wd-g4K">
+                        <rect key="frame" x="78" y="96" width="25" height="25"/>
+                        <color key="backgroundColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="O45-Fb-EKG"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="a2S-wQ-fr2"/>
+                            <constraint firstAttribute="width" constant="25" id="f12-0g-skU"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="jsc-Z8-BMa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farm_button_reduce.png" translatesAutoresizingMaskIntoConstraints="NO" id="ppP-a6-omg">
+                        <rect key="frame" x="52" y="96" width="25" height="25"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="M0H-94-54y"/>
+                            <constraint firstAttribute="height" constant="25" id="MTy-BO-ktY"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="Ref-NA-p5G"/>
+                            <constraint firstAttribute="width" constant="25" id="XaV-mt-7Jg"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="8yV-Bh-bBv" appends="YES" id="bHc-Qr-6wL"/>
+                        </connections>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时长：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sc2-Pf-PDy">
+                        <rect key="frame" x="11" y="96.5" width="48" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="Ftx-vU-iDV"/>
+                            <constraint firstAttribute="height" constant="25" id="HYe-uo-uDH"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="jf8-qV-O9e"/>
+                            <constraint firstAttribute="width" constant="48" id="shF-Ce-JqI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAW-hO-XTn">
+                        <rect key="frame" x="0.0" y="137.5" width="417" height="0.5"/>
+                        <color key="backgroundColor" red="0.89009910821914673" green="0.89025193452835083" blue="0.89008945226669312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="9l0-Pr-4vv"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farm_button_increase.png" translatesAutoresizingMaskIntoConstraints="NO" id="CP2-tk-laf">
+                        <rect key="frame" x="104" y="96" width="25" height="25"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="bk7-3o-Jvh"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="llX-8E-3zP"/>
+                            <constraint firstAttribute="height" constant="25" id="tBT-pc-GI1"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="zoQ-EG-KUk"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="QTM-NM-eKj" appends="YES" id="hre-sH-qQ0"/>
+                        </connections>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Wh6-Ib-QAw" firstAttribute="leading" secondItem="lGY-0T-xaO" secondAttribute="trailing" constant="1" id="0BB-q3-UTk"/>
+                    <constraint firstItem="vOY-3l-tVJ" firstAttribute="leading" secondItem="CP2-tk-laf" secondAttribute="trailing" constant="1" id="0Xt-n2-ebL"/>
+                    <constraint firstItem="F8W-Wd-g4K" firstAttribute="leading" secondItem="ppP-a6-omg" secondAttribute="trailing" constant="1" id="19m-DW-UPt"/>
+                    <constraint firstAttribute="bottom" secondItem="vOY-3l-tVJ" secondAttribute="bottom" constant="22.5" id="3xQ-bD-5HS"/>
+                    <constraint firstItem="v2A-vY-bAx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="7fg-Vr-eQC"/>
+                    <constraint firstAttribute="bottom" secondItem="F8W-Wd-g4K" secondAttribute="bottom" constant="16" id="KIZ-yH-Yx5"/>
+                    <constraint firstItem="aAW-hO-XTn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Mk3-D2-1ni"/>
+                    <constraint firstItem="lGY-0T-xaO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="N5I-3j-s0X"/>
+                    <constraint firstItem="v2A-vY-bAx" firstAttribute="leading" secondItem="OqA-2t-qU7" secondAttribute="trailing" constant="1" id="Nxe-O8-oHk"/>
+                    <constraint firstItem="c69-wy-A3m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="OAs-Wv-1l2"/>
+                    <constraint firstItem="OqA-2t-qU7" firstAttribute="leading" secondItem="Wh6-Ib-QAw" secondAttribute="trailing" constant="1" id="QNo-n0-tzY"/>
+                    <constraint firstAttribute="trailing" secondItem="aAW-hO-XTn" secondAttribute="trailing" id="QQj-ZX-Dp2"/>
+                    <constraint firstAttribute="bottom" secondItem="CP2-tk-laf" secondAttribute="bottom" constant="16" id="VnQ-2i-F7P"/>
+                    <constraint firstAttribute="bottom" secondItem="Sc2-Pf-PDy" secondAttribute="bottom" constant="16" id="WiX-Bs-Ams"/>
+                    <constraint firstItem="OqA-2t-qU7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="ZeQ-5O-flg"/>
+                    <constraint firstItem="CP2-tk-laf" firstAttribute="leading" secondItem="F8W-Wd-g4K" secondAttribute="trailing" constant="1" id="aOt-FR-t7W"/>
+                    <constraint firstItem="c69-wy-A3m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="b78-2U-QJ9"/>
+                    <constraint firstAttribute="bottom" secondItem="aAW-hO-XTn" secondAttribute="bottom" id="c0J-d9-2g1"/>
+                    <constraint firstItem="Sc2-Pf-PDy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="nis-Yv-3w2"/>
+                    <constraint firstAttribute="bottom" secondItem="ppP-a6-omg" secondAttribute="bottom" constant="16" id="pLW-ha-Hww"/>
+                    <constraint firstItem="lGY-0T-xaO" firstAttribute="leading" secondItem="c69-wy-A3m" secondAttribute="trailing" constant="-25" id="vqf-sm-M37"/>
+                    <constraint firstItem="ppP-a6-omg" firstAttribute="leading" secondItem="Sc2-Pf-PDy" secondAttribute="trailing" constant="-7" id="y3c-gv-hIB"/>
+                    <constraint firstItem="Wh6-Ib-QAw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="zDI-GE-P1g"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="mianJiCountLabel" destination="Wh6-Ib-QAw" id="cY6-AH-Yvq"/>
+                <outlet property="mianjiJiaIV" destination="OqA-2t-qU7" id="Udw-uf-D6X"/>
+                <outlet property="mianjijianIV" destination="lGY-0T-xaO" id="zGY-9o-fVF"/>
+                <outlet property="shiChangCountLabel" destination="F8W-Wd-g4K" id="akb-mI-01E"/>
+                <outlet property="shichangjiaIV" destination="CP2-tk-laf" id="iAa-5O-K2L"/>
+                <outlet property="shichangjianIV" destination="ppP-a6-omg" id="AOU-Wa-qBf"/>
+            </connections>
+            <point key="canvasLocation" x="200.5" y="144"/>
+        </tableViewCell>
+        <tapGestureRecognizer id="xA1-1l-TXF">
+            <connections>
+                <action selector="mianjijian:" destination="KGk-i7-Jjw" id="0Pr-Qk-bLG"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="Vt2-gK-ShB">
+            <connections>
+                <action selector="mianjijia:" destination="KGk-i7-Jjw" id="V8d-aR-e1e"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="8yV-Bh-bBv">
+            <connections>
+                <action selector="shichangjian:" destination="KGk-i7-Jjw" id="fje-nz-r9k"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="QTM-NM-eKj">
+            <connections>
+                <action selector="shichangjia:" destination="KGk-i7-Jjw" id="gmE-bn-O8B"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="farm_button_increase.png" width="25" height="25"/>
+        <image name="farm_button_reduce.png" width="25" height="25"/>
+    </resources>
+</document>
