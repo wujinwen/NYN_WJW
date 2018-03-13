@@ -335,9 +335,6 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
     if ((indexPath.section == 0) && (indexPath.row == 0)){
         //直播,活动农家乐cell
         FTCategoryTableViewCell *bannerCell = [tableView dequeueReusableCellWithIdentifier:@"scrollTextCell"];
@@ -622,16 +619,27 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     //农场hearder
     NYNHomeHeaderView *headerView = [[NYNHomeHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, JZHEIGHT(40)) Image:self.picArr[section] Title:@"" DetailTitle:self.detailArr[section]];
-    //    if (section == 2 || section == 4) {
-    //        headerView.backgroundColor = [UIColor colorWithHexString:@"eef4e5"];
-    //    }else{
-    headerView.backgroundColor = [UIColor whiteColor];
-    //   }
+     headerView.backgroundColor = [UIColor whiteColor];
     __weak typeof(self)weakSelf = self;
+    if (section==2) {
+        headerView.moreButton.hidden = YES;
+    }
     headerView.bcc = ^(NSString *s) {
+        if (section==0) {
+            weakSelf.tabBarController.selectedIndex = 1;
+        }
+        if (section==1) {
+           POST_NTF(@"live", nil);
+            
+        }
+        if (section==2) {
+           //拍卖无
+        }
         if (section==3) {
-            //            NYNMarketViewController * marketVC = [[NYNMarketViewController alloc]init];
-            //            [weakSelf.navigationController pushViewController:<#(nonnull UIViewController *)#> animated:<#(BOOL)#>]
+           self.tabBarController.selectedIndex = 2;
+        }
+        if (section==4) {
+            POST_NTF(@"active", nil);
         }
         if (weakSelf.TiaoZhuan) {
             

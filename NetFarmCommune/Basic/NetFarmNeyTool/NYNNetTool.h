@@ -25,7 +25,12 @@
 
 //分页查询农场产品接口
 + (void)PageCategoryResquestWithparams:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure;
-
+//分页查询农场活动接口
++ (void)PageCategoryFramActiveResquestWithparams:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure;
+//分页查询农场比赛接口
++ (void)PageCategoryMatchResquestWithparams:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure;
+//分页查询农场娱乐（categoryId 74:餐饮；75：住宿；78：娱乐(包含棋牌、垂钓)）接口
++ (void)PageCategoryOtherResquestWithparams:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 //查询农场产品详情接口
 + (void)ProductQueryResquestWithparams:(NSString *)ID isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 //分页查询农场产品接口

@@ -26,41 +26,38 @@
     [self createExerciseTable];
     self.pageNo = 1;
     self.pageSize = 10;
+    [self updateData];
     
-//    NSDictionary *postDic = @{@"farmId":self.farmId,@"categoryId":self.categoryId,@"pageNo":[NSString stringWithFormat:@"%d",self.pageNo],@"pageSize":[NSString stringWithFormat:@"%d",self.pageSize]};
-//    [NYNNetTool PageCategoryResquestWithparams:postDic isTestLogin:NO progress:^(NSProgress *progress) {
-//        
-//    } success:^(id success) {
-//        JZLog(@"");
-//    } failure:^(NSError *failure) {
-//        
-//    }];
 }
 
 - (void)updateData{
     
     [self showLoadingView:@""];
-    
-    NSDictionary *postDic = @{@"farmId":self.farmId,@"categoryId":self.categoryId,@"pageNo":[NSString stringWithFormat:@"%d",self.pageNo],@"pageSize":[NSString stringWithFormat:@"%d",self.pageSize]};
-    [NYNNetTool PageCategoryResquestWithparams:postDic isTestLogin:NO progress:^(NSProgress *progress) {
+    NSDictionary *postDic = @{@"farmId":self.farmId,@"pageNo":[NSString stringWithFormat:@"%d",self.pageNo],@"pageSize":[NSString stringWithFormat:@"%d",self.pageSize]};
+    [NYNNetTool PageCategoryFramActiveResquestWithparams:postDic isTestLogin:NO progress:^(NSProgress *progress) {
         
     } success:^(id success) {
         [self.dataArr removeAllObjects];
-        
-        NSArray *arr = [NSArray arrayWithArray:success[@"data"]];
-        for (NSDictionary *d in arr) {
-            NYNCategoryPageModel *model = [NYNCategoryPageModel mj_objectWithKeyValues:d];
-            [self.dataArr addObject:model];
+        if ([success[@"code"] integerValue] ==200 &&  [[NSArray arrayWithArray:success[@"data"]] count]>0) {
+            NSArray *arr = [NSArray arrayWithArray:success[@"data"]];
+            for (NSDictionary *d in arr) {
+                NYNCategoryPageModel *model = [NYNCategoryPageModel mj_objectWithKeyValues:d];
+                [self.dataArr addObject:model];
+            }
+            [self.ExerciseTable reloadData];
+            JZLog(@"");
+            if (self.dateUp) {
+                self.dateUp(@"控制器数据回调");
+            }
+            
+            self.ExerciseTable.frame = CGRectMake(0, 0, SCREENWIDTH, JZHEIGHT(100) * self.dataArr.count);
+            
+            
+        }else{
+            NSLog(@"error==%@",success[@"msg"]);
+            self.bakcView.hidden = NO;
+            [self.ExerciseTable addSubview:self.bakcView];
         }
-        [self.ExerciseTable reloadData];
-        JZLog(@"");
-        if (self.dateUp) {
-            self.dateUp(@"控制器数据回调");
-        }
-        
-        self.ExerciseTable.frame = CGRectMake(0, 0, SCREENWIDTH, JZHEIGHT(100) * self.dataArr.count);
-
-        
         [self hideLoadingView];
     } failure:^(NSError *failure) {
         [self hideLoadingView];
@@ -69,15 +66,13 @@
 
 - (void)createExerciseTable{
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+    self.ExerciseTable = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
     self.ExerciseTable.delegate = self;
     self.ExerciseTable.dataSource = self;
     self.ExerciseTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.ExerciseTable.showsVerticalScrollIndicator = NO;
     self.ExerciseTable.showsHorizontalScrollIndicator = NO;
-    
     self.ExerciseTable.scrollEnabled = YES;
-    
     [self.view addSubview:self.ExerciseTable];
 }
 
@@ -177,15 +172,15 @@
 
 
 #pragma 懒加载
--(UITableView *)ExerciseTable
-{
-    //scroll  cellheight  table暂定1000
-    
-    if (!_ExerciseTable) {
-        _ExerciseTable = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
-    }
-    return _ExerciseTable;
-}
+//-(UITableView *)ExerciseTable
+//{
+//    //scroll  cellheight  table暂定1000
+//
+//    if (!_ExerciseTable) {
+//        _ExerciseTable = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
+//    }
+//    return _ExerciseTable;
+//}
 
 //-(NSMutableArray *)dataArr{
 //    if (!_dataArr) {

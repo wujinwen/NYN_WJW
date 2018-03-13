@@ -148,18 +148,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NYNHuoDongViewController * VC = [[NYNHuoDongViewController alloc]init];
     VC.hidesBottomBarWhenPushed=YES;
-    
     //传framid
     VC.ID = [_activityArr[indexPath.row] ID];
     
     [self.navigationController pushViewController:VC animated:YES];
-    
-    
 }
-
-
-
-
 
 - (void)clickBT:(NYNFarmChooseButton *)sender{
     if (sender.indexFB == 3) {

@@ -39,8 +39,6 @@
 {
     ChildLiveOne * liveV;
     ChildVideoView * childV;
-    
-    
 }
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
 @property (nonatomic, strong) SGPageContentView *pageContentView;
@@ -76,13 +74,9 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.dataCount = 6;
-    
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    
     self.pageNo = 1;
     self.pageSize = 10;
     //右侧按钮
@@ -99,28 +93,23 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
     UIBarButtonItem *rb = [[UIBarButtonItem alloc]initWithCustomView:button];
     self.navigationItem.rightBarButtonItem = rb;
  
-    
-
     [self showLoadingView:@""];
-    //农场详情
+    //查询农场信息
     [NYNNetTool FarmWisdomResquestWithparams:@{@"id":self.ID} isTestLogin:NO progress:^(NSProgress *progress) {
         
     } success:^(id success) {
-        NSLog(@"---------------%@",success);
-        
         if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"]) {
             self.headerDataModel = [NYNWisDomModel mj_objectWithKeyValues:success[@"data"][@"farm"]];
-            
             NSArray *productNameDataArr = [NSArray arrayWithArray:success[@"data"][@"farm"][@"farmCategories"]];
             for (NSDictionary *dic in productNameDataArr) {
-                NYNProductNameModel *model = [NYNProductNameModel mj_objectWithKeyValues:dic];
-                
-                [self.productNameArr addObject:model];
+                if ([dic[@"categoryId"] integerValue] != 72 && [dic[@"categoryId"] integerValue] != 76 && [dic[@"categoryId"] integerValue] != 77 && [dic[@"categoryId"] integerValue] != 78 && [dic[@"categoryId"] integerValue] != 78 && [dic[@"categoryId"] integerValue] != 80 && [dic[@"categoryId"] integerValue] != 81 && [dic[@"categoryId"] integerValue] != 82 && [dic[@"categoryId"] integerValue] != 83) {
+                    
+                    NYNProductNameModel *model = [NYNProductNameModel mj_objectWithKeyValues:dic];
+                    
+                    [self.productNameArr addObject:model];
+                }
             }
-
-            
          //   [self setWisdomScrollView];
-            
             [self foundTableView];
             //设置导航栏UI
             [self setNav];
@@ -136,8 +125,6 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
     } failure:^(NSError *failure) {
         [self hideLoadingView];
     }];
-
-    
 }
 
 
@@ -242,14 +229,13 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
     [NYNNetTool ZengJiaShouCangWithparams:@{@"cid":self.ID,@"ctype":@"farm"} isTestLogin:YES progress:^(NSProgress *progress) {
         
     } success:^(id success) {
-        if ([[NSString stringWithFormat:@"%@",success[@"code"]]isEqualToString:@"200"]) {
-//            self.colletionImageView.image = Imaged(@"mine_icon_collection");
-//            [self showTextProgressView:@"收藏成功"];
-            
-//            self.isCollection = !self.isCollection;
-            
-        }
         [self hideLoadingView];
+        if ([[NSString stringWithFormat:@"%@",success[@"code"]]isEqualToString:@"200"]) {
+            self.colletionImageView.image = Imaged(@"mine_icon_collection");
+            [self showTextProgressView:@"收藏成功"];
+            self.isCollection = !self.isCollection;
+        }
+
         
     } failure:^(NSError *failure) {
         [self hideLoadingView];
@@ -355,9 +341,15 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
         [ssarr addObject:_chatVC];
         
         for (NYNProductNameModel * model in self.productNameArr) {
-         
-            if ([model.categoryId isEqualToString:@"69"]) {
-                //种植
+            if ([model.categoryId isEqualToString:@"68"]){
+                //拍卖
+                FarmAuctionViewController * auctionVC = [[FarmAuctionViewController alloc]init];
+                //传入农场id
+                [auctionVC getDataFarmIDString:self.headerDataModel.Id];
+                [ssarr addObject:auctionVC];
+            }
+             else if ([model.categoryId isEqualToString:@"69"]) {
+                //代种
                 NYNZhongZhiViewController *oneVC = [[NYNZhongZhiViewController alloc]init];
                 oneVC.categoryId = model.ID;
                 oneVC.farmId = self.headerDataModel.Id;
@@ -369,7 +361,7 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
                 
             }
             else if ([model.categoryId isEqualToString:@"70"]){
-                //养殖
+                //代养
                 FTCultivateViewController *twoVC = [[FTCultivateViewController alloc]init];
                 twoVC.categoryId = model.ID;
                 twoVC.farmId = self.headerDataModel.Id;
@@ -379,16 +371,6 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
                 twoVC.delegatePersonalCenterChildBaseVC = self;
                 [ssarr addObject:twoVC];
 
-                
-            }    else if ([model.categoryId isEqualToString:@"68"]){
-                //拍卖
-                FarmAuctionViewController * auctionVC = [[FarmAuctionViewController alloc]init];
-                //传入农场id
-                [auctionVC getDataFarmIDString:self.headerDataModel.Id];
-                [ssarr addObject:auctionVC];
-                
-                
-                
             }
             else if ([model.categoryId isEqualToString:@"71"]){
                 //农产品
@@ -399,34 +381,22 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
                 threeVC.pageSize = 100;
                 [threeVC updateData];
                 threeVC.delegatePersonalCenterChildBaseVC = self;
-
                 [ssarr addObject:threeVC];
 
             }
             else if ([model.categoryId isEqualToString:@"73"]){
                 //活动
-//                FTExerciseViewController *fourVC = [[FTExerciseViewController alloc]init];
-//                fourVC.categoryId = model.ID;
-//                fourVC.farmId = self.headerDataModel.Id;
-//                fourVC.pageNo = 1;
-//                fourVC.pageSize = 100;
-//                [fourVC updateData];
-//                fourVC.delegatePersonalCenterChildBaseVC = self;
-//
-//                [ssarr addObject:fourVC];
-
+                FTExerciseViewController *fourVC = [[FTExerciseViewController alloc]init];
+                fourVC.categoryId = model.ID;
+                fourVC.farmId = self.headerDataModel.Id;
+                fourVC.pageNo = 1;
+                fourVC.pageSize = 100;
+                [fourVC updateData];
+                fourVC.delegatePersonalCenterChildBaseVC = self;
+                [ssarr addObject:fourVC];
             }
             else if ([model.categoryId isEqualToString:@"74"]){
                 //餐饮
-//                FTFoodViewController *fiveVC = [[FTFoodViewController alloc]init];
-//                fiveVC.categoryId = model.ID;
-//                fiveVC.farmId = self.headerDataModel.Id;
-//                fiveVC.pageNo = 1;
-//                fiveVC.pageSize = 100;
-//
-//                [fiveVC updateData];
-//                fiveVC.delegatePersonalCenterChildBaseVC = self;
-//                [ssarr addObject:fiveVC];
                 FTFarmProduceViewController *threeVC = [[FTFarmProduceViewController alloc]init];
                 threeVC.categoryId = model.ID;
                 threeVC.farmId = self.headerDataModel.Id;
@@ -434,22 +404,10 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
                 threeVC.pageSize = 100;
                 [threeVC updateData];
                 threeVC.delegatePersonalCenterChildBaseVC = self;
-                
                 [ssarr addObject:threeVC];
-
             }
             else if ([model.categoryId isEqualToString:@"75"]){
                 //住宿
-//                NYNZhuSuViewController *sixVC = [[NYNZhuSuViewController alloc]init];
-//                sixVC.categoryId = model.ID;
-//                sixVC.farmId = self.headerDataModel.Id;
-//                sixVC.pageNo = 1;
-//                sixVC.pageSize = 100;
-//                
-//                [sixVC updateData];
-//                sixVC.delegatePersonalCenterChildBaseVC = self;
-//
-//                [ssarr addObject:sixVC];
                 FTFarmProduceViewController *threeVC = [[FTFarmProduceViewController alloc]init];
                 threeVC.categoryId = model.ID;
                 threeVC.farmId = self.headerDataModel.Id;
@@ -457,25 +415,19 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
                 threeVC.pageSize = 100;
                 [threeVC updateData];
                 threeVC.delegatePersonalCenterChildBaseVC = self;
-                
                 [ssarr addObject:threeVC];
-
             }
-            else{
-                //种植
-                NYNZhongZhiViewController *oneVC = [[NYNZhongZhiViewController alloc]init];
-                oneVC.categoryId = model.ID;
-                oneVC.farmId = self.headerDataModel.Id;
-                oneVC.pageNo = 1;
-                oneVC.pageSize = 100;
-                
-                [oneVC updateData];
-                oneVC.delegatePersonalCenterChildBaseVC = self;
-                
-                [ssarr addObject:oneVC];
-                
+            else if ([model.categoryId isEqualToString:@"79"]){
+                //比赛
+                FTFarmProduceViewController *threeVC = [[FTFarmProduceViewController alloc]init];
+                threeVC.categoryId = model.ID;
+                threeVC.farmId = self.headerDataModel.Id;
+                threeVC.pageNo = 1;
+                threeVC.pageSize = 100;
+                [threeVC updateData];
+                threeVC.delegatePersonalCenterChildBaseVC = self;
+                [ssarr addObject:threeVC];
             }
-         
         }
         
         FarmAuctionViewController * auctionVC = [[FarmAuctionViewController alloc]init];
@@ -658,50 +610,8 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
     
 }
 
-
--(void)initNavUI{
-      NSMutableArray * navArr = [NSMutableArray arrayWithObjects:@"直播",@"图片", nil];
-    CGFloat w = 80;
-    UIView * navBackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH-JZWITH(90), 44)];
-    UIColor * color =Color90b659;
-    navBackView.backgroundColor = [color colorWithAlphaComponent:0];
-    
-    for (int i = 0; i<2; i++) {
-        UIButton * navSelectBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [navSelectBtn setTitle:navArr[i] forState:UIControlStateNormal];
-        [navSelectBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        navSelectBtn.tag = 300+i;
-        [navSelectBtn addTarget:self action:@selector(navSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
-        
-        UILabel * lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(8+i*w, 50, 80, 2)];
-        lineLabel.backgroundColor = [UIColor whiteColor];
-    }
-    
-    self.navigationItem.titleView = navBackView;
-    
-}
-//导航栏button点击
--(void)navSelectBtn:(UIButton*)sender{
-    
-    switch (sender.tag) {
-        case 300:
-            
-            break;
-        case 301:
-            break;
-        default:
-            break;
-    }
-    
-}
-
 - (void)setNav{
-
-
-   
-
     /// pageContentView
-
     NSMutableArray * navArr = [NSMutableArray arrayWithObjects:@"直播",@"图片", nil];
     /// pageTitleView
     

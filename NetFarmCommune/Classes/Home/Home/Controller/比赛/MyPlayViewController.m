@@ -21,10 +21,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
-    
     self.title=@"我的比赛";
-  
-    
 }
 -(void)getData{
     

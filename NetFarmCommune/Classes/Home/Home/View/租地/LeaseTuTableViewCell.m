@@ -30,8 +30,8 @@
     [_farmImage sd_setImageWithURL:[NSURL URLWithString:dic[0]] placeholderImage:PlaceImage];
     
     _tudiLabel.text= model.name;
-    _priceLabel.text = model.price;
-    _distanceLabel.text = [NSString stringWithFormat:@"距离 %@",model.distance];
+    _priceLabel.text = [NSString stringWithFormat:@"%@元/月",model.price];
+    _distanceLabel.text = [NSString stringWithFormat:@"距离 %.2fKM",[model.distance floatValue]];
     
     _addressLabel.text = model.realAddress;
     

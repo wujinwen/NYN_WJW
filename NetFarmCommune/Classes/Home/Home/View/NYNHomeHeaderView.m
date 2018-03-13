@@ -19,6 +19,7 @@
 */
 -(instancetype)initWithFrame:(CGRect)frame Image:(NSString *)imageName Title:(NSString *)titleName DetailTitle:(NSString *)detailTitle{
     if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = [UIColor whiteColor];
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(JZWITH(12), JZHEIGHT(16), JZWITH(21), JZHEIGHT(20))];
         imageView.image = Imaged(imageName);
         [self addSubview:imageView];
@@ -33,18 +34,16 @@
         UILabel * lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 5)];
         lineLabel.backgroundColor = [UIColor lightGrayColor];
         lineLabel.alpha=0.4;
-        
         [self addSubview:lineLabel];
         
-        
-        UIButton *moreButton = [[UIButton alloc]initWithFrame:CGRectMake(SCREENWIDTH-40, 9, 20, 30)];
+        _moreButton = [[UIButton alloc]initWithFrame:CGRectMake(SCREENWIDTH-40, 9, 20, 30)];
 //        [moreButton setTitleColor:Color90b659 forState:0];
-        moreButton.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-        [moreButton addTarget:self action:@selector(tiaoZhuan) forControlEvents:UIControlEventTouchUpInside];
+        _moreButton.titleLabel.font = [UIFont boldSystemFontOfSize:13];
+        [_moreButton addTarget:self action:@selector(tiaoZhuan) forControlEvents:UIControlEventTouchUpInside];
 //        [moreButton setTitle:@"更多" forState:0];
-        [moreButton setImage:[UIImage imageNamed:@"home_icon_more_2"] forState:UIControlStateNormal];
+        [_moreButton setImage:[UIImage imageNamed:@"home_icon_more_2"] forState:UIControlStateNormal];
         
-        [self addSubview:moreButton];
+        [self addSubview:_moreButton];
         
         UILabel *detailLabel = [[UILabel alloc]initWithFrame:CGRectMake(imageView.right+JZHEIGHT(10), JZHEIGHT(10), JZWITH(100), JZHEIGHT(30))];
         detailLabel.text = detailTitle;

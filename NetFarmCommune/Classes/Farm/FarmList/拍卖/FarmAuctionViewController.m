@@ -33,46 +33,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self.view addSubview:self.tableview];
-    
- 
-  
 }
 
 -(void)getDataFarmIDString:(NSString *)str{
-    
     rowHeight = 120;
-    
-      [self.view addSubview:self.tableview];
+    [self.view addSubview:self.tableview];
     _allArray=[[NSMutableArray alloc]init];
     NSDictionary * dic = @{@"farmId":str,@"pageNo":@"1",@"pageSize":@"10"};
-
-     [NYNNetTool QuerySaleParams:dic isTestLogin:YES progress:^(NSProgress *progress) {
+    [NYNNetTool QuerySaleParams:dic isTestLogin:YES progress:^(NSProgress *progress) {
         
     } success:^(id success) {
-        if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"]) {
+        if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"] && [[NSArray arrayWithArray:success[@"data"]] count]>0) {
 
             for (NSDictionary *dic in [NSArray arrayWithArray:success[@"data"]]) {
                 NYNAuctionModel *model = [NYNAuctionModel mj_objectWithKeyValues:dic];
                 [self.allArray addObject:model];
-                
-                
             }
             [self.tableview reloadData];
-
-
+            NSLog(@"拍卖数据%@",success);
         }else{
-
+            self.bakcView.hidden = NO;
+            [self.tableview addSubview:self.bakcView];
         }
     } failure:^(NSError *failure) {
         
     }];
-    
 }
-
-
-
 
 #pragma mark--UITableViewDelegate,UITableViewDataSource
 

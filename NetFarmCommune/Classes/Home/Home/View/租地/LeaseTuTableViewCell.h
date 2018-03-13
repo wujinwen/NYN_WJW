@@ -4,7 +4,7 @@
 //
 //  Created by manager on 2018/2/22.
 //  Copyright © 2018年 NongYiNong. All rights reserved.
-//
+//  首页—租地cell
 
 #import <UIKit/UIKit.h>
 #import "NYNActivityModel.h"

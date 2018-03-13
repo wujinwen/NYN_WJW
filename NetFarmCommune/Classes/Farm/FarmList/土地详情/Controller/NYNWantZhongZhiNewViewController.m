@@ -103,7 +103,7 @@
     [NYNNetTool InitDataWithparams:@{@"farmingId":self.earthID} isTestLogin:YES progress:^(NSProgress *progress) {
         
     } success:^(id success) {
-        
+        NSLog(@"-------代种订单接口数据：%@",success);
         if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"]) {
             NYNChuShiHuaModel *model = [NYNChuShiHuaModel mj_objectWithKeyValues:success[@"data"]];
             model.isDefaultTemplate = YES;

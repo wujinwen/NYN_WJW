@@ -23,11 +23,7 @@
     [self createFarmProduceTable];
     self.pageNo = 1;
     self.pageSize = 10;
-    
-
 }
-
-
 
 - (void)updateData{
     [self showLoadingView:@""];
@@ -37,21 +33,22 @@
         
     } success:^(id success) {
         [self.dataArr removeAllObjects];
-        
-        NSArray *arr = [NSArray arrayWithArray:success[@"data"]];
-        for (NSDictionary *d in arr) {
-            NYNCategoryPageModel *model = [NYNCategoryPageModel mj_objectWithKeyValues:d];
-            [self.dataArr addObject:model];
+        if ([success[@"code"] integerValue] == 200 && [[NSArray arrayWithArray:success[@"data"]] count]>0) {
+            NSArray *arr = [NSArray arrayWithArray:success[@"data"]];
+            for (NSDictionary *d in arr) {
+                NYNCategoryPageModel *model = [NYNCategoryPageModel mj_objectWithKeyValues:d];
+                [self.dataArr addObject:model];
+            }
+            [self.FarmProduceTable reloadData];
+            JZLog(@"");
+            if (self.dateUp) {
+                self.dateUp(@"控制器数据回调");
+            }
+            self.FarmProduceTable.frame = CGRectMake(0, 0, SCREENWIDTH, JZHEIGHT(100) * self.dataArr.count);
+        }else{
+            self.bakcView.hidden = NO;
+            [self.FarmProduceTable addSubview:self.bakcView];
         }
-        [self.FarmProduceTable reloadData];
-        JZLog(@"");
-        if (self.dateUp) {
-            self.dateUp(@"控制器数据回调");
-        }
-        
-        self.FarmProduceTable.frame = CGRectMake(0, 0, SCREENWIDTH, JZHEIGHT(100) * self.dataArr.count);
-
-        
         [self hideLoadingView];
     } failure:^(NSError *failure) {
         [self hideLoadingView];

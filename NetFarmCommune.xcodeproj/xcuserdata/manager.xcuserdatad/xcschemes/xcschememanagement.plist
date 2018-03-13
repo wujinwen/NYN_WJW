@@ -7,7 +7,25 @@
 		<key>NetFarmCommune.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>9D7500681ED9792500FF7EC6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9D7500811ED9792600FF7EC6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9D75008C1ED9792600FF7EC6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

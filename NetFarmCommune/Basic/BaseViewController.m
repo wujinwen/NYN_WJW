@@ -36,7 +36,7 @@
     UIView *bakcView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height)];
     self.bakcView = bakcView;
     
-    UIImageView *backImageView = [[UIImageView alloc]initWithFrame:CGRectMake((SCREENWIDTH - JZWITH(198)) / 2, JZHEIGHT(112), JZWITH(198), JZHEIGHT(139))];
+    UIImageView *backImageView = [[UIImageView alloc]initWithFrame:CGRectMake((SCREENWIDTH - JZWITH(198)) / 2, JZHEIGHT(80), JZWITH(198), JZHEIGHT(139))];
     backImageView.image = Imaged(@"public_no-data");
     [bakcView addSubview:backImageView];
     
@@ -46,14 +46,8 @@
     wuShuJuLabel.textColor = Color888888;
     wuShuJuLabel.textAlignment = 1;
     [bakcView addSubview:wuShuJuLabel];
-    
-    [self.view addSubview:bakcView];
-    
     self.bakcView.hidden = YES;
-    
     [self setBackbuttonItem];
-
-    
 }
 #pragma mark=================================设置返回按钮==================================
 - (void)setBackbuttonItem{
