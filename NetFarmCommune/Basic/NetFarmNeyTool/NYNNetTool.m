@@ -1079,7 +1079,7 @@
         failure(error);
     }];
 }
-//查询活动列表
+//查询活动列表  orderType:排序类型，time-时间，popularity-人气，position-距离   orderBy：排序规则， asc-顺序，desc-倒序
 + (void)ActivityListParams:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     [FTNetTool postNewUrl:@"active/activity/user/queryPage" params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
         

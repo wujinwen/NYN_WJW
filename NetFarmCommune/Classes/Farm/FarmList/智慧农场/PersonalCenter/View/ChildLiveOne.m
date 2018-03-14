@@ -275,7 +275,8 @@
     [self addSubview:self.locationImgae];
     [_locationImgae mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_offset(10);
-        make.width.height.mas_offset(10);
+        make.width.mas_offset(10);
+        make.height.mas_offset(14);
         make.bottom.mas_offset(-15);
         make.height.mas_offset(20);
         
@@ -283,10 +284,10 @@
     
     [self addSubview:self.locationLabel];
     [_locationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(_locationImgae.mas_right).offset(15);
+        make.left.mas_equalTo(_locationImgae.mas_right).offset(10);
         make.height.mas_offset(30);
         make.bottom.mas_offset(-5);
-        
+
         
     }];
     [self addSubview:self.livecontent];
@@ -313,10 +314,9 @@
 }
 //电话按钮
 -(void)phoneBtuuonClick:(UIButton*)sender{
-    NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"tel:222222"];
-    UIWebView *callWebview = [[UIWebView alloc] init];
-    [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
-    [self addSubview:callWebview];
+    if (self.delegate) {
+        [self.delegate telphone];
+    }
 }
 
 

@@ -4,7 +4,7 @@
 //
 //  Created by 123 on 2017/6/7.
 //  Copyright © 2017年 NongYiNong. All rights reserved.
-//
+//  代种cell
 
 #import <UIKit/UIKit.h>
 #import "NYNCategoryPageModel.h"

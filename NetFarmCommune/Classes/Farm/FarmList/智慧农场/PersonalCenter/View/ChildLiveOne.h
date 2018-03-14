@@ -20,6 +20,7 @@
 -(void)quanpingBtnDelagate:(UIButton*)sender;
 //退出全屏按钮
 -(void)playerTapGesDelagete;
+-(void)telphone;
 
 @end
 

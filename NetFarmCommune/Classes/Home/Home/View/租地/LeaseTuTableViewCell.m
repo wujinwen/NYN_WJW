@@ -22,8 +22,6 @@
 }
 -(void)setModel:(NYNActivityModel *)model{
     _model = model;
-    
-    
     NSData *jsonData = [model.images dataUsingEncoding:NSUTF8StringEncoding];
     NSError *err;
     NSArray *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
@@ -31,11 +29,7 @@
     
     _tudiLabel.text= model.name;
     _priceLabel.text = [NSString stringWithFormat:@"%@元/月",model.price];
-    _distanceLabel.text = [NSString stringWithFormat:@"距离 %.2fKM",[model.distance floatValue]];
-    
+    _distanceLabel.text = [NSString stringWithFormat:@"距离 %.2fkm",[model.distance floatValue]];
     _addressLabel.text = model.realAddress;
-    
-    
-    
 }
 @end

@@ -317,6 +317,7 @@
 		14B6D24520280A2C00D55632 /* WuLiuOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B6D24320280A2C00D55632 /* WuLiuOneTableViewCell.xib */; };
 		14B6D24820282FEE00D55632 /* WuLiuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B6D24720282FEE00D55632 /* WuLiuModel.m */; };
 		14B6D2522028524900D55632 /* RefundTwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B6D2512028524900D55632 /* RefundTwoTableViewCell.m */; };
+		14BCA2122058F9CB009EEF8F /* NSString+NYN.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BCA2112058F9CB009EEF8F /* NSString+NYN.m */; };
 		14CEBC5B1F7F9B500013CE0E /* BeautyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CEBC5A1F7F9B500013CE0E /* BeautyView.m */; };
 		14DE6B481F8B6EEA00B5C2EE /* NYNGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE6B471F8B6EEA00B5C2EE /* NYNGroupViewController.m */; };
 		14DE6B4B1F8B6EFF00B5C2EE /* MessegeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE6B4A1F8B6EFF00B5C2EE /* MessegeViewController.m */; };
@@ -2044,6 +2045,8 @@
 		14B6D24720282FEE00D55632 /* WuLiuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WuLiuModel.m; sourceTree = "<group>"; };
 		14B6D2502028524900D55632 /* RefundTwoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RefundTwoTableViewCell.h; sourceTree = "<group>"; };
 		14B6D2512028524900D55632 /* RefundTwoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefundTwoTableViewCell.m; sourceTree = "<group>"; };
+		14BCA2102058F9CB009EEF8F /* NSString+NYN.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+NYN.h"; sourceTree = "<group>"; };
+		14BCA2112058F9CB009EEF8F /* NSString+NYN.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+NYN.m"; sourceTree = "<group>"; };
 		14CEBC591F7F9B500013CE0E /* BeautyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyView.h; sourceTree = "<group>"; };
 		14CEBC5A1F7F9B500013CE0E /* BeautyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyView.m; sourceTree = "<group>"; };
 		14DE6B461F8B6EEA00B5C2EE /* NYNGroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNGroupViewController.h; sourceTree = "<group>"; };
@@ -4658,6 +4661,8 @@
 				1477013A202D4F2600154D46 /* CImagePicker.m */,
 				1473F3D02029ADF700DA3AF3 /* DMDropDownMenu.h */,
 				1473F3D12029ADF700DA3AF3 /* DMDropDownMenu.m */,
+				14BCA2102058F9CB009EEF8F /* NSString+NYN.h */,
+				14BCA2112058F9CB009EEF8F /* NSString+NYN.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -9409,6 +9414,7 @@
 				1438B18A1F983B46006451CC /* PreviewView.m in Sources */,
 				9D7E093C1EDE5EF1008CABE3 /* FTForgetPasswordViewController.m in Sources */,
 				9D61C1E61EE8F39E00C40984 /* HZPhotoItemModel.m in Sources */,
+				14BCA2122058F9CB009EEF8F /* NSString+NYN.m in Sources */,
 				9D73048D1EEFE1F4004D04BD /* FTJZSegumentView.m in Sources */,
 				1474984C1FA1D7C5009E1B38 /* GiftModel.m in Sources */,
 				147500312021C3E9005EA8D7 /* WuLiuViewController.m in Sources */,

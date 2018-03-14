@@ -67,6 +67,12 @@
         
     }];
     
+    
+    CFUUIDRef uuidRef = CFUUIDCreate(kCFAllocatorDefault);
+    NSString *strUUID = (NSString *)CFBridgingRelease(CFUUIDCreateString (kCFAllocatorDefault,uuidRef));
+    JZSaveMyDefault(@"uuid", strUUID);
+
+    
     NSLog(@"-----%@",JZFetchMyDefault(SET_USER)[@"rongToken"]);
     //当没有融云token的时候要获取设备的id并且使用设备id获取token
     

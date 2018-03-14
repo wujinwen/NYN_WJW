@@ -98,25 +98,19 @@
 
 -(void)setModel:(NYNCategoryPageModel *)model{
     _model = model;
-    NSString *picStr = [NSString stringWithFormat:@"%@",model.farm[@"img"]];
-    NSURL *picUrl = [NSURL URLWithString:picStr];
-    [self.imageV sd_setImageWithURL:picUrl placeholderImage:PlaceImage];
+    [self.imageV sd_setImageWithURL:[NSURL URLWithString:[NSString jsonImg: model.images]] placeholderImage:PlaceImage];
     self.titleLabel.text = model.name;
-    self.addressLabel.text = [NSString stringWithFormat:@"成长周期：%@天",model.cycleTime];
+    self.addressLabel.text = [NSString stringWithFormat:@"代种周期：%@天",model.cycleTime];
     
-    self.kucun.text = [NSString stringWithFormat:@"每㎡土地种植 %@㎡",model.square];
+    self.kucun.text = [NSString stringWithFormat:@"每㎡土地代种：%@颗",model.square];
    // self.pinglun.text = [NSString stringWithFormat:@"库存 %@㎡",model.stock];
     self.juli.text = [NSString stringWithFormat:@"评论 %@",model.commentCount];
     
-    NSString *moneyStr = [NSString stringWithFormat:@"¥%@",model.price];
+    NSString *moneyStr = [NSString stringWithFormat:@"%.2f元",[model.price floatValue]];
     NSString *unitStr = [NSString stringWithFormat:@"/%@/天",@"㎡"];
 
     self.unitPriceLabel.attributedText = [MyControl CreateNSAttributedString:[NSString stringWithFormat:@"%@%@",moneyStr,unitStr] thePartOneIndex:NSMakeRange(0, moneyStr.length) withColor:Colorf8491a withFont:[UIFont systemFontOfSize:11] andPartTwoIndex:NSMakeRange(moneyStr.length, unitStr.length) withColor:Color686868 withFont:[UIFont systemFontOfSize:11]];
     
-//    self.pinglun.hidden = YES;
-//    self.juli.hidden = YES;
-//    self.viewOne.hidden = YES;
-//    self.viewTwo.hidden= YES;
 }
 
 -(void)layoutSubviews{

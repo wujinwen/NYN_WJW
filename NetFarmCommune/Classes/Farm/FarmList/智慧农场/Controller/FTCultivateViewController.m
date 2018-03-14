@@ -23,20 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
     [self createCultivateTable];
-    
     self.pageNo = 1;
     self.pageSize = 10;
-    
-    NSDictionary *postDic = @{@"farmId":self.farmId,@"categoryId":self.categoryId,@"pageNo":[NSString stringWithFormat:@"%d",self.pageNo],@"pageSize":[NSString stringWithFormat:@"%d",self.pageSize]};
-    [NYNNetTool PageCategoryResquestWithparams:postDic isTestLogin:NO progress:^(NSProgress *progress) {
-        
-    } success:^(id success) {
-        JZLog(@"%@",success);
-    } failure:^(NSError *failure) {
-        
-    }];
+    [self updateData];
 }
 
 - (void)createCultivateTable{
@@ -47,17 +37,13 @@
     self.CultivateTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.CultivateTable.showsVerticalScrollIndicator = NO;
     self.CultivateTable.showsHorizontalScrollIndicator = NO;
-    
     self.CultivateTable.scrollEnabled = YES;
-    
     [self.view addSubview:self.CultivateTable];
 }
 
 
 - (void)updateData{
     [self showLoadingView:@""];
-
-    //养殖
     NSDictionary *postDic = @{@"farmId":self.farmId,@"type":@"grow",@"pageNo":[NSString stringWithFormat:@"%d",self.pageNo],@"pageSize":[NSString stringWithFormat:@"%d",self.pageSize]};
     [NYNNetTool PageCategoryResquestWithparams:postDic isTestLogin:NO progress:^(NSProgress *progress) {
         
@@ -102,8 +88,6 @@
     NYNCategoryPageModel *model = self.dataArr[indexPath.row];
     farmLiveTableViewCell.model = model;
     return farmLiveTableViewCell;
-    
-    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

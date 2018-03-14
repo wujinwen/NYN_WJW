@@ -101,7 +101,7 @@
     
 }
 -(void)backbtnClick:(UIButton*)sender{
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)postData{

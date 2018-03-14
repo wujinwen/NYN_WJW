@@ -4,7 +4,7 @@
 //
 //  Created by 123 on 2017/6/16.
 //  Copyright © 2017年 NongYiNong. All rights reserved.
-//
+//  代养model、代种model
 
 #import <Foundation/Foundation.h>
 
@@ -40,12 +40,6 @@
  type = plant;
  unitId = 0;
  unitName = "<null>";
- 
- 
- 
- 
- 
- 
  */
 @property (nonatomic,copy) NSString *ID;
 @property (nonatomic,copy) NSString *name;
@@ -73,6 +67,8 @@
 
 @property (nonatomic,copy) NSDictionary *farm;
 @property (nonatomic,copy) NSString *isRecommend;
-@property (nonatomic,copy) NSArray *images;
+@property (nonatomic,copy) NSString *images;
+@property (nonatomic,copy) NSString *size;
+@property (nonatomic,copy) NSString *monthSales;
 @property (nonatomic,copy) NSString *square;//每平方米种植多少颗
 @end

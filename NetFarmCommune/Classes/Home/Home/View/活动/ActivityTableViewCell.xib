@@ -50,14 +50,21 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="活动时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEl-dP-qY6">
-                        <rect key="frame" x="200" y="72" width="151" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEl-dP-qY6">
+                        <rect key="frame" x="200" y="68" width="167" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="af0-bq-clb"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="kEl-dP-qY6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="200" id="2gN-ei-wig"/>
+                    <constraint firstAttribute="bottom" secondItem="kEl-dP-qY6" secondAttribute="bottom" constant="10.5" id="dAi-H1-Ezo"/>
+                    <constraint firstAttribute="trailing" secondItem="kEl-dP-qY6" secondAttribute="trailing" id="xsO-em-lBH"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="distanceLabel" destination="3td-KI-Dpd" id="x4s-Ak-Ts8"/>

@@ -186,7 +186,7 @@
     LeaseViewController * leaseVC = [[LeaseViewController alloc]init];
     PlayViewController * playVC = [[PlayViewController alloc]init];
 
-        NSArray *childArr = @[tuijianVC,oneVC, activityVC, leaseVC, playVC];
+    NSArray *childArr = @[tuijianVC,oneVC, activityVC, leaseVC, playVC];
     CGFloat contentViewHeight = SCREENHEIGHT - 64;
     self.pageContentView = [[SGPageContentView alloc] initWithFrame:CGRectMake(0, 64, SCREENWIDTH, contentViewHeight) parentVC:self childVCs:childArr];
     _pageContentView.delegatePageContentView = self;

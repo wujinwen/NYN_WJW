@@ -4,7 +4,7 @@
 //
 //  Created by manager on 2017/11/3.
 //  Copyright © 2017年 NongYiNong. All rights reserved.
-//
+//  拍卖cell
 
 #import <UIKit/UIKit.h>
 

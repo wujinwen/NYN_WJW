@@ -25,25 +25,14 @@
 -(void)setModel:(NYNActivityModel *)model{
     _model = model;
     _productLabel.text = model.name;
-    NSData *jsonData = [model.images dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *err;
-    NSArray *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
-    
-    [self.headImage sd_setImageWithURL:[NSURL URLWithString:dic[0]] placeholderImage:PlaceImage];
+    [self.headImage sd_setImageWithURL:[NSURL URLWithString:[NSString jsonImg:model.images]] placeholderImage:PlaceImage];
     if (model.distance == NULL) {
             _distanceLabel.text =@"距离0m";
     }else{
-        _distanceLabel.text = [NSString stringWithFormat:@"距离%@m",model.distance];
+        _distanceLabel.text = [NSString stringWithFormat:@"距离%.2fkm",[model.distance floatValue]];
     }
-    
-    
-    
-    _peopleLabel.text =[NSString stringWithFormat:@"当前人数：%@",model.stock];
+    _peopleLabel.text =[NSString stringWithFormat:@"人数：%@/%@",model.maxStock,model.stock];
     _moneyLabel.text = [NSString stringWithFormat:@"%@元/人",model.price];
     _timeLabel.text = [NSString stringWithFormat:@"活动日期：%@ 至 %@",[MyControl timeWithTimeIntervalString:model.startDate],[MyControl timeWithTimeIntervalString:model.endDate]];
-    
-    
-    
-    
 }
 @end

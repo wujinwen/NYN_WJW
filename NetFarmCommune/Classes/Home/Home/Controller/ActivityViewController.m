@@ -36,25 +36,20 @@
     self.title = @"活动";
     
     _pageNo = 1;
-    [self activityListData:@"" orderBy:@""];
+    [self activityListData:@"popularity" orderBy:@"asc"];
     
 }
 
 
 -(void)configData{
-    self.titles = @[@"人气",@"距离",@"高级筛选"];
-    self.uppics = @[@"farm_icon_screen1",@"farm_icon_screen1",@"farm_icon_screen2"];
-    self.selectUppics = @[@"farm_icon_screen3",@"farm_icon_screen3",@"farm_icon_scree6"];
-    self.selectDownpics = @[@"farm_icon_screen4",@"farm_icon_screen4",@"farm_icon_scree6"];
+    self.titles = @[@"人气",@"最新",@"距离"];
+    self.uppics = @[@"farm_icon_screen1",@"farm_icon_screen1",@"farm_icon_screen1"];
+    self.selectUppics = @[@"farm_icon_screen3",@"farm_icon_screen3",@"farm_icon_screen3"];
+    self.selectDownpics = @[@"farm_icon_screen4",@"farm_icon_screen4",@"farm_icon_screen4"];
     [self.view addSubview:self.activityTBView];
-    
-    
 }
 
-
-
 -(void)creatHeadTitle{
-    
     UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 36, SCREENWIDTH, JZHEIGHT(41 ))];
     backView.backgroundColor = Colore3e3e3;
     [self.view addSubview:backView];
@@ -84,44 +79,36 @@
 //活动列表
 
 -(void)activityListData:(NSString*)orderType orderBy:(NSString*)orderBy{
-
+    [self.activityArr removeAllObjects];
+    self.bakcView.hidden = YES;
     NSDictionary * locDic =JZFetchMyDefault(SET_Location);
     NSString *lat = locDic[@"lat"] ?: @"";
     NSString *lon =locDic[@"lon"] ?: @"";
-
-    
     NSMutableDictionary *dic = @{@"longitude":lon,
                                  @"latitude":lat,
-                                 @"orderType":@"position",
+                                 @"orderType":orderType,
                                  @"pageNo":[NSString stringWithFormat:@"%d",_pageNo],
                                  @"pageSize":@"10",
                                  @"orderBy":@"asc"}.mutableCopy;
     [NYNNetTool ActivityListParams:dic isTestLogin:NO progress:^(NSProgress *progress) {
         
     } success:^(id success) {
-        if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"]) {
-        
+        if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"]&& [[NSArray arrayWithArray:success[@"data"]] count]>0) {
             for (NSDictionary *dic in [NSArray arrayWithArray:success[@"data"]]) {
                 NYNActivityModel *model = [NYNActivityModel mj_objectWithKeyValues:dic];
                 [self.activityArr addObject:model];
             }
-                [self.activityTBView reloadData];
-            
         }else{
-            
+            self.bakcView.hidden = NO;
+            [self.activityTBView addSubview:self.bakcView];
         }
-        
+        [self.activityTBView reloadData];
         
     } failure:^(NSError *failure) {
         
-        
     }];
-    
-    
-    
 }
 #pragma mark---UITableViewDataSource,UITableViewDelegate>
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _activityArr.count;
@@ -177,7 +164,7 @@
         case 0:
         {
             sender.isAsc = !sender.isAsc;
-            if (sender.isAsc) {
+            if (!sender.isAsc) {
                 sender.picImageView.image = Imaged(self.uppics[0]);
                 [self activityListData:@"popularity" orderBy:@"asc"];
                 
@@ -193,14 +180,13 @@
         case 1:
         {
             sender.isAsc = !sender.isAsc;
-            if (sender.isAsc) {
+            if (!sender.isAsc) {
                 sender.picImageView.image = Imaged(self.uppics[1]);
-                
-           [self activityListData:@"position" orderBy:@"asc"];
+                [self activityListData:@"time" orderBy:@"asc"];
             }else{
                 sender.picImageView.image = Imaged(self.selectDownpics[1]);
                 
-          [self activityListData:@"position" orderBy:@"desc"];
+          [self activityListData:@"time" orderBy:@"desc"];
        
             }
         }
@@ -210,9 +196,8 @@
         case 2:
         {
             sender.isAsc = !sender.isAsc;
-            if (sender.isAsc) {
+            if (!sender.isAsc) {
                    sender.picImageView.image = Imaged(self.selectUppics[2]);
-                
              [self activityListData:@"position" orderBy:@"asc"];
             }else{
                 sender.picImageView.image = Imaged(self.selectDownpics[2]);

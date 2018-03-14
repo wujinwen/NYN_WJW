@@ -88,34 +88,25 @@
 //    unitPriceLabel.textAlignment = 2;
 //    [self.contentView addSubview:unitPriceLabel];
 //    self.unitPriceLabel = unitPriceLabel;
+    
+    //月售
+    _monthSalesLabel = [[UILabel alloc]init];
+    _monthSalesLabel.textAlignment = 0;
+    _monthSalesLabel.textColor = RGB104;
+    _monthSalesLabel.textAlignment = 1;
+    _monthSalesLabel.font = JZFont(11);
+    _monthSalesLabel.text =  @"shf;ohifiohfiasfj'";
+    _monthSalesLabel.frame = CGRectMake(SCREENWIDTH-100, 75, 80, 20);
+    [self.contentView addSubview:_monthSalesLabel];
 }
 
-
-
-
 -(void)setModel:(NYNCategoryPageModel *)model{
-    
     _model = model;
-    if (model.images.count>0) {
-        NSData *jsonData = [model.images[0] dataUsingEncoding:NSUTF8StringEncoding];
-        NSError *err;
-        
-        NSArray *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
-        
-        [self.imageV sd_setImageWithURL:[NSURL URLWithString:dic[0]] placeholderImage:PlaceImage];
-    }
-    
-   
-    
-//    NSString *picStr = [NSString stringWithFormat:@"%@",model.pImg];
-//    NSURL *picUrl = [NSURL URLWithString:picStr];
-//    [self.imageV sd_setImageWithURL:picUrl placeholderImage:PlaceImage];
-//
-    
+    [self.imageV sd_setImageWithURL:[NSURL URLWithString:[NSString jsonImg:model.images]] placeholderImage:PlaceImage];
     self.titleLabel.text = model.name;
-    self.addressLabel.text =[NSString stringWithFormat:@"¥%@%@",model.price,model.unitName] ;
-    self.kucun.text = [NSString stringWithFormat:@"商品库存 %@%@",model.stock,model.unitName];
-    
+    self.addressLabel.text =[NSString stringWithFormat:@"%@元/%@(%@)",model.price,model.unitName,model.size];
+    self.kucun.text = [NSString stringWithFormat:@"商品库存%@%@",model.stock,model.unitName];
+    _monthSalesLabel.text = [NSString stringWithFormat:@"月售%@",model.monthSales];
     NSString *moneyStr = [NSString stringWithFormat:@"¥%@",model.price];
     NSString *unitStr = [NSString stringWithFormat:@"/%@",model.unitName];
     

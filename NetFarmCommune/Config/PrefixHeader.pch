@@ -33,6 +33,8 @@
 #import "FTLoginViewController.h"
 #import "HUPhotoBrowser.h"
 #import "GCDAsyncSocket.h"
+#import "NSString+NYN.h"
+#import <Masonry/Masonry.h>
 
 //版本号
 #define nowVesion @"1.0.0"

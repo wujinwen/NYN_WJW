@@ -4,12 +4,10 @@
 //
 //  Created by 123 on 2017/6/7.
 //  Copyright © 2017年 NongYiNong. All rights reserved.
-//
+//  代种
 
 #import "BaseViewController.h"
 #import "PersonalCenterChildBaseVC.h"
-
-
 
 typedef void(^DateUp)(NSString *ss);
 

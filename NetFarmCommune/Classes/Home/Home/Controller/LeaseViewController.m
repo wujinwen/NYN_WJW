@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithRed:227.0/255.0 green:227.0/255.0 blue:227.0/255.0 alpha:0.8];
       _pageNo = 1;
     [self configData];
 
@@ -39,7 +39,6 @@
     [self creatHeadTitle];
     
     [self activityListData:@"normal" orderBy:@"asc"];
-    
 }
 
 -(void)configData{
@@ -47,7 +46,6 @@
     self.uppics = @[@"",@"farm_icon_screen1",@"farm_icon_screen1",@"farm_icon_screen2"];
     self.selectUppics = @[@"",@"farm_icon_screen3",@"farm_icon_screen3",@"farm_icon_scree6"];
     self.selectDownpics = @[@"",@"farm_icon_screen4",@"farm_icon_screen4",@"farm_icon_scree6"];
-    
 }
 - (void)clickBT:(NYNFarmChooseButton *)sender{
     if (sender.indexFB == 3) {
@@ -65,7 +63,6 @@
             bt.picImageView.image = Imaged(self.uppics[i]);
         }
         sender.textLabel.textColor = Color90b659;
-        
     }
     //清空数据
     switch (sender.indexFB) {
@@ -136,18 +133,15 @@
             break;
     }
 }
-//活动列表
 
+//租地列表
 -(void)activityListData:(NSString*)orderType orderBy:(NSString*)orderBy{
-    
 //    UserInfoModel * model = userInfoModel;
+    [self.leaseArray removeAllObjects];
+    self.bakcView.hidden = YES;
     NSDictionary * locDic =JZFetchMyDefault(SET_Location);
-    
     NSString *lat = locDic[@"lat"];
     NSString *lon = locDic[@"lon"];
-    
-    
-    
     NSMutableDictionary *dic = @{@"longitude":lon,
                                  @"latitude":lat,
                                  @"sort":orderType,
@@ -157,30 +151,23 @@
     [NYNNetTool EnterpriseWithparams:dic isTestLogin:NO progress:^(NSProgress *progress) {
         
     } success:^(id success) {
-        if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"]) {
+        if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"] && [[NSArray arrayWithArray:success[@"data"]] count]>0) {
             
             for (NSDictionary *dic in [NSArray arrayWithArray:success[@"data"]]) {
                 NYNActivityModel *model = [NYNActivityModel mj_objectWithKeyValues:dic];
                 [self.leaseArray addObject:model];
             }
-            [self.leaseTableView reloadData];
-            
         }else{
-            
+            self.bakcView.hidden = NO;
+            [self.leaseTableView addSubview:self.bakcView];
         }
-        
-        
+        [self.leaseTableView reloadData];
     } failure:^(NSError *failure) {
         
-        
     }];
-    
-    
-    
 }
 -(void)creatHeadTitle{
-    
-    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 36, SCREENWIDTH, JZHEIGHT(41 ))];
+    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 40, SCREENWIDTH, JZHEIGHT(40))];
     backView.backgroundColor = Colore3e3e3;
     [self.view addSubview:backView];
     UIView *selecteBackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, JZHEIGHT(41 ))];
@@ -196,24 +183,18 @@
         bt.indexFB = i;
         [bt addTarget:self action:@selector(clickBT:) forControlEvents:UIControlEventTouchUpInside];
         [selecteBackView addSubview:bt];
-        
         if (i == 0) {
             bt.textLabel.textColor = Color90b659;
             bt.picImageView.image = Imaged(self.selectUppics[i]);
         }
-        
         [self.btArr addObject:bt];
     }
 }
-
-
 
 #pragma mark--UITableViewDelegate,UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _leaseArray.count;
-    
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -225,25 +206,18 @@
     }
     cell.model = _leaseArray[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
     return cell;
-    
-    
 }
-
-
 
 -(UITableView *)leaseTableView{
     if (!_leaseTableView) {
-        _leaseTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 65, SCREENWIDTH, SCREENHEIGHT-60-40-40) style:UITableViewStylePlain];
+        _leaseTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 40+34+10, SCREENWIDTH, SCREENHEIGHT-64-49-(40+34+10)) style:UITableViewStylePlain];
         _leaseTableView.delegate=self;
         _leaseTableView.dataSource=self;
         _leaseTableView.rowHeight=JZHEIGHT(104);
         _leaseTableView.tableFooterView=[[UIView alloc]init];
-      
     }
     return _leaseTableView;
-    
 }
 
 -(NSMutableArray *)btArr{

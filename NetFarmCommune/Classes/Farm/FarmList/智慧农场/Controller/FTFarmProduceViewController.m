@@ -8,7 +8,7 @@
 
 #import "FTFarmProduceViewController.h"
 #import "FTFarmProduceTableViewCell.h"
-#import "NYNNongChanPinDetailViewController.h"
+#import "GoodsDealVController.h"
 
 @interface FTFarmProduceViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *FarmProduceTable;
@@ -20,13 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self createFarmProduceTable];
+  
     self.pageNo = 1;
     self.pageSize = 10;
 }
 
 - (void)updateData{
     [self showLoadingView:@""];
+    [self createFarmProduceTable];
     
     NSDictionary *postDic = @{@"farmId":self.farmId,@"pageNo":[NSString stringWithFormat:@"%d",self.pageNo],@"pageSize":[NSString stringWithFormat:@"%d",self.pageSize]};
     [NYNNetTool ProductQueryWithparams:postDic isTestLogin:NO progress:^(NSProgress *progress) {
@@ -44,7 +45,6 @@
             if (self.dateUp) {
                 self.dateUp(@"控制器数据回调");
             }
-            self.FarmProduceTable.frame = CGRectMake(0, 0, SCREENWIDTH, JZHEIGHT(100) * self.dataArr.count);
         }else{
             self.bakcView.hidden = NO;
             [self.FarmProduceTable addSubview:self.bakcView];
@@ -57,15 +57,13 @@
 
 - (void)createFarmProduceTable{
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+    self.FarmProduceTable = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
     self.FarmProduceTable.delegate = self;
     self.FarmProduceTable.dataSource = self;
     self.FarmProduceTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.FarmProduceTable.showsVerticalScrollIndicator = NO;
     self.FarmProduceTable.showsHorizontalScrollIndicator = NO;
-    
     self.FarmProduceTable.scrollEnabled = YES;
-    
     [self.view addSubview:self.FarmProduceTable];
 }
 
@@ -163,23 +161,24 @@
 //}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NYNNongChanPinDetailViewController *vc = [[NYNNongChanPinDetailViewController alloc]init];
-    vc.ID = self.farmId;
-
+    NYNCategoryPageModel *model = self.dataArr[indexPath.row];
+    GoodsDealVController *vc = [[GoodsDealVController alloc]init];
+    vc.productId = model.ID;
+    vc.farmId = self.farmId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 
 #pragma 懒加载
--(UITableView *)FarmProduceTable
-{
-    //scroll  cellheight  table暂定1000
-    
-    if (!_FarmProduceTable) {
-        _FarmProduceTable = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
-    }
-    return _FarmProduceTable;
-}
+//-(UITableView *)FarmProduceTable
+//{
+//    //scroll  cellheight  table暂定1000
+//
+//    if (!_FarmProduceTable) {
+//        _FarmProduceTable = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
+//    }
+//    return _FarmProduceTable;
+//}
 //-(NSMutableArray *)dataArr{
 //    if (!_dataArr) {
 //        _dataArr = [[NSMutableArray alloc]init];

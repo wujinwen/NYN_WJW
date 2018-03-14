@@ -78,27 +78,12 @@ static NSString * CellIdentifier = @"cell";
 
 - ( UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     PicCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-//    [cell.imageView sd_setImageWithURL:_picArr[indexPath.row] placeholderImage:[UIImage imageNamed:@"占位图"]];
-//    cell.imageView.image =[UIImage imageNamed:@"占位图"];
-
-    NSData *jsonData = [_auctionMoedel.images dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *err;
-    NSArray *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
-    
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:dic[0]] placeholderImage:PlaceImage];
-    
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString jsonImg:_auctionMoedel.images]] placeholderImage:PlaceImage];
     return cell;
-    
-    
 }
-
-
 
 -(void)setAuctionMoedel:(NYNAuctionModel *)auctionMoedel{
     _auctionMoedel  =auctionMoedel;
-
-    
     [self.farmImageView sd_setImageWithURL:[NSURL URLWithString:auctionMoedel.pImg]];
     self.farmName.text = auctionMoedel.unitName;
     self.jiapaiPrice.text = [NSString stringWithFormat:@"加价单位：%dd",auctionMoedel.addPrice];
@@ -110,16 +95,9 @@ static NSString * CellIdentifier = @"cell";
         make.width.mas_offset(SCREENWIDTH-40);
         make.top.equalTo(_miaosuLabel.mas_bottom).offset(4);
         make.height.mas_offset(60);
-        
-        
     }];
     
     _messegetextView.text = auctionMoedel.intro;
-    
-   
-    
-
-    
 //    self.collectionView.frame = CGRectMake(0, CGRectGetMaxY(_messegetextView.frame), 900, 70);
        [self.contentView addSubview:self.collectionView];
     
@@ -129,8 +107,6 @@ static NSString * CellIdentifier = @"cell";
         make.width.mas_offset(SCREENWIDTH);
         make.top.equalTo(_messegetextView.mas_bottom).offset(4);
         make.height.mas_offset(60);
-        
-        
     }];
     
 }
@@ -138,7 +114,6 @@ static NSString * CellIdentifier = @"cell";
 - (IBAction)chujiaBtn:(UIButton *)sender {
     self.offerBlock(_index);
 }
-
 
 -(UITextView *)messegetextView{
     if (!_messegetextView) {
@@ -167,6 +142,5 @@ static NSString * CellIdentifier = @"cell";
           [_collectionView registerClass:[PicCollectionViewCell class] forCellWithReuseIdentifier:CellIdentifier];
     }
     return _collectionView;
-    
 }
 @end

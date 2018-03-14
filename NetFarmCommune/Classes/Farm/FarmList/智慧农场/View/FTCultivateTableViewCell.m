@@ -14,7 +14,6 @@
     [super awakeFromNib];
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    
     UIImageView *imageV = [[UIImageView alloc]initWithFrame:CGRectMake(JZWITH(10), JZHEIGHT(10), JZWITH(81), JZHEIGHT(81))];
     imageV.image = PlaceImage;
     [self.contentView addSubview:imageV];
@@ -44,49 +43,6 @@
     kucun.font = JZFont(11);
     [self.contentView addSubview:kucun];
     self.kucun = kucun;
-    
-    UIView *viewOne = [[UIView alloc]initWithFrame:CGRectMake(kucun.right + JZWITH(8), kucun.top + JZHEIGHT(1), 1, kucun.height - JZHEIGHT(2))];
-    viewOne.backgroundColor = RGB136;
-    [self.contentView addSubview:viewOne];
-    self.viewOne = viewOne;
-    
-    UILabel *pinglun = [[UILabel alloc]initWithFrame:CGRectMake(viewOne.right + JZWITH(9), JZHEIGHT(120), JZWITH(60), JZHEIGHT(10))];
-    pinglun.text = @"库存 100";
-    pinglun.textColor = RGB104;
-    pinglun.font = JZFont(11);
-    [self.contentView addSubview:pinglun];
-    self.pinglun = pinglun;
-    
-//    UIView *viewTwo = [[UIView alloc]initWithFrame:CGRectMake(pinglun.right + JZWITH(8), kucun.top + JZHEIGHT(1), 1, kucun.height - JZHEIGHT(2))];
-//    viewTwo.backgroundColor = RGB136;
-//    [self.contentView addSubview:viewTwo];
-//    self.viewTwo = viewTwo;
-    
-//    UILabel *juli = [[UILabel alloc]initWithFrame:CGRectMake(viewTwo.right + JZWITH(9), JZHEIGHT(80), JZWITH(60), JZHEIGHT(10))];
-//    juli.text = @"评论 100";
-//    juli.textColor = RGB104;
-//    juli.font = JZFont(11);
-//    [self.contentView addSubview:juli];
-//    self.juli = juli;
-    
-    //    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, JZHEIGHT(99.5), SCREENWIDTH, JZHEIGHT(0.5))];
-    //    lineView.backgroundColor = RGB238;
-    //    [self.contentView addSubview:lineView];
-    
-    //    UIButton *go = [[UIButton alloc]initWithFrame:CGRectMake(JZWITH(305), JZHEIGHT(67), JZWITH(61), JZHEIGHT(24))];
-    //    [go setTitle:@"去认领" forState:0];
-    //    [go setTitleColor:[UIColor whiteColor] forState:0];
-    //    go.layer.cornerRadius = 5;
-    //    go.layer.masksToBounds = YES;
-    //    go.titleLabel.font = JZFont(11);
-    //    go.backgroundColor = KNaviBarTintColor;
-    //    [self.contentView addSubview:go];
-    //
-    
-    UILabel *unitPriceLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCREENWIDTH - JZWITH(10) - JZWITH(100), JZHEIGHT(10), JZWITH(100), JZHEIGHT(15))];
-    unitPriceLabel.textAlignment = 2;
-    [self.contentView addSubview:unitPriceLabel];
-    self.unitPriceLabel = unitPriceLabel;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -98,32 +54,22 @@
 
 -(void)setModel:(NYNCategoryPageModel *)model{
     _model = model;
-    NSString *picStr = [NSString stringWithFormat:@"%@",model.farm[@"img"]];
-    NSURL *picUrl = [NSURL URLWithString:picStr];
+    NSURL *picUrl = [NSURL URLWithString:[NSString jsonImg:model.images]];
     [self.imageV sd_setImageWithURL:picUrl placeholderImage:PlaceImage];
     self.titleLabel.text = model.name;
-    self.addressLabel.text = model.intro;
+    self.addressLabel.text = [NSString stringWithFormat:@"月售%@",model.monthSales];
     
     //landStock
-    self.kucun.text = [NSString stringWithFormat:@"养殖周期%@个天",self.model.cycleTime];
-    
-    self.pinglun.text = [NSString stringWithFormat:@"月售 %@㎡",self.model.stock];
-    
-    //commentCount之前用的这个 没有评论
-    
-//    self.juli.text = [NSString stringWithFormat:@"评论 %@",model.reviews];
-    
-    NSString *moneyStr = [NSString stringWithFormat:@"¥%@",model.price];
-    NSString *unitStr = [NSString stringWithFormat:@"/%@/月",model.unitName];
-    
+    self.kucun.text = [NSString stringWithFormat:@"代养周期 %@天",self.model.cycleTime];
+    NSString *moneyStr = [NSString stringWithFormat:@"%.2f元",[model.price floatValue]];
+    NSString *unitStr = [NSString stringWithFormat:@"/%@",model.unitName];
     self.unitPriceLabel.attributedText = [MyControl CreateNSAttributedString:[NSString stringWithFormat:@"%@%@",moneyStr,unitStr] thePartOneIndex:NSMakeRange(0, moneyStr.length) withColor:Colorf8491a withFont:[UIFont systemFontOfSize:11] andPartTwoIndex:NSMakeRange(moneyStr.length, unitStr.length) withColor:Color686868 withFont:[UIFont systemFontOfSize:11]];
-    
 }
 
 -(void)layoutSubviews{
     [super layoutSubviews];
     
-    CGFloat kuCunWith = [MyControl getTextWith:[NSString stringWithFormat:@"养殖周期%@天",self.model.landStock] andHeight:JZHEIGHT(10) andFontSize:11] + 3;
+    CGFloat kuCunWith = [MyControl getTextWith:[NSString stringWithFormat:@"代养周期%@天",self.model.landStock] andHeight:JZHEIGHT(10) andFontSize:11] + 3;
     CGFloat pinglunWith = [MyControl getTextWith:[NSString stringWithFormat:@"月售 %@㎡",self.model.stock] andHeight:JZHEIGHT(10) andFontSize:11];
     CGFloat juliWith = [MyControl getTextWith:[NSString stringWithFormat:@"评论 %@",self.model.commentCount] andHeight:JZHEIGHT(10) andFontSize:11];
     

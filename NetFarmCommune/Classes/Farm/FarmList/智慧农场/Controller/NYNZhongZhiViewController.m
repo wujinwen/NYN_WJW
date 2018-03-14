@@ -16,8 +16,6 @@
 #import "NYNWantZhongZhiNewViewController.h"
 @interface NYNZhongZhiViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *ZhongZhiTable;
-
-
 @end
 
 @implementation NYNZhongZhiViewController
@@ -27,12 +25,8 @@
     [self createZhongZhiTable];
     self.pageNo = 1;
     self.pageSize = 10;
-    
-    
-
     self.view.backgroundColor = [UIColor whiteColor];
- 
-    
+    [self updateData];
 }
 
 - (void)stop{
@@ -45,13 +39,10 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    
-
 }
 
 //收到通知,刷新页面

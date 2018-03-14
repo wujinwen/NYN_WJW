@@ -234,23 +234,27 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
             self.colletionImageView.image = Imaged(@"mine_icon_collection");
             [self showTextProgressView:@"收藏成功"];
             self.isCollection = !self.isCollection;
+        }else{
+             [self showTextProgressView:success[@"msg"]];
         }
 
-        
     } failure:^(NSError *failure) {
         [self hideLoadingView];
         
     }];
 }
 
-
-
 - (void)foundTableView {
     [self.view addSubview:self.pageTitleView];
     [self.view addSubview:self.pageContentView];
 }
 #pragma mark---ChildLiveOneDelagate
-
+- (void)telphone{
+    NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"tel:%@",self.headerDataModel.phone];
+    UIWebView *callWebview = [[UIWebView alloc] init];
+    [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+    [self.view addSubview:callWebview];
+}
 //开始直播
 -(void)startLiveDelagate:(UIButton *)sender{
     //链接融云服务器
@@ -259,8 +263,6 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
       chatRoomVC.farmId = self.ID;
       chatRoomVC.fps  =10;
       chatRoomVC.kbps  =400;
-
-    
       [self.navigationController pushViewController:chatRoomVC animated:NO];
 }
 //全屏播放
@@ -580,7 +582,7 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
 //        [starBackView addSubview:starImageView];
 //    }
 //    
-    UIImageView *locationImageView = [[UIImageView alloc]initWithFrame:CGRectMake(JZWITH(10), (bannerView.height - JZHEIGHT(10)) / 2, JZWITH(8), JZHEIGHT(10))];
+    UIImageView *locationImageView = [[UIImageView alloc]initWithFrame:CGRectMake(JZWITH(10), (bannerView.height - JZHEIGHT(10)) / 2, 8, 12)];
     locationImageView.image = [UIImage imageNamed:@"farm_icon_address2"];
     [bannerView addSubview:locationImageView];
     
@@ -731,8 +733,6 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
 #pragma 事件触发
 - (void)callOut{
     JZLog(@"触发事件");
-    
-    
     NSMutableString* str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"02885572795"];
     // NSLog(@"str======%@",str);
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
