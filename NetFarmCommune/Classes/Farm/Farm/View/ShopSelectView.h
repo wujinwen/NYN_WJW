@@ -13,14 +13,9 @@
 
 -(void)selectCellClick:(NSString * )str selectID:(NSString*)selectID selectIndex:(NSString*)selectIndex;
 
-
-
-
-
 @end
 
 @interface ShopSelectView : UIView
-
 
 -(void)getData:(NSArray*)array;
 

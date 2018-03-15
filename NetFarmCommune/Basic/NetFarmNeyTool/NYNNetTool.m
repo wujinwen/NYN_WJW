@@ -1274,4 +1274,29 @@
         failure(error);
     }];
 }
+
+//餐饮详情接口
+
++ (void)RestaurantDeId:(NSString *)Id Params:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    [FTNetTool getUrl:@"shop/repast/queryInfo" params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
+    
+    } success:^(id response) {
+        success(response);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+//住宿详情接口
+
++ (void)LodgeDeParams:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    [FTNetTool postNewUrl:@"shop/stay/queryInfo" params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
+        
+        
+    } success:^(id response) {
+        success(response);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
 @end

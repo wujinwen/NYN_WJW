@@ -9,5 +9,8 @@
 #import "BaseViewController.h"
 
 @interface NYNCanYinDetailViewController : BaseViewController
+@property (nonatomic, strong)NSString *Id;
+@property (nonatomic, strong)NSString *title;
+
 
 @end

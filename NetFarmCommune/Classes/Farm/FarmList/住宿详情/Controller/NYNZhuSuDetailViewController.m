@@ -34,7 +34,7 @@
     
     [self createZhuSuTable];
     [self.view addSubview:self.bottomView];
-    
+//    [NYNNetTool LodgeDeParams:@"" isTestLogin:<#(BOOL)#> progress:<#^(NSProgress *)progress#> success:<#^(id)success#> failure:<#^(NSError *)failure#>]
     
 }
 
@@ -232,10 +232,8 @@
 #pragma 懒加载
 -(UITableView *)ZhuSuTable
 {
-    
     if (!_ZhuSuTable) {
-//        _ZhuSuTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT - 64 - JZHEIGHT(45)) style:UITableViewStylePlain];
-        _ZhuSuTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT/2-60) style:UITableViewStylePlain];
+        _ZhuSuTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT-64-JZHEIGHT(45)) style:UITableViewStylePlain];
 
     }
     return _ZhuSuTable;
@@ -246,11 +244,8 @@
         _bottomView = [[NYNGouMaiView alloc]init];
         [_bottomView ConfigDataWithIndex:1 withFrame:CGRectMake(0, SCREENHEIGHT - JZHEIGHT(45) - 64, SCREENWIDTH, JZHEIGHT(45))];
     }
-    
     _bottomView.gouwucheBlock = ^(NSString *strValue) {
-        
     };
-    
     _bottomView.goumaiBlock = ^(NSString *strValue) {
         
     };

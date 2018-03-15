@@ -18,6 +18,7 @@
 #import "NYNYueXiaoTableViewCell.h"
 #import "NYNGouMaiTableViewCell.h"
 #import "NYNGouMaiView.h"
+#import "NYNNetTool.h"
 
 @interface NYNCanYinDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *CanYinTable;
@@ -29,8 +30,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"餐饮详情";
-    
+    self.title = self.title;
+    [NYNNetTool RestaurantDeId:@"" Params:@{@"id":self.Id} isTestLogin:YES progress:^(NSProgress *progress) {
+
+    } success:^(id success) {
+
+    } failure:^(NSError *failure) {
+
+    }];
     [self createCanYinTable];
     [self.view addSubview:self.bottomView];
     

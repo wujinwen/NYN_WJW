@@ -35,6 +35,10 @@
 #import "SaleEditViewController.h"
 #import "ZWPullMenuView.h"
 
+#import "MatchUIViewController.h"
+#import "RestaurantUIViewController.h"
+#import "LodgeUIViewController.h"
+
 @interface PersonalCenterVC () <UIScrollViewDelegate,UITableViewDelegate, UITableViewDataSource, SGPageTitleViewDelegate, SGPageContentViewDelegate, PersonalCenterChildBaseVCDelegate,ChildLiveOneDelagate>
 {
     ChildLiveOne * liveV;
@@ -399,34 +403,34 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
             }
             else if ([model.categoryId isEqualToString:@"74"]){
                 //餐饮
-                FTFarmProduceViewController *threeVC = [[FTFarmProduceViewController alloc]init];
+                RestaurantUIViewController *threeVC = [[RestaurantUIViewController alloc]init];
                 threeVC.categoryId = model.ID;
-                threeVC.farmId = self.headerDataModel.Id;
+                threeVC.farmId = self.headerDataModel.farmId;
                 threeVC.pageNo = 1;
                 threeVC.pageSize = 100;
-                [threeVC updateData];
+                [threeVC getDataFarmIDString:model.farmId];
                 threeVC.delegatePersonalCenterChildBaseVC = self;
                 [ssarr addObject:threeVC];
             }
             else if ([model.categoryId isEqualToString:@"75"]){
                 //住宿
-                FTFarmProduceViewController *threeVC = [[FTFarmProduceViewController alloc]init];
+                LodgeUIViewController *threeVC = [[LodgeUIViewController alloc]init];
                 threeVC.categoryId = model.ID;
-                threeVC.farmId = self.headerDataModel.Id;
+                threeVC.farmId = self.headerDataModel.farmId;
                 threeVC.pageNo = 1;
                 threeVC.pageSize = 100;
-                [threeVC updateData];
+                [threeVC getDataFarmIDString:model.farmId];
                 threeVC.delegatePersonalCenterChildBaseVC = self;
                 [ssarr addObject:threeVC];
             }
             else if ([model.categoryId isEqualToString:@"79"]){
                 //比赛
-                FTFarmProduceViewController *threeVC = [[FTFarmProduceViewController alloc]init];
+                MatchUIViewController *threeVC = [[MatchUIViewController alloc]init];
                 threeVC.categoryId = model.ID;
-                threeVC.farmId = self.headerDataModel.Id;
+                threeVC.farmId = self.headerDataModel.farmId;
                 threeVC.pageNo = 1;
                 threeVC.pageSize = 100;
-                [threeVC updateData];
+                [threeVC getDataFarmIDString:model.farmId];
                 threeVC.delegatePersonalCenterChildBaseVC = self;
                 [ssarr addObject:threeVC];
             }

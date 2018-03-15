@@ -70,25 +70,17 @@
 
 @property(nonatomic,strong)NYNFarmChooseButton *zhuanshuBtn;
 
-
-
-
 @end
 
 @implementation NYNFarmViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-
     [self configData];
-
      [self createHomeUI];
     [self showLoadingView:@""];
     [NYNNetTool BusinessResquestWithparams:@{} isTestLogin:NO progress:^(NSProgress *progress) {
-        
     } success:^(id success) {
-        
         if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"]) {
             //主营数据
             self.bannerSelectDataArr = [NSMutableArray arrayWithArray:success[@"data"]];
@@ -100,8 +92,6 @@
             NSString *lon =locDic[@"lon"] ?: @"";
             NSString *province = locDic[@"province"] ?: @"";
             NSString *city = locDic[@"city"] ?: @"";
-            
-//
 //            NSString *province = userModel.location[@"province"] ?: @"";
 //            NSString *city = userModel.location[@"city"] ?: @"";
             
@@ -110,7 +100,6 @@
             self.postDic = [[NSMutableDictionary alloc]initWithDictionary:dic];
             NSString * str =self.bannerSelectDataArr[0][@"twoChildren"][0][@"id"];
             
-            
             [self.postDic setObject:str forKey:@"categoryId"];
 
             [self getFarmPageDataWithDic:self.postDic type:@"farm"];
@@ -118,26 +107,21 @@
             [self createHomeUI];
             
             [self createTable];
-                [self setNav];
+            [self setNav];
         }else{
             [self showTextProgressView:[NSString stringWithFormat:@"%@",success[@"msg"]]];
         }
-        
-        
         [self hideLoadingView];
     } failure:^(NSError *failure) {
-        
         [self hideLoadingView];
-
     }];
 }
-
-
 
 #pragma mark--ShopSelectViewDelagate 导航栏左侧按钮点击
 -(void)selectCellClick:(NSString * )str selectID:(NSString*)selectID selectIndex:(NSString *)selectIndex{
     if ([str isEqualToString:@"生态农业"]) {
         _scrollViewBack.frame=CGRectMake(0, JZHEIGHT(0), SCREENWIDTH-JZWITH(140), JZHEIGHT(41));
+        _zhuanshuBtn.hidden = NO;
     }else{
           _scrollViewBack.frame=CGRectMake(0, JZHEIGHT(0), SCREENWIDTH-JZWITH(70), JZHEIGHT(41));
     }
@@ -149,37 +133,32 @@
     
     if (arr.count>0) {
         int  selectId = [self.bannerSelectDataArr[selectIndex.integerValue][@"twoChildren"][0][@"id"] intValue];
-          [self.postDic setObject:@(selectId) forKey:@"categoryId"];
+
+        [self.postDic setObject:@(selectId) forKey:@"categoryId"];
     }else{
+        _scrollViewBack.frame= CGRectZero;
+        _zhuanshuBtn.hidden = YES;
+                NSString *parentId = self.bannerSelectDataArr[selectIndex.integerValue][@"parentId"];
+        [self.postDic setObject:parentId forKey:@"parentId"];
+        [self getFarmPageDataWithDic:self.postDic type:@""];
         return;
         
     }
-    
-  
-    
-//    [self getFarmPageDataWithDic:self.postDic type:@"type"];
-    
      [self getFarmPageDataWithDic:self.postDic type:@"farm"];
 }
 
 //专属农场
 -(void)zhuanshuClick:(UIButton*)sender{
     for (NYNSrollSelectButton *bt in self.ziCellButtonArr) {
-        
         bt.textLabel.textColor = Color686868;
-        
     }
     _zhuanshuBtn.textLabel.textColor =Color90b659;
-    
     [self getFarmPageDataWithDic:self.postDic type:@"enterprise"];
-
-    
 }
 
 -(void)configData{
     self.pageNo = 1;
     self.pageSize = 10;
-    
     self.titles = @[@"综合排序",@"人气",@"距离"];
     self.uppics = @[@"",@"farm_icon_screen1",@"farm_icon_screen1",@""];
     self.downpics = @[@"",@"farm_icon_screen5",@"farm_icon_screen5"];
@@ -255,8 +234,6 @@
     [backView addSubview:selecteBackView];
     selecteBackView.clipsToBounds = NO;
     _selecteBackView = selecteBackView;
-    
-
 
     
      CGFloat btWith = SCREENWIDTH / 3;
@@ -266,8 +243,6 @@
        bt.indexFB=3;
      [bt addTarget:self action:@selector(clickBT:) forControlEvents:UIControlEventTouchUpInside];
      [selecteBackView addSubview:bt];
-    
-    
     
     NYNFarmChooseButton *bt1 =[[NYNFarmChooseButton alloc]initWithFrame:CGRectMake(SCREENWIDTH-JZWITH(140), 0, JZWITH(70), selecteBackView.height)];
     bt1.textLabel.frame = CGRectMake(0, 0, bt1.frame.size.width, bt1.frame.size.height);
@@ -281,8 +256,6 @@
     [selecteBackView addSubview:bt1];
     
     _zhuanshuBtn = bt1;
-    
-    
     
     //清空所有数据
     [self.btArr removeAllObjects];
@@ -313,7 +286,7 @@
     scrollViewBack.backgroundColor = [UIColor whiteColor];
     [backView addSubview:scrollViewBack];
 //    (JZWITH(50) + JZWITH(13)) * 7 + 65
-    scrollViewBack.contentSize = CGSizeMake((JZWITH(50) + JZWITH(13)) + JZWITH(120) * self.bannerSelectDataArr.count, 0);
+    scrollViewBack.contentSize = CGSizeMake(JZWITH(60) * self.bannerSelectDataArr.count, 0);
     scrollViewBack.hidden = NO;
     scrollViewBack.scrollEnabled = YES;
     self.scrollViewBack = scrollViewBack;
@@ -322,9 +295,6 @@
     scrollViewBack.showsHorizontalScrollIndicator = NO;
     _scrollViewBack=scrollViewBack;
     
- 
-    
-    
     NSArray *picsArr = @[@"farm_icon_all",@"farm_icon_plant",@"farm_icon_breed",@"farm_icon_restaurant",@"farm_icon_hotel",@"farm_icon_orchard",@"farm_icon_Shop"];
     NSArray *titlesArr = @[@"全部",@"种植",@"养殖",@"餐饮",@"住宿",@"果园",@"农产品"];
     NSMutableArray * str=[[NSMutableArray alloc]init];
@@ -332,23 +302,19 @@
         str =(self.bannerSelectDataArr.firstObject)[@"twoChildren"];
         for (int i = 0; i < str.count+1; i++) {
         if ( i == 0) {
-            NYNSrollSelectButton *bt = [[NYNSrollSelectButton alloc]initWithFrame:CGRectMake( JZWITH(10) + (JZWITH(70) + JZWITH(5)) * i, 0, JZWITH(60), scrollViewBack.height)];
+            NYNSrollSelectButton *bt = [[NYNSrollSelectButton alloc]initWithFrame:CGRectMake( JZWITH(10) + JZWITH(60) * i, 0, JZWITH(60), scrollViewBack.height)];
             bt.picImageView.image = Imaged(picsArr[i]);
             bt.textLabel.text = titlesArr[i];
             bt.tagger = i;
             [scrollViewBack addSubview:bt];
             
             [bt addTarget:self action:@selector(gaoJiClick:) forControlEvents:UIControlEventTouchUpInside];
-            
             [self.ziCellButtonArr addObject:bt];
-            
 //            bt.hidden = YES;
-            
             bt.textLabel.textColor = Color90b659;
-            
         }
         else{
-            NYNSrollSelectButton *bt = [[NYNSrollSelectButton alloc]initWithFrame:CGRectMake(JZWITH(10) + (JZWITH(70) + JZWITH(5)) * (i), 0, JZWITH(70), scrollViewBack.height)];
+            NYNSrollSelectButton *bt = [[NYNSrollSelectButton alloc]initWithFrame:CGRectMake(JZWITH(60) * (i), 0, JZWITH(70), scrollViewBack.height)];
             [bt.picImageView sd_setImageWithURL:[NSURL URLWithString:VALID_STRING((self.bannerSelectDataArr.firstObject)[@"icon"])] placeholderImage:PlaceImage];
             
             if (str.count != 0) {
@@ -369,16 +335,9 @@
                 
                 bt.textLabel.textColor =Color90b659;
             }
-            
-            
         }
     }
     }
-    
-  
-
-    
-  
 }
 
 - (void)createTable{
@@ -390,8 +349,6 @@
     [self.view addSubview:self.farmTable];
     
     self.farmTable.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
-    
-    
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadMoreData方法）
     self.farmTable.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
@@ -399,7 +356,6 @@
 
 - (void)headerRefresh{
 //    [self.farmDataArr removeAllObjects];
-    
     self.pageNo = 1;
     [self.postDic setObject:[NSString stringWithFormat:@"%d",self.pageNo] forKey:@"pageNo"];
     [self getFarmPageDataWithDic:self.postDic type:@"farm"];
@@ -409,7 +365,6 @@
     [self.farmTable.mj_footer endRefreshing];
     [self.farmTable.mj_header endRefreshing];
 }
-
 
 #pragma tableview代理
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -530,20 +485,20 @@
 
 //左边一级业务选择
 - (void)pushToBusiness{
-     _shopView=[[ShopSelectView alloc]initWithFrame:CGRectMake(0, JZWITH(64), JZWITH(100), 40*self.bannerSelectDataArr.count)];
+     _shopView=[[ShopSelectView alloc]initWithFrame:CGRectMake(0, JZWITH(64), JZWITH(100), 30*4)];
     [_shopView getData:self.bannerSelectDataArr];
     _shopView.delagate = self;
     
     [self.view addSubview:_shopView];
-
+   
     [self.view bringSubviewToFront:_shopView];
-    
- 
+    _shopView.hidden = NO;
 }
+
 
 //右边搜索
 - (void)codeScan{
-    
+    _shopView.hidden = YES;
     FTSearchViewController * search =[[FTSearchViewController alloc]init];
     
     search.hidesBottomBarWhenPushed = YES;
@@ -554,32 +509,28 @@
 
 //获取数据
 - (void)getFarmPageDataWithDic:(NSDictionary *)dic  type:(NSString *)type{
-       [self.farmDataArr removeAllObjects];
-    
-      [self showLoadingView:@""];
-      [self.postDic setObject:type forKey:@"type"];
-    
-    
+    _shopView.hidden = YES;
+    self.bakcView.hidden = YES;
+    [self.farmDataArr removeAllObjects];
+    [self showLoadingView:@""];
+    [self.postDic setObject:type forKey:@"type"];
     [NYNNetTool FarmPageResquestWithparams:dic isTestLogin:NO progress:^(NSProgress *progress) {
     
     } success:^(id success) {
         [self.farmDataArr removeAllObjects];
         
-        if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"]) {
+        if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"] && [[NSArray arrayWithArray:success[@"data"]] count]>0) {
             for (NSDictionary *dic in [NSArray arrayWithArray:success[@"data"]]) {
                 NYNFarmCellModel *model = [NYNFarmCellModel mj_objectWithKeyValues:dic];
                 [self.farmDataArr addObject:model];
             }
-            
-            [self.farmTable reloadData];
+           
         }else{
-            [self showTextProgressView:[NSString stringWithFormat:@"%@",success[@"msg"]]];
+            self.bakcView.hidden = NO;
+            [self.farmTable addSubview:self.bakcView];
         }
-        
-
-        
+        [self.farmTable reloadData];
         [self hideLoadingView];
-        
         [self endRefresh];
     } failure:^(NSError *failure) {
     
@@ -590,6 +541,7 @@
 }
 
 - (void)clickBT:(NYNFarmChooseButton *)sender{
+    _shopView.hidden = YES;
     if (sender.indexFB == 3) {
         
     }else{
@@ -605,15 +557,8 @@
             bt.picImageView.image = Imaged(self.uppics[i]);
         }
         sender.textLabel.textColor = Color90b659;
-
     }
-
-    
-    
     //清空数据
-    
-    self.pageNo = 1;
-    
     switch (sender.indexFB) {
         case 0:
         {
@@ -622,8 +567,6 @@
                 sender.picImageView.image = Imaged(self.selectUppics[0]);
                 [self.postDic setObject:@"normal" forKey:@"sort"];
                 [self.postDic setObject:@"asc" forKey:@"orderBy"];
-
-                
             }else{
                 sender.picImageView.image = Imaged(self.selectDownpics[0]);
                 [self.postDic setObject:@"normal" forKey:@"sort"];
@@ -664,7 +607,6 @@
             break;
         case 3:
         {
-            
             sender.isAsc = !sender.isAsc;
             
             if (sender.isAsc) {
@@ -698,14 +640,11 @@
                     [self.btArr[i] setHidden:YES];
                 }
             }
-
-            
         }
             break;
         default:
             break;
     }
-    
     //这里删除掉   没删除是全部  删除按分类来
     //    [self.postDic removeObjectForKey:@"mainBusiness"];
 
@@ -716,15 +655,12 @@
 //    }else{
         [self.postDic setObject:[NSString stringWithFormat:@"%d",self.pageNo] forKey:@"pageNo"];
         [self getFarmPageDataWithDic:self.postDic type:@"farm"];
-    
-    
-    
 //    }
 
 }
 
-
 - (void)loadMoreData{
+    _shopView.hidden = YES;
     //分页查询农场
     self.pageNo ++;
     [self.postDic setObject:[NSString stringWithFormat:@"%d",self.pageNo] forKey:@"pageNo"];
@@ -734,12 +670,15 @@
     [NYNNetTool FarmPageResquestWithparams:self.postDic isTestLogin:NO progress:^(NSProgress *progress) {
         
     } success:^(id success) {
-        if (![success[@"data"] isKindOfClass:[NSArray class]]) return;
+        if (![success[@"data"] isKindOfClass:[NSArray class]] || [success[@"data"] count]==0){
+            [self hideLoadingView];
+            [self.farmTable.mj_footer endRefreshingWithNoMoreData];
+            return;
+        }
         for (NSDictionary *dic in [NSArray arrayWithArray:success[@"data"]]) {
             NYNFarmCellModel *model = [NYNFarmCellModel mj_objectWithKeyValues:dic];
             [self.farmDataArr addObject:model];
         }
-        
         [self.farmTable reloadData];
         
         [self endRefresh];
@@ -753,6 +692,7 @@
 }
 
 - (void)refreshData{
+    _shopView.hidden = YES;
 //    @"type":@"farm"
     [self showLoadingView:@""];
     [self.farmTable.mj_header beginRefreshing];
@@ -779,13 +719,13 @@
 }
 //农场二级分类点击
 - (void)gaoJiClick:(NYNSrollSelectButton *)sender{
+    _shopView.hidden = YES;
+    self.pageNo = 1;
     _zhuanshuBtn.textLabel.textColor =Color686868;
     for (NYNSrollSelectButton *bt in self.ziCellButtonArr) {
         
         bt.textLabel.textColor = Color686868;
-        
     }
-    
     sender.textLabel.textColor = Color90b659;
 
     
@@ -798,10 +738,10 @@
     NSString * str =[NSString stringWithFormat:@"%d",[self.bannerSelectDataArr[_selectIndex][@"twoChildren"][sender.tagger][@"id"] intValue]];
     // NSString * str =[NSString stringWithFormat:@"%d",sender.tagger];
     [self.postDic setObject:str forKey:@"categoryId"];
-    
+//    [self.postDic setObject:str forKey:@"parentId"];
     self.pageNo = 1;
     [self.postDic setObject:[NSString stringWithFormat:@"%d",self.pageNo] forKey:@"pageNo"];
-    [self getFarmPageDataWithDic:self.postDic type:@"type"];
+    [self getFarmPageDataWithDic:self.postDic type:@"farm"];
 }
 
 -(NSMutableArray *)bannerSelectDataArr{
