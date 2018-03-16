@@ -450,12 +450,18 @@
     RCDLiveMessageModel *model =
     [self.conversationDataRepository objectAtIndex:indexPath.row];
     
-    
     RCMessageContent *content = model.content;
     if ([content isMemberOfClass:[RCInformationNotificationMessage class]]) {
-//        RCInformationNotificationMessage *notification = (RCInformationNotificationMessage *)content;
-//        NSString *localizedMessage = [RCDLiveKitUtility formatMessage:notification];
-//        liveVCell.nameLabel.text = localizedMessage;
+        RCInformationNotificationMessage *notification = (RCInformationNotificationMessage *)content;
+        NSString *localizedMessage = [RCDLiveKitUtility formatMessage:notification];
+        
+        NSString *name=@"";
+        if (content.senderUserInfo) {
+            name = [NSString stringWithFormat:@"%@",content.senderUserInfo.name];
+        }
+        liveVCell.nameLabel.text = [NSString stringWithFormat:@"%@   %@",name,localizedMessage];
+        [liveVCell.headImage sd_setImageWithURL:[NSURL URLWithString:content.senderUserInfo.portraitUri] placeholderImage:[UIImage imageNamed:@"占位图"]];
+        
     }else if ([content isMemberOfClass:[RCTextMessage class]]){
         RCTextMessage *notification = (RCTextMessage *)content;
         NSString *localizedMessage = [RCDLiveKitUtility formatMessage:notification];
@@ -490,7 +496,12 @@
         
     }else if ([content isMemberOfClass:[NYNMessageContent class]]){
          NYNMessageContent *notification = (NYNMessageContent *)content;
-        liveVCell.nameLabel.text = notification.msg;
+        NSString *name=@"";
+        if (content.senderUserInfo) {
+            name = [NSString stringWithFormat:@"%@",content.senderUserInfo.name];
+        }
+        liveVCell.nameLabel.text = [NSString stringWithFormat:@"%@   %@",name,notification.msg];
+
         [liveVCell.headImage sd_setImageWithURL:[NSURL URLWithString:content.senderUserInfo.portraitUri] placeholderImage:[UIImage imageNamed:@"占位图"]];
         
     }else if ([content isMemberOfClass:[NYNLiveGiftMessege class]]){
@@ -523,8 +534,12 @@
         
         liveVCell.nameLabel.attributedText = attributedString.copy;
 
+    }else{
+        RCInformationNotificationMessage *notification = (RCInformationNotificationMessage *)content;
+        NSString *localizedMessage = [RCDLiveKitUtility formatMessage:notification];
+        liveVCell.nameLabel.text = localizedMessage;
     }
-    
+    liveVCell.selectionStyle = UITableViewCellSelectionStyleNone;
     return liveVCell;
     
 }
@@ -544,12 +559,15 @@
     titleLabel.font = [UIFont systemFontOfSize:15];
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:str];
     [string addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,5)];
-    [string addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Bold" size:17.0] range:NSMakeRange(0, 5)];
+    [string addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0] range:NSMakeRange(0, 5)];
     titleLabel.attributedText = string;
     //自动换行
     titleLabel.numberOfLines=0;
     titleLabel.lineBreakMode = UILineBreakModeWordWrap;
     [view addSubview:titleLabel];
+    UIView *grayLine = [[UIView alloc]initWithFrame:CGRectMake(0, 49, SCREENWIDTH, 1)];
+    [view addSubview:grayLine];
+    grayLine.backgroundColor = [UIColor groupTableViewBackgroundColor];
     return view;
     
 }
@@ -710,7 +728,7 @@
     if ([notification.name isEqualToString:@"reloadPalyer"]) {
         ZWPullMenuModel * model = [[ZWPullMenuModel alloc]init];
         model = notification.userInfo[@"model"];
-        self.targetId = model.farmId;
+        self.targetId = [NSString stringWithFormat:@"%@",model.farmId];
         [self.conversationDataRepository removeAllObjects];
         [self.tableView reloadData];
         [self initiaChatRoom];
@@ -930,7 +948,7 @@
 
 -(UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT/2-30) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT/2-JZHEIGHT(35)) style:UITableViewStylePlain];
         _tableView.delegate=self;
         _tableView.dataSource  =self;
         _tableView.tableFooterView = [[UIView alloc]init];
@@ -945,10 +963,10 @@
 -(LiveMessegeBoomVIew *)liveView{
     if (!_liveView) {
         _liveView = [[LiveMessegeBoomVIew alloc]init];
-        _liveView.backgroundColor = [UIColor whiteColor];
-        [_liveView.speakButton setTitleColor:Color686868 forState:UIControlStateNormal];
-        [_liveView.giftButton setImage:[UIImage imageNamed:@"gift拷贝2"] forState:UIControlStateNormal];
-          [_liveView.goodButton setImage:[UIImage imageNamed:@"zan拷贝2"] forState:UIControlStateNormal];
+        _liveView.backgroundColor = [UIColor lightGrayColor];
+        [_liveView.speakButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_liveView.giftButton setImage:[UIImage imageNamed:@"gift"] forState:UIControlStateNormal];
+          [_liveView.goodButton setImage:[UIImage imageNamed:@"zan"] forState:UIControlStateNormal];
         
     }
     return _liveView;

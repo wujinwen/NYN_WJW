@@ -28,7 +28,7 @@
     _speakButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _speakButton.titleLabel.font =[UIFont systemFontOfSize:15];
     
-    _speakButton.frame = CGRectMake(10, 0, SCREENWIDTH-170, 30);
+    _speakButton.frame = CGRectMake(10, 0, SCREENWIDTH-170, 40);
     [_speakButton setTitle:@"说点什么" forState:UIControlStateNormal];
     [_speakButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_speakButton addTarget:self action:@selector(showInputBar:) forControlEvents:UIControlEventTouchUpInside];
@@ -43,7 +43,7 @@
     [self addSubview:_goodButton];
     [_goodButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_offset(-10);
-        make.top.mas_offset(0);
+        make.centerY.mas_equalTo(self.mas_centerY);
         make.width.height.mas_offset(30);
     }];
     
@@ -56,10 +56,11 @@
     [_giftButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(_goodButton.mas_left).offset(-10);
         make.width.height.mas_offset(30);
-        make.top.mas_offset(0);
+        make.centerY.mas_equalTo(self.mas_centerY);
     }];
     
     _lianmaiButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _lianmaiButton.hidden = YES;
     [_lianmaiButton setTitle:@"连麦" forState:UIControlStateNormal];
     [_lianmaiButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_lianmaiButton addTarget:self action:@selector(lianmaiButtonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -68,7 +69,7 @@
     [_lianmaiButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(_giftButton.mas_left).offset(-10);
         make.height.mas_offset(30);
-        make.bottom.mas_offset(-2);
+         make.centerY.mas_equalTo(self.mas_centerY);
         make.width.mas_offset(60);
     }];
     

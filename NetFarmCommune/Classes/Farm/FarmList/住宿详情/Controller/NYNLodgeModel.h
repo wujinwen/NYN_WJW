@@ -24,5 +24,6 @@
  unitName = "\U95f4";
 **/
 @interface NYNLodgeModel : NSObject
+@property (nonatomic, strong) NSString *id;
 
 @end

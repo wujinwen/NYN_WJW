@@ -125,7 +125,7 @@
     NSString *city = locDic[@"city"] ?: @"";
     
     
-    NSMutableDictionary *dic = @{@"longitude":lon?:@"",@"latitude":lat?:@"",@"sort":@"normal",@"pageNo":@"1",@"pageSize":@"10",@"province":province,@"city":city,@"orderBy":@"asc"}.mutableCopy;
+    NSMutableDictionary *dic = @{@"longitude":lon?:@"",@"latitude":lat?:@"",@"sort":@"normal",@"pageNo":@"1",@"pageSize":@"10",@"province":province,@"city":city,@"orderBy":@"desc",@"parentId":@"63"}.mutableCopy;
     
     [self showLoadingView:@""];
     [dic setObject:@"farm" forKey:@"type"];
@@ -200,36 +200,17 @@
 //活动列表
 
 -(void)activityListData{
-    //    NSDictionary *locationDic = JZFetchMyDefault(@"location");
-    //    NSString *lat = locationDic[@"lat"];
-    //    NSString *lon = locationDic[@"lon"];
-    NSDictionary * locDic = JZFetchMyDefault(SET_Location);
-    NSString *lat = locDic[@"lat"] ?: @"";
-    NSString *lon =locDic[@"lon"] ?: @"";
-  
-    
-    NSMutableDictionary *dic = @{@"longitude":lon,
-                                 @"latitude":lat,
-                                 @"orderType":@"position",
-                                 @"pageNo":@"1",
-                                 @"pageSize":@"3",
-                                 @"orderBy":@"asc"}.mutableCopy;
-    [NYNNetTool ActivityListParams:dic isTestLogin:NO progress:^(NSProgress *progress) {
+    [NYNNetTool ActivityUserHomeParams:nil isTestLogin:NO progress:^(NSProgress *progress) {
         
     } success:^(id success) {
         if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"]) {
             _activityArr =success[@"data"];
             [self.homeTable reloadData];
         }
-        
-        
     } failure:^(NSError *failure) {
         
         
     }];
-    
-    
-    
 }
 //拍卖
 -(void)paimai{
@@ -324,6 +305,55 @@
     
     
 }
+
+- (void)GetFarmId:(NSString *)farnId FarmName:(NSString *)farmName{
+    [NYNNetTool GetFarmLiveInfoWithparams:@{@"farmId":farnId} isTestLogin:NO progress:^(NSProgress *progress) {
+        
+    } success:^(id success) {
+        NSLog(@"---------------%@",success);
+        
+        if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"]) {
+            //            NYNLiveListModel *model = [NYNLiveListModel mj_objectWithKeyValues:dic];
+            //            [self.dataArr addObject:model];
+            //            self.headerDataModel = [NYNWisDomModel mj_objectWithKeyValues:success[@"data"][@"farm"]];
+            //
+            //            NSArray *productNameDataArr = [NSArray arrayWithArray:success[@"data"][@"farm"][@"farmBusinessList"]];
+            //            for (NSDictionary *dic in productNameDataArr) {
+            //                NYNProductNameModel *model = [NYNProductNameModel mj_objectWithKeyValues:dic];
+            //
+            //                [self.productNameArr addObject:model];
+            //            }
+            
+            
+            
+            PersonalCenterVC *vc = [PersonalCenterVC new];
+            vc.hidesBottomBarWhenPushed = YES;
+            vc.ID = farnId;
+            NSArray * arr =success[@"data"];
+            if (arr.count>0) {
+                vc.playUrl = success[@"data"][0][@"rtmpPull"];
+                vc.LiveID= success[@"data"][0][@"id"];
+                if ([success[@"data"][0][@"type"] isEqualToString:@"live"]) {
+                    vc.islive =YES;
+                    vc.chatId =[NSString stringWithFormat:@"%@",success[@"data"][0][@"id"]];
+                }
+            }
+            
+            vc.farmName = farmName;
+            vc.ctype = @"farm";
+            
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        }else{
+            
+        }
+    } failure:^(NSError *failure) {
+        
+        
+        
+        
+    }];
+}
 #pragma tableview代理
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 5;
@@ -335,7 +365,8 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ((indexPath.section == 0) && (indexPath.row == 0)){
+    __weak typeof(self) weakSelf = self;
+    if (indexPath.section == 0){
         //直播,活动农家乐cell
         FTCategoryTableViewCell *bannerCell = [tableView dequeueReusableCellWithIdentifier:@"scrollTextCell"];
         if (bannerCell == nil) {
@@ -344,7 +375,6 @@
         bannerCell.selectionStyle = UITableViewCellSelectionStyleNone;
         NSMutableArray * picArr = [[NSMutableArray alloc]init];
         NSMutableArray * nameArr = [[NSMutableArray alloc]init];
-        
         if (self.bannnerDataArr.count >0) {
             NSInteger  a = 6;
             if (self.bannnerDataArr.count<6) {
@@ -356,97 +386,17 @@
                 
                 NSString * nameS = [self.bannnerDataArr[i] name];
                 [nameArr addObject:nameS];
-                
             }
-            
-            
             [bannerCell getDataListArr:picArr textArray:nameArr];
-            
-            
+
         }
         
-       __weak typeof(self) weakSelf = self;
         bannerCell.buttonAction = ^(FTHomeButton *sender) {
                NYNFarmCellModel *model = weakSelf.bannnerDataArr[sender.indexFB];
-            //农场直播详情
-            [NYNNetTool GetFarmLiveInfoWithparams:@{@"farmId":model.Id} isTestLogin:NO progress:^(NSProgress *progress) {
-                
-            } success:^(id success) {
-                NSLog(@"---------------%@",success);
-                
-                if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"]) {
-                    //            NYNLiveListModel *model = [NYNLiveListModel mj_objectWithKeyValues:dic];
-                    //            [self.dataArr addObject:model];
-                    //            self.headerDataModel = [NYNWisDomModel mj_objectWithKeyValues:success[@"data"][@"farm"]];
-                    //
-                    //            NSArray *productNameDataArr = [NSArray arrayWithArray:success[@"data"][@"farm"][@"farmBusinessList"]];
-                    //            for (NSDictionary *dic in productNameDataArr) {
-                    //                NYNProductNameModel *model = [NYNProductNameModel mj_objectWithKeyValues:dic];
-                    //
-                    //                [self.productNameArr addObject:model];
-                    //            }
-                    
-                 
-              
-                    PersonalCenterVC *vc = [PersonalCenterVC new];
-                    vc.hidesBottomBarWhenPushed = YES;
-                    vc.ID = model.Id;
-                    NSArray * arr =success[@"data"];
-                    if (arr.count>0) {
-                      vc.playUrl = success[@"data"][0][@"rtmpPull"];
-                        vc.LiveID= success[@"data"][0][@"id"];
-                        if ([success[@"data"][0][@"type"] isEqualToString:@"live"]) {
-                              vc.islive =YES;
-                             vc.chatId =[NSString stringWithFormat:@"%@",success[@"data"][0][@"id"]];
-                        }
-                    }
-                   
-                    
-                    vc.farmName = model.name;
-              
-                    
-                    vc.ctype = @"farm";
-                    
-                    [weakSelf.navigationController pushViewController:vc animated:YES];
-                    
-                }else{
-                    
-                }
-            } failure:^(NSError *failure) {
-                
-                
-                
-                
-            }];
-      
- 
-            
-            
-            //            switch (sender.indexFB) {
-            //                case 0:
-            //                {
-            ////                    FTMarketViewController *vc = [[FTMarketViewController alloc]init];
-            ////                    vc.hidesBottomBarWhenPushed = YES;
-            ////                    [weakself.navigationController pushViewController:vc animated:YES];
-            //                }
-            //                    break;
-            //                case 1:
-            //                {
-            ////                    //点击直播
-            ////                    NYNLiveListViewController *vc = [[NYNLiveListViewController alloc]init];
-            ////                    vc.hidesBottomBarWhenPushed = YES;
-            ////                    [self.navigationController pushViewController:vc animated:YES];
-            //
-            //                }
-            //                    break;
-            //                default:
-            //                    break;
-            //            }
+        [weakSelf GetFarmId:model.Id FarmName:model.name];
         };
         return bannerCell;
     }
-    
-    
     else if ((indexPath.section == 1)){
         //直播推荐
         FTHomeFunctionChooseTableViewCell *functionChooseCell = [tableView dequeueReusableCellWithIdentifier:@"HomeFunctionChooseTableViewCell"];
@@ -465,24 +415,17 @@
             
             [functionChooseCell getLivePicArray:pic textArray:name];
         }
+        
+        
         functionChooseCell.buttonAction = ^(NYNLiveButton *sender) {
             NYNFarmCellModel *model = self.bannnerDataArr[sender.indexFB];
-            
-            PersonalCenterVC *vc = [PersonalCenterVC new];
-            vc.hidesBottomBarWhenPushed = YES;
-            vc.ID = model.Id;
-            vc.farmName = model.name;
-            
-            vc.ctype = @"farm";
-            
-            [self.navigationController pushViewController:vc animated:YES];
+            [weakSelf GetFarmId:model.Id FarmName:model.name];
         };
         
         functionChooseCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return functionChooseCell;
     }
     else if ((indexPath.section == 2)){
-        
         NYNNongJiaLeTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"activityCell"];
         farmLiveTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (farmLiveTableViewCell == nil) {
@@ -493,13 +436,13 @@
             
         }
         
-        
+        farmLiveTableViewCell.buttonAction = ^(FTHomeButton *sender) {
+            [weakSelf GetFarmId:_paimaiArr[sender.tag-400][@"farmId"] FarmName:_paimaiArr[sender.tag-400][@"name"]];
+           
+        };
         return farmLiveTableViewCell;
-        
-        
     }
     else if (indexPath.section == 3) {
-        
         //集市
         FTFarmRecommendTableViewCell *teachCell = [tableView dequeueReusableCellWithIdentifier:@"teachCell"];
         teachCell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -511,69 +454,35 @@
             teachCell.dataArray =_marketArray;
         }
         teachCell.buttonAction = ^(NYNMarketButton *sender) {
-            
             GoodsDealVController *vc = [GoodsDealVController new];
             vc.hidesBottomBarWhenPushed = YES;
             vc.productId = _marketArray[sender.tag-400][@"id"];
-//            vc.farmId = _marketArray[sender.tag-400][@"farmId"];
-            
             [self.navigationController pushViewController:vc animated:YES];
         };
-        
-        
-        
         teachCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
         return teachCell;
     }
-    //
     else if (indexPath.section == 4) {
-//        //农家乐 NYNNongJiaLeTableViewCell
-//        NYNNongJiaLeTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"activityCell"];
-//        if (farmLiveTableViewCell == nil) {
-//            farmLiveTableViewCell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([NYNNongJiaLeTableViewCell class]) owner:self options:nil].firstObject;
-//        }
-//        if (_agritmntArray.count>0) {
-//            farmLiveTableViewCell.totalArray = _agritmntArray;
-//
-//        }
-//
-//        return farmLiveTableViewCell;
-//
-        
         //活动
         FTFarmLiveTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"activityCell"];
         farmLiveTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (farmLiveTableViewCell == nil) {
             farmLiveTableViewCell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([FTFarmLiveTableViewCell class]) owner:self options:nil].firstObject;
         }
-    
             if (_activityArr.count>0) {
                 farmLiveTableViewCell.totalArr = _activityArr;
 
             }
-    
-        
-
-       //活动cell点击
         farmLiveTableViewCell.activityClick = ^(NSInteger selectCount) {
             //  活动详情
             NYNHuoDongViewController * huodongVC = [[NYNHuoDongViewController alloc]init];
+            huodongVC.ID = _activityArr[selectCount-500][@"id"];
             [self.navigationController pushViewController:huodongVC animated:YES];
-            
-            
-            
         };
-        
-
         return farmLiveTableViewCell;
         
     }else{
-        NYNNongJiaLeTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"activityCell"];
-        if (farmLiveTableViewCell == nil) {
-            farmLiveTableViewCell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([NYNNongJiaLeTableViewCell class]) owner:self options:nil].firstObject;
-        }
-        return farmLiveTableViewCell;
+        return nil;
     }
 }
 
@@ -672,7 +581,7 @@
 -(UITableView *)homeTable
 {
     if (!_homeTable) {
-        _homeTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 34, SCREENWIDTH, SCREENHEIGHT - 64 - 50-40) style:UITableViewStyleGrouped];
+        _homeTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 34, SCREENWIDTH, SCREENHEIGHT - 64 - 49 -34) style:UITableViewStyleGrouped];
     }
     return _homeTable;
 }

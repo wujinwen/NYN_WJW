@@ -82,7 +82,7 @@
     
     [self.priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_offset(10);
-        make.top.equalTo(self.farmNameLabel.mas_bottom).offset(-5);
+        make.top.equalTo(self.farmNameLabel.mas_bottom);
         make.width.mas_offset(80);
         make.height.mas_offset(30);
         
@@ -99,16 +99,14 @@
     }];
     [self.countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_offset(10);
-        make.top.equalTo(self.priceLabel.mas_bottom).offset(5);
+        make.bottom.equalTo(secondView.mas_bottom);
         make.width.mas_offset(70);
         make.height.mas_offset(30);
-        
-        
     }];
     //
     [self.weigthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_offset(-8);
-        make.top.equalTo(self.timeLabel.mas_bottom).offset(5);
+        make.centerY.equalTo(self.countLabel.mas_centerY);
         make.width.mas_offset(110);
         make.height.mas_offset(30);
         
@@ -117,24 +115,24 @@
     
     [self.jianButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.countLabel.mas_right).offset(5);
-        make.top.equalTo(self.priceLabel.mas_bottom).offset(5);
-        make.width.mas_offset(35);
-        make.height.mas_offset(35);
+        make.centerY.equalTo(self.countLabel.mas_centerY);
+        make.width.mas_offset(40);
+        make.height.mas_offset(40);
     }];
     
     [self.goumaiLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.jianButton.mas_right).offset(5);
-        make.top.equalTo(self.priceLabel.mas_bottom).offset(5);
-        make.width.mas_offset(60);
+        make.centerY.equalTo(self.countLabel.mas_centerY);
+        make.width.mas_offset(45);
         make.height.mas_offset(35);
     }];
     
     
     [self.addButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.goumaiLabel.mas_right).offset(5);
-        make.top.equalTo(self.priceLabel.mas_bottom).offset(5);
-        make.width.mas_offset(35);
-        make.height.mas_offset(35);
+        make.centerY.equalTo(self.countLabel.mas_centerY);
+        make.width.mas_offset(40);
+        make.height.mas_offset(40);
     }];
     
     UIView * line = [[UIView alloc]init];
@@ -161,11 +159,12 @@
     _farmNameLabel.text = model.name;
     if ([model.type isEqualToString:@"normal"]) {
         [_stateButton setTitle:@"开售" forState:UIControlStateNormal];
+        _stateButton.hidden = YES;
     }else {
         [_stateButton setTitle:@"预售" forState:UIControlStateNormal];
     }
     
-    _priceLabel.text = [NSString stringWithFormat:@"%@元/kg",model.price];
+    _priceLabel.text = [NSString stringWithFormat:@"%.1f元/kg",[model.price floatValue]];
     _weigthLabel.text =  [NSString stringWithFormat:@"%@kg内包邮",model.shippingMethodId];
     _timeLabel.text = [NSString stringWithFormat:@"上架时间：%@",[MyControl timeWithTimeIntervalString:model.saleDate]];
 }
@@ -232,7 +231,6 @@
         _weigthLabel.textColor = [UIColor lightGrayColor];
         _weigthLabel.font=[UIFont systemFontOfSize:11];
         _weigthLabel.text =@"20kg内包邮";
-        
     }
     return _weigthLabel;
     
@@ -297,7 +295,7 @@
         _goumaiLabel = [[UILabel alloc]init];
         _goumaiLabel.textColor = [UIColor blackColor];
         _goumaiLabel.font = [UIFont systemFontOfSize:14];
-        _goumaiLabel.text = @"0";
+        _goumaiLabel.text = @"1";
         _goumaiLabel.textAlignment = NSTextAlignmentCenter;
         
         

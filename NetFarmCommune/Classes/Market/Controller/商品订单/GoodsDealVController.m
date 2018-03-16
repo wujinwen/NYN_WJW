@@ -25,7 +25,9 @@
 #import "DetailsViewController.h"
 #import "RootsViewController.h"
 #import "NYNRootModel.h"
-@interface GoodsDealVController ()<HJTabViewControllerDataSource, HJTabViewControllerDelagate, HJDefaultTabViewBarDelegate>
+@interface GoodsDealVController ()<HJTabViewControllerDataSource, HJTabViewControllerDelagate, HJDefaultTabViewBarDelegate>{
+    NSString *reviewCount;//评论数
+}
 
 
 @property(nonatomic,strong)NSMutableArray * dataArr;
@@ -114,13 +116,11 @@
         if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"]) {
             
             _lictModel = [NYNMarketListModel mj_objectWithKeyValues:success[@"data"]];
-          
-            
             //               //添加数据
-            //               [self.dataArr addObject:_lictModel];
             _headerView.model =_lictModel ;
-                _goodVc.model=_lictModel;
-              _detalVC.model = _lictModel;
+            _goodVc.model=_lictModel;
+            _detalVC.model = _lictModel;
+            reviewCount = [NSString stringWithFormat:@"%@",success[@"data"][@"reviewCount"]];
             //调用计算运费
             [self calculateYunFei];
             
@@ -254,6 +254,19 @@
     UIBarButtonItem *one = [[UIBarButtonItem alloc]initWithCustomView:shopbButton];
     UIBarButtonItem *two = [[UIBarButtonItem alloc]initWithCustomView:sharebt];
         self.navigationItem.rightBarButtonItems = @[one,two];
+    
+    UIButton *saoyisao = [[UIButton alloc]initWithFrame:CGRectMake(JZWITH(310), 0, JZWITH(15), JZWITH(15))];
+    [self.navigationController.navigationBar addSubview:saoyisao];
+    [saoyisao addTarget:self action:@selector(goCart) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIImageView *sao = [[UIImageView alloc]initWithFrame:CGRectMake(0, JZWITH(15), saoyisao.width, saoyisao.height)];
+    sao.image = Imaged(@"farm_icon_shopping_cart");
+    sao.userInteractionEnabled = NO;
+    [saoyisao addSubview:sao];
+}
+
+- (void)goCart{
+    JZLog(@"点击购物车");
 }
 
 
@@ -267,24 +280,23 @@
     if (index == 0) {
         return @"商品详情";
     }else if (index == 1) {
-        return @"商品规格";
+        return @"商品参数";
     }else if (index == 2) {
         return @"溯源";
     }else if (index == 3) {
-        return @"评价";
+        return [NSString stringWithFormat:@"评价"];
     }else{
         return @"";
         
     }
-  
 }
 
 - (void)tabViewBar:(HJDefaultTabViewBar *)tabViewBar didSelectIndex:(NSInteger)index {
     BOOL anim = labs(index - self.curIndex) > 1 ? NO: YES;
     [self scrollToIndex:index animated:anim];
 }
-#pragma mark -
 
+#pragma mark -
 - (void)tabViewController:(HJTabViewController *)tabViewController scrollViewVerticalScroll:(CGFloat)contentPercentY {
     // 博主很傻，用此方法渐变导航栏是偷懒表现，只是为了demo演示。正确科学方法请自行百度 iOS导航栏透明
     //    self.navigationController.navigationBar.alpha = contentPercentY;
@@ -307,13 +319,10 @@
         //商品规格
         _goodVc= [GoodsTableVController new];
          _goodVc.index = index;
-
        return _goodVc;
     }else if (index ==2){
       //溯源
         _rootsVc = [[RootsViewController alloc]init];
-
-    
         return _rootsVc;
     }else if (index ==3){
         //评价
@@ -365,6 +374,7 @@
     
     
 }
+
 //添加购物车
 -(void)addCart{
     if (_countString==nil) {
@@ -372,42 +382,32 @@
         return;
         
     }
+    
+    __weak typeof(self) weakSelf = self;
     NSDictionary * dic =@{@"productId":_productId,@"quantity":_countString,@"productType":@"general"};
     //添加购物车
     [NYNNetTool CartWithparams:dic isTestLogin:YES progress:^(NSProgress *progress) {
         
     } success:^(id success) {
         
-        
         if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"]) {
-            
-
-            //   [self showTextProgressView:[NSString stringWithFormat:@"%@",success[@"msg"]]];
-            
+            JZLog(@"加入购物车成功");
         }else{
-            //[self showTextProgressView:[NSString stringWithFormat:@"%@",success[@"msg"]]];
+            JZLog(@"加入购物车失败");
         }
-       // [self hideLoadingView];
+    
     } failure:^(NSError *failure) {
-        
         //[self hideLoadingView];
     }];
-    
 }
-
-
 
 -(NYNGouMaiView *)bottomView{
     if (!_bottomView) {
         _bottomView = [[NYNGouMaiView alloc]init];
          [_bottomView ConfigDataWithIndex:0 withFrame:CGRectMake(0, SCREENHEIGHT - JZHEIGHT(45)-62, SCREENWIDTH, JZHEIGHT(45))];
         [_bottomView.goumaiBT setTitle:@"提交订单" forState:UIControlStateNormal];
-        
-        
     }
     return _bottomView;
-    
-    
 }
 
 

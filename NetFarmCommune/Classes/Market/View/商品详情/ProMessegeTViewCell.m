@@ -22,7 +22,7 @@
 }
 
 -(void)initiaInterface{
-      [self.contentView addSubview:self.textView];
+    [self.contentView addSubview:self.textView];
     [self.contentView addSubview:self.imageview];
     [self.textView setEditable:NO];
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {

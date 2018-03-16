@@ -11,11 +11,7 @@
 
 @interface GoodsTableVController ()
 
-
-
 @property(nonatomic,strong)NSArray * arr;
-
-
 
 @end
 
@@ -23,12 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     _arr = @[@" 名称:",@" 种类:",@" 厂家:",@" 产地:",@" 包装:"];
 }
-
-
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 

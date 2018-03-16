@@ -34,8 +34,17 @@
     
     [self createhuoDongTable];
     [self.view addSubview:self.bottomView];
+    NSDictionary * locDic = JZFetchMyDefault(SET_Location);
+    NSString *lat = locDic[@"lat"] ?: @"";
+    NSString *lon =locDic[@"lon"] ?: @"";
     
-    
+    [NYNNetTool ActiveDeId:self.ID Params:@{@"longitude":lon,@"latitude":lat} isTestLogin:NO progress:^(NSProgress *Progress) {
+        
+    } success:^(id success) {
+        JZLog(@"%@", success);
+    } failure:^(NSError *failure) {
+        
+    }];
 }
 
 - (void)createhuoDongTable{

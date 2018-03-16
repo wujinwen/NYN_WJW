@@ -339,7 +339,7 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
 
         NSMutableArray *ssarr = [[NSMutableArray alloc]init];
         _chatVC= [[FarmChatViewController alloc]init];
-        _chatVC.targetId  =self.islive?self.chatId:_ID;//看直播就用会话id,否则(监控)就用farmid
+        _chatVC.targetId  =[NSString stringWithFormat:@"%@", self.islive?self.chatId:_ID];//看直播就用会话id,否则(监控)就用farmid
         _chatVC.zhuboId = self.userId;
         
         _chatVC.farmName = _farmName;

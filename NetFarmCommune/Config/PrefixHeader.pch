@@ -39,14 +39,19 @@
 //版本号
 #define nowVesion @"1.0.0"
 
-//测试
+
 
 //#define BaseUrl @"http://42.51.205.2/"
+//#define BaseUrl @"http://dwkjsy1.f3322.net/"
 
+
+
+//外网测试
 #define BaseUrl @"http://api.dawangkeji.com/"
 
-//#define BaseUrl @"http:f//192.168.9.200/"
-//#define BaseUrl @"http://dwkjsy1.f3322.net/"
+//内网测试
+//#define BaseUrl @"http://192.168.9.200/"
+
 
 
 #define ImageUrl(A) [NSString stringWithFormat:@"http://222.88.94.204:19100/images/%@",A]

@@ -127,7 +127,7 @@
         [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];//设置其布局方向
         flowLayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);//设置其边界
         
-        _liveListCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT - 64)collectionViewLayout:flowLayout];
+        _liveListCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT - 64-40-49-30)collectionViewLayout:flowLayout];
         _liveListCollectionView.dataSource = self;
         _liveListCollectionView.delegate = self;
         _liveListCollectionView.backgroundColor = [UIColor clearColor];

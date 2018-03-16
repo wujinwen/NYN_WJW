@@ -50,10 +50,10 @@
 }
 
 -(void)creatHeadTitle{
-    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 36, SCREENWIDTH, JZHEIGHT(41 ))];
-    backView.backgroundColor = Colore3e3e3;
+    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 36, SCREENWIDTH, 40)];
+    backView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.view addSubview:backView];
-    UIView *selecteBackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, JZHEIGHT(41 ))];
+    UIView *selecteBackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 38)];
     selecteBackView.backgroundColor = [UIColor whiteColor];
     [backView addSubview:selecteBackView];
     selecteBackView.clipsToBounds = NO;
@@ -74,6 +74,10 @@
         
         [self.btArr addObject:bt];
     }
+    UIView *grayLine = [[UIView alloc]initWithFrame:CGRectMake(0, 38, SCREENWIDTH, 2)];
+    grayLine.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [backView addSubview:grayLine];
+    
 }
 
 //活动列表
@@ -217,7 +221,7 @@
 -(UITableView *)activityTBView{
     if (!_activityTBView) {
         
-        _activityTBView = [[UITableView alloc]initWithFrame:CGRectMake(0, 65, SCREENWIDTH, SCREENHEIGHT-60-40) style:UITableViewStylePlain];
+        _activityTBView = [[UITableView alloc]initWithFrame:CGRectMake(0, 65, SCREENWIDTH, SCREENHEIGHT - 64 - 49 - 40 -34) style:UITableViewStylePlain];
         _activityTBView.delegate=self;
         _activityTBView.dataSource=self;
         _activityTBView.separatorStyle = UITableViewCellSeparatorStyleNone;

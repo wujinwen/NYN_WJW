@@ -71,6 +71,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NYNPlayDeController *vc = [[NYNPlayDeController alloc]init];
+    NYNMatchModel *model = _allArray[indexPath.row];
+    vc.ID = model.id;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

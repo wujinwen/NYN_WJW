@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithRed:227.0/255.0 green:227.0/255.0 blue:227.0/255.0 alpha:0.8];
+    self.view.backgroundColor =[UIColor whiteColor];
       _pageNo = 1;
     [self configData];
 
@@ -167,10 +167,10 @@
     }];
 }
 -(void)creatHeadTitle{
-    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 40, SCREENWIDTH, JZHEIGHT(40))];
-    backView.backgroundColor = Colore3e3e3;
+    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 36, SCREENWIDTH, 40)];
+    backView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.view addSubview:backView];
-    UIView *selecteBackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, JZHEIGHT(41 ))];
+    UIView *selecteBackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 38)];
     selecteBackView.backgroundColor = [UIColor whiteColor];
     [backView addSubview:selecteBackView];
     selecteBackView.clipsToBounds = NO;
@@ -211,7 +211,7 @@
 
 -(UITableView *)leaseTableView{
     if (!_leaseTableView) {
-        _leaseTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 40+34+10, SCREENWIDTH, SCREENHEIGHT-64-49-(40+34+10)) style:UITableViewStylePlain];
+        _leaseTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 65, SCREENWIDTH, SCREENHEIGHT-64-49-(40+34+10)) style:UITableViewStylePlain];//SCREENHEIGHT - 64 - 50-40
         _leaseTableView.delegate=self;
         _leaseTableView.dataSource=self;
         _leaseTableView.rowHeight=JZHEIGHT(104);

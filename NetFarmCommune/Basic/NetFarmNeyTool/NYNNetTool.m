@@ -818,7 +818,7 @@
 //监控直播 - 直播间列表
 + (void)PostLiveListWithparams:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     
-    [FTNetTool postNewUrl:@"l/live/list" params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
+    [FTNetTool postNewUrl:@"l//live/list" params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
         
     } success:^(id response) {
         success(response);
@@ -1083,6 +1083,17 @@
 + (void)ActivityListParams:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     [FTNetTool postNewUrl:@"active/activity/user/queryPage" params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
         
+    } success:^(id response) {
+        success(response);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+//活动首页接口
++ (void)ActivityUserHomeParams:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    [FTNetTool postNewUrl:@"active/activity/user/home" params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
+        
         
     } success:^(id response) {
         success(response);
@@ -1275,22 +1286,11 @@
     }];
 }
 
-//餐饮详情接口
 
-+ (void)RestaurantDeId:(NSString *)Id Params:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure{
-    [FTNetTool getUrl:@"shop/repast/queryInfo" params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
-    
-    } success:^(id response) {
-        success(response);
-    } failure:^(NSError *error) {
-        failure(error);
-    }];
-}
+//活动详情接口
 
-//住宿详情接口
-
-+ (void)LodgeDeParams:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure{
-    [FTNetTool postNewUrl:@"shop/stay/queryInfo" params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
++ (void)ActiveDeId:(NSString *)Id Params:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    [FTNetTool postNewUrl:[NSString stringWithFormat:@"%@%@",@"active/activity/user/info/",Id] params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
         
         
     } success:^(id response) {
@@ -1299,4 +1299,42 @@
         failure(error);
     }];
 }
+
+//比赛详情接口
+
++ (void)MatchDeId:(NSString *)Id Params:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    [FTNetTool postNewUrl:[NSString stringWithFormat:@"%@%@",@"active/match/user/info/",Id] params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
+        
+        
+    } success:^(id response) {
+        success(response);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+//餐饮、住宿详情接口
++ (void)LogleRestaurantDeId:(NSString *)Id Params:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    [FTNetTool postNewUrl:[NSString stringWithFormat:@"%@%@",@"pastime/pastime/user/info/",Id] params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
+        
+        
+    } success:^(id response) {
+        success(response);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+//拍卖详情接口
++ (void)aleDeId:(NSString *)Id Params:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    [FTNetTool postNewUrl:[NSString stringWithFormat:@"%@%@",@"user/sale/query/info",Id] params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
+        
+        
+    } success:^(id response) {
+        success(response);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
 @end

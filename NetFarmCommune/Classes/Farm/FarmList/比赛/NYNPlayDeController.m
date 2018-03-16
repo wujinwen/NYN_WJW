@@ -18,6 +18,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor greenColor];
+    NSDictionary * locDic = JZFetchMyDefault(SET_Location);
+    NSString *lat = locDic[@"lat"] ?: @"";
+    NSString *lon =locDic[@"lon"] ?: @"";
+    
+    [NYNNetTool MatchDeId:self.ID Params:@{@"longitude":lon,@"latitude":lat} isTestLogin:NO progress:^(NSProgress *Progress) {
+        
+    } success:^(id success) {
+        JZLog(@"%@", success);
+    } failure:^(NSError *failure) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

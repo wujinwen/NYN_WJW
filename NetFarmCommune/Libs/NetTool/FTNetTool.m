@@ -101,7 +101,7 @@
     //    manager.responseSerializer=[AFJSONResponseSerializer serializer];
     //    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/plain",@"text/html", nil];
     manager.requestSerializer.timeoutInterval = 20;
-    NSString *url = [BaseUrl stringByAppendingString:[NSString stringWithFormat:@"/%@",urlStr]];
+    NSString *url = [BaseUrl stringByAppendingString:[NSString stringWithFormat:@"%@",urlStr]];
     
     [manager GET:url parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         if (success) {

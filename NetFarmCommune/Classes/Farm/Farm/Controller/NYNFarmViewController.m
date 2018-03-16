@@ -101,9 +101,9 @@
             NSString * str =self.bannerSelectDataArr[0][@"twoChildren"][0][@"id"];
             
             [self.postDic setObject:str forKey:@"categoryId"];
-
+            [self.postDic setObject:self.bannerSelectDataArr[0][@"id"] forKey:@"parentId"];
             [self getFarmPageDataWithDic:self.postDic type:@"farm"];
-            
+          
             [self createHomeUI];
             
             [self createTable];

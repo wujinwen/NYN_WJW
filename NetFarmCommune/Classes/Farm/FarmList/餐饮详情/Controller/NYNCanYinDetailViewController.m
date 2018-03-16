@@ -31,12 +31,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = self.title;
-    [NYNNetTool RestaurantDeId:@"" Params:@{@"id":self.Id} isTestLogin:YES progress:^(NSProgress *progress) {
-
+    NSDictionary * locDic = JZFetchMyDefault(SET_Location);
+    NSString *lat = locDic[@"lat"] ?: @"";
+    NSString *lon =locDic[@"lon"] ?: @"";
+    
+    [NYNNetTool LogleRestaurantDeId:self.Id Params:@{@"longitude":lon,@"latitude":lat} isTestLogin:NO progress:^(NSProgress *Progress) {
+        
     } success:^(id success) {
-
+        JZLog(@"%@", success);
     } failure:^(NSError *failure) {
-
+        
     }];
     [self createCanYinTable];
     [self.view addSubview:self.bottomView];

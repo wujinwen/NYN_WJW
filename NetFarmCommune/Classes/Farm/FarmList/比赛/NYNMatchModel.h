@@ -21,4 +21,6 @@ startDate = 1523462400000;
 stock = 200;
 thumbnail = "http://42.51.191.88/images/image/df82ceb5cf434c11a7af6c84628e2972.jpg";
 **/
+
+@property (nonatomic,strong) NSString *id;
 @end

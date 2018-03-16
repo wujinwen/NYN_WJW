@@ -34,7 +34,17 @@
     
     [self createZhuSuTable];
     [self.view addSubview:self.bottomView];
-//    [NYNNetTool LodgeDeParams:@"" isTestLogin:<#(BOOL)#> progress:<#^(NSProgress *)progress#> success:<#^(id)success#> failure:<#^(NSError *)failure#>]
+    NSDictionary * locDic = JZFetchMyDefault(SET_Location);
+    NSString *lat = locDic[@"lat"] ?: @"";
+    NSString *lon =locDic[@"lon"] ?: @"";
+    
+    [NYNNetTool LogleRestaurantDeId:self.Id Params:@{@"longitude":lon,@"latitude":lat} isTestLogin:NO progress:^(NSProgress *Progress) {
+        
+    } success:^(id success) {
+        JZLog(@"%@", success);
+    } failure:^(NSError *failure) {
+        
+    }];
     
 }
 

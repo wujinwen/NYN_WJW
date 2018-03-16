@@ -13,7 +13,7 @@
 @property (nonatomic, assign) NSInteger index;
 
 
-@property(nonatomic,strong)NSArray * dataaArray;
+@property(nonatomic,strong)NSMutableArray * dataaArray;
 
 @property(nonatomic,strong)NYNMarketListModel * model;
 

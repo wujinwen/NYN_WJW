@@ -33,7 +33,7 @@
         
         UILabel * lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 5)];
         lineLabel.backgroundColor = [UIColor lightGrayColor];
-        lineLabel.alpha=0.4;
+        lineLabel.alpha=0.3;
         [self addSubview:lineLabel];
         
         _moreButton = [[UIButton alloc]initWithFrame:CGRectMake(SCREENWIDTH-40, 9, 20, 30)];

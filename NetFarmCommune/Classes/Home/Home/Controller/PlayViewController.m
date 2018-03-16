@@ -13,6 +13,7 @@
 #import "PlayTitleView.h"
 #import "NYNNetTool.h"
 #import "NYNGameModel.h"
+#import "NYNPlayDeController.h"
 
 @interface PlayViewController ()<UITableViewDelegate,UITableViewDataSource,PlayTitleViewClickDelagate>
 
@@ -107,6 +108,13 @@
     }
     cell.model=_totleArray[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NYNPlayDeController *vc = [[NYNPlayDeController alloc]init];
+    NYNGameModel *model = _totleArray[indexPath.row];
+    vc.ID = model.id;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 //导航栏右侧点击

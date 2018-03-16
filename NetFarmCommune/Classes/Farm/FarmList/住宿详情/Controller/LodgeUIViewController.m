@@ -71,6 +71,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NYNZhuSuDetailViewController *vc = [[NYNZhuSuDetailViewController alloc]init];
+    NYNLodgeModel *model = _allArray[indexPath.row];
+    vc.Id = model.id;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
