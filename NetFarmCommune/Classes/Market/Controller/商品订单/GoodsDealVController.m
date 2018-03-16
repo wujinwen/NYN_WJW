@@ -27,6 +27,7 @@
 #import "NYNRootModel.h"
 @interface GoodsDealVController ()<HJTabViewControllerDataSource, HJTabViewControllerDelagate, HJDefaultTabViewBarDelegate>{
     NSString *reviewCount;//评论数
+    UIButton *saoyisao;
 }
 
 
@@ -49,6 +50,10 @@
 @end
 
 @implementation GoodsDealVController
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [saoyisao removeFromSuperview];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -255,7 +260,7 @@
     UIBarButtonItem *two = [[UIBarButtonItem alloc]initWithCustomView:sharebt];
         self.navigationItem.rightBarButtonItems = @[one,two];
     
-    UIButton *saoyisao = [[UIButton alloc]initWithFrame:CGRectMake(JZWITH(310), 0, JZWITH(15), JZWITH(15))];
+    saoyisao = [[UIButton alloc]initWithFrame:CGRectMake(JZWITH(310), 0, JZWITH(15), JZWITH(15))];
     [self.navigationController.navigationBar addSubview:saoyisao];
     [saoyisao addTarget:self action:@selector(goCart) forControlEvents:UIControlEventTouchUpInside];
     
