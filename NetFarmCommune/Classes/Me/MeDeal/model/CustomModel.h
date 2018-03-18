@@ -10,9 +10,9 @@
 
 @interface CustomModel : NSObject
 
-@property(nonatomic,copy)NSString *  farmName;
+@property(nonatomic,copy)NSString *farmName;
 
-@property(nonatomic,copy)NSString * orderSn;//订单编号
+@property(nonatomic,copy)NSString *orderSn;//订单编号
 @property(nonatomic,assign)long  orderAmount;
 @property(nonatomic,assign)NSInteger  farmId;
 @property(nonatomic,copy)NSString * farmImg;

@@ -27,6 +27,7 @@
     starBackView.layer.masksToBounds = YES;
     [self.contentView addSubview:starBackView];
     starBackView.userInteractionEnabled = YES;
+    starBackView.hidden = YES;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tap)];
     [starBackView addGestureRecognizer:tap];
@@ -71,8 +72,8 @@
 //    }
     
     NSMutableArray *rr = [[NSMutableArray alloc]init];
-    for (NSDictionary *dic in urlImages) {
-        [rr addObject:dic[@"imgUrl"]];
+    for (NSString *imgurl in urlImages) {
+        [rr addObject:imgurl];
     }
     
     

@@ -91,7 +91,6 @@
 		146DEEFA20245A3700E1F545 /* 椭圆2770@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 146DEEF820245A3600E1F545 /* 椭圆2770@3x.png */; };
 		146ED05F1FFCDA0500649473 /* GoodsDealModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 146ED05E1FFCDA0500649473 /* GoodsDealModel.m */; };
 		146F7CDD205A033600905809 /* RestaurantUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146F7CDB205A033500905809 /* RestaurantUIViewController.m */; };
-		146F7CE1205A043C00905809 /* MatchUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146F7CDF205A043C00905809 /* MatchUIViewController.m */; };
 		146F7CE4205A04D300905809 /* LodgeUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146F7CE3205A04D300905809 /* LodgeUIViewController.m */; };
 		146F7CEB205A0C2300905809 /* NYNMatchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 146F7CEA205A0C2300905809 /* NYNMatchModel.m */; };
 		146F7CF4205A114600905809 /* NYNRetaurantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 146F7CF2205A114600905809 /* NYNRetaurantCell.m */; };
@@ -100,8 +99,6 @@
 		146F7D01205A6D6D00905809 /* NYNPlayDeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146F7D00205A6D6D00905809 /* NYNPlayDeController.m */; };
 		146F7D08205A7BA600905809 /* NYNCanYinDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146F7D05205A7BA400905809 /* NYNCanYinDetailViewController.m */; };
 		146F7D09205A7BA600905809 /* NYNCanYinDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 146F7D07205A7BA500905809 /* NYNCanYinDetailViewController.xib */; };
-		146F7D0C205A7BBF00905809 /* NYNMatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 146F7D0A205A7BBE00905809 /* NYNMatchCell.m */; };
-		146F7D10205A7C1100905809 /* NYNMatchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 146F7D0F205A7C1100905809 /* NYNMatchCell.xib */; };
 		146F7D3A205A81F700905809 /* NYNRetaurantModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 146F7D39205A81F600905809 /* NYNRetaurantModel.m */; };
 		147079AC1FB19ECB007C3284 /* StopSpeakView.m in Sources */ = {isa = PBXBuildFile; fileRef = 147079AB1FB19ECB007C3284 /* StopSpeakView.m */; };
 		147079B01FB1A83D007C3284 /* StopSpeakTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 147079AE1FB1A83D007C3284 /* StopSpeakTVCell.m */; };
@@ -1482,6 +1479,12 @@
 		9DD76EED1F1E05FC00404382 /* NYNMeAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DD76EEB1F1E05FC00404382 /* NYNMeAddressTableViewCell.xib */; };
 		9DD76EF01F1E0B9400404382 /* NYNBianJiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD76EEF1F1E0B9400404382 /* NYNBianJiButton.m */; };
 		9DE463B91F4FC4C9009FE07B /* NYNMyFarmTaskHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE463B81F4FC4C9009FE07B /* NYNMyFarmTaskHistoryModel.m */; };
+		A55061F0205DFAFE00899384 /* NYNMatchNoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A55061EF205DFAFE00899384 /* NYNMatchNoCell.m */; };
+		A5F5C300205D604A0070DDD7 /* NYNCellHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F5C2FF205D604A0070DDD7 /* NYNCellHeadView.m */; };
+		A5F5C303205D630E0070DDD7 /* NYNMoneyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F5C302205D630E0070DDD7 /* NYNMoneyCell.m */; };
+		A5F5C306205D674D0070DDD7 /* NYNAdressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F5C305205D674D0070DDD7 /* NYNAdressCell.m */; };
+		A5F5C309205D747E0070DDD7 /* NYNWhoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F5C308205D747E0070DDD7 /* NYNWhoCell.m */; };
+		A5F5C30C205D77FA0070DDD7 /* NYNAcDeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F5C30B205D77FA0070DDD7 /* NYNAcDeCell.m */; };
 		C2982CB72046EE2700E59B84 /* Pattern@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2982CB42046EE2600E59B84 /* Pattern@3x.png */; };
 		C2982CB82046EE2700E59B84 /* Pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2982CB52046EE2600E59B84 /* Pattern@2x.png */; };
 		C2982CB92046EE2700E59B84 /* Pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C2982CB62046EE2600E59B84 /* Pattern.png */; };
@@ -1688,8 +1691,6 @@
 		146ED05E1FFCDA0500649473 /* GoodsDealModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsDealModel.m; sourceTree = "<group>"; };
 		146F7CDB205A033500905809 /* RestaurantUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantUIViewController.m; sourceTree = "<group>"; };
 		146F7CDC205A033500905809 /* RestaurantUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantUIViewController.h; sourceTree = "<group>"; };
-		146F7CDF205A043C00905809 /* MatchUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchUIViewController.m; sourceTree = "<group>"; };
-		146F7CE0205A043C00905809 /* MatchUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchUIViewController.h; sourceTree = "<group>"; };
 		146F7CE2205A04D300905809 /* LodgeUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LodgeUIViewController.h; sourceTree = "<group>"; };
 		146F7CE3205A04D300905809 /* LodgeUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LodgeUIViewController.m; sourceTree = "<group>"; };
 		146F7CE9205A0C2300905809 /* NYNMatchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNMatchModel.h; sourceTree = "<group>"; };
@@ -1705,9 +1706,6 @@
 		146F7D05205A7BA400905809 /* NYNCanYinDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYNCanYinDetailViewController.m; sourceTree = "<group>"; };
 		146F7D06205A7BA400905809 /* NYNCanYinDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYNCanYinDetailViewController.h; sourceTree = "<group>"; };
 		146F7D07205A7BA500905809 /* NYNCanYinDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NYNCanYinDetailViewController.xib; sourceTree = "<group>"; };
-		146F7D0A205A7BBE00905809 /* NYNMatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYNMatchCell.m; sourceTree = "<group>"; };
-		146F7D0B205A7BBF00905809 /* NYNMatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYNMatchCell.h; sourceTree = "<group>"; };
-		146F7D0F205A7C1100905809 /* NYNMatchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYNMatchCell.xib; sourceTree = "<group>"; };
 		146F7D38205A81F600905809 /* NYNRetaurantModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYNRetaurantModel.h; sourceTree = "<group>"; };
 		146F7D39205A81F600905809 /* NYNRetaurantModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYNRetaurantModel.m; sourceTree = "<group>"; };
 		147079AA1FB19ECB007C3284 /* StopSpeakView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StopSpeakView.h; sourceTree = "<group>"; };
@@ -3606,6 +3604,18 @@
 		9DD76EEF1F1E0B9400404382 /* NYNBianJiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYNBianJiButton.m; sourceTree = "<group>"; };
 		9DE463B71F4FC4C9009FE07B /* NYNMyFarmTaskHistoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYNMyFarmTaskHistoryModel.h; sourceTree = "<group>"; };
 		9DE463B81F4FC4C9009FE07B /* NYNMyFarmTaskHistoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYNMyFarmTaskHistoryModel.m; sourceTree = "<group>"; };
+		A55061EE205DFAFE00899384 /* NYNMatchNoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNMatchNoCell.h; sourceTree = "<group>"; };
+		A55061EF205DFAFE00899384 /* NYNMatchNoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYNMatchNoCell.m; sourceTree = "<group>"; };
+		A5F5C2FE205D604A0070DDD7 /* NYNCellHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNCellHeadView.h; sourceTree = "<group>"; };
+		A5F5C2FF205D604A0070DDD7 /* NYNCellHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYNCellHeadView.m; sourceTree = "<group>"; };
+		A5F5C301205D630E0070DDD7 /* NYNMoneyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNMoneyCell.h; sourceTree = "<group>"; };
+		A5F5C302205D630E0070DDD7 /* NYNMoneyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYNMoneyCell.m; sourceTree = "<group>"; };
+		A5F5C304205D674D0070DDD7 /* NYNAdressCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNAdressCell.h; sourceTree = "<group>"; };
+		A5F5C305205D674D0070DDD7 /* NYNAdressCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYNAdressCell.m; sourceTree = "<group>"; };
+		A5F5C307205D747E0070DDD7 /* NYNWhoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNWhoCell.h; sourceTree = "<group>"; };
+		A5F5C308205D747E0070DDD7 /* NYNWhoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYNWhoCell.m; sourceTree = "<group>"; };
+		A5F5C30A205D77FA0070DDD7 /* NYNAcDeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNAcDeCell.h; sourceTree = "<group>"; };
+		A5F5C30B205D77FA0070DDD7 /* NYNAcDeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYNAcDeCell.m; sourceTree = "<group>"; };
 		AC7B4B19DF3F57F9E645AD1D /* Pods-NetFarmCommune.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetFarmCommune.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetFarmCommune/Pods-NetFarmCommune.release.xcconfig"; sourceTree = "<group>"; };
 		C2982CB42046EE2600E59B84 /* Pattern@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pattern@3x.png"; sourceTree = "<group>"; };
 		C2982CB52046EE2600E59B84 /* Pattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pattern@2x.png"; sourceTree = "<group>"; };
@@ -3995,15 +4005,12 @@
 		146F7CDE205A042800905809 /* 比赛 */ = {
 			isa = PBXGroup;
 			children = (
-				146F7CE0205A043C00905809 /* MatchUIViewController.h */,
-				146F7CDF205A043C00905809 /* MatchUIViewController.m */,
 				146F7CE9205A0C2300905809 /* NYNMatchModel.h */,
 				146F7CEA205A0C2300905809 /* NYNMatchModel.m */,
 				146F7CFF205A6D6D00905809 /* NYNPlayDeController.h */,
 				146F7D00205A6D6D00905809 /* NYNPlayDeController.m */,
-				146F7D0B205A7BBF00905809 /* NYNMatchCell.h */,
-				146F7D0A205A7BBE00905809 /* NYNMatchCell.m */,
-				146F7D0F205A7C1100905809 /* NYNMatchCell.xib */,
+				A55061EE205DFAFE00899384 /* NYNMatchNoCell.h */,
+				A55061EF205DFAFE00899384 /* NYNMatchNoCell.m */,
 			);
 			path = "比赛";
 			sourceTree = "<group>";
@@ -5711,9 +5718,8 @@
 		9D61C2021EE93CCE00C40984 /* 活动详情 */ = {
 			isa = PBXGroup;
 			children = (
+				A5F5C2FD205D5FF70070DDD7 /* View */,
 				9D61C2031EE93CCE00C40984 /* Controller */,
-				9D61C2041EE93CCE00C40984 /* Model */,
-				9D61C2051EE93CCE00C40984 /* View */,
 			);
 			path = "活动详情";
 			sourceTree = "<group>";
@@ -5726,20 +5732,6 @@
 				9D61C2081EE93CE100C40984 /* NYNHuoDongViewController.xib */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		9D61C2041EE93CCE00C40984 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9D61C2051EE93CCE00C40984 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		9D61C20B1EE9493B00C40984 /* 餐饮详情 */ = {
@@ -8253,6 +8245,23 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		A5F5C2FD205D5FF70070DDD7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A5F5C2FE205D604A0070DDD7 /* NYNCellHeadView.h */,
+				A5F5C2FF205D604A0070DDD7 /* NYNCellHeadView.m */,
+				A5F5C304205D674D0070DDD7 /* NYNAdressCell.h */,
+				A5F5C305205D674D0070DDD7 /* NYNAdressCell.m */,
+				A5F5C301205D630E0070DDD7 /* NYNMoneyCell.h */,
+				A5F5C302205D630E0070DDD7 /* NYNMoneyCell.m */,
+				A5F5C307205D747E0070DDD7 /* NYNWhoCell.h */,
+				A5F5C308205D747E0070DDD7 /* NYNWhoCell.m */,
+				A5F5C30A205D77FA0070DDD7 /* NYNAcDeCell.h */,
+				A5F5C30B205D77FA0070DDD7 /* NYNAcDeCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DF4EE94ABFC03192CD6D56A4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -8549,7 +8558,6 @@
 				9DA258DA1F0F8BB8008FA05D /* mine_icon_selected2@3x.png in Resources */,
 				9D06618A1F21E1F800354861 /* NYNMeDealDaiFuKuanViewController.xib in Resources */,
 				9D86264E1F20B523007CCD15 /* NYNMarketTableViewCell.xib in Resources */,
-				146F7D10205A7C1100905809 /* NYNMatchCell.xib in Resources */,
 				9D7300A71F78F050002F6F9C /* People@2x.png in Resources */,
 				9DA2587D1F0F8BB8008FA05D /* mine_icon_address@2x.png in Resources */,
 				9DA258661F0F8BB8008FA05D /* farm_icon_weibo_2@3x.png in Resources */,
@@ -9286,7 +9294,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		90733F312EDD0C7196AED657 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -9344,7 +9352,7 @@
 		};
 		D92DD0F4AF96D0E5F8106181 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -9423,7 +9431,6 @@
 				9D64647D1EE569B700D11C9E /* NYNHelpViewController.m in Sources */,
 				9D5FE41F1F1C5C3200CD9FE7 /* NYNChooseAndPayViewController.m in Sources */,
 				9D54CAC91EF11C3800AAC3D6 /* NYNSrollSelectButton.m in Sources */,
-				146F7CE1205A043C00905809 /* MatchUIViewController.m in Sources */,
 				9D6464821EE569B700D11C9E /* NYNHelpTableViewCell.m in Sources */,
 				9D7501701ED97AC000FF7EC6 /* UIColor+colorkuozan.m in Sources */,
 				9DB6556B1EEE8F0F002718A5 /* NYNPayChooseModel.m in Sources */,
@@ -9517,6 +9524,7 @@
 				9D7501631ED97AC000FF7EC6 /* MMHeaderView.m in Sources */,
 				148159ED201093A4005CBC36 /* ProMessegeTViewCell.m in Sources */,
 				9D75014A1ED97AC000FF7EC6 /* AddressPickerView.m in Sources */,
+				A5F5C303205D630E0070DDD7 /* NYNMoneyCell.m in Sources */,
 				1472804B1FA96A4900CE5BEB /* ChildLiveOne.m in Sources */,
 				9DD76ED11F1DF1D400404382 /* NYNMeHuoDongTableViewCell.m in Sources */,
 				148171F81FE767AB00F089B0 /* PlayTitleView.m in Sources */,
@@ -9547,6 +9555,7 @@
 				14DE6B4B1F8B6EFF00B5C2EE /* MessegeViewController.m in Sources */,
 				9D5FE42E1F1C9FD900CD9FE7 /* NYNMaiWangNongOneTableViewCell.m in Sources */,
 				9D7501611ED97AC000FF7EC6 /* MMCombinationFitlerView.m in Sources */,
+				A5F5C306205D674D0070DDD7 /* NYNAdressCell.m in Sources */,
 				149B122D1FB2AC840010B58F /* AttentionViewController.m in Sources */,
 				146F7D01205A6D6D00905809 /* NYNPlayDeController.m in Sources */,
 				9D78EBAB1F4BD21A00B0EB5D /* NYNMyFarmZuZhongThreeTableViewCell.m in Sources */,
@@ -9652,6 +9661,7 @@
 				9D7E09771EDEE6DB008CABE3 /* FTMeButton.m in Sources */,
 				148159E92010918D005CBC36 /* DetailsViewController.m in Sources */,
 				9D623B761F445EFF00F4F379 /* NYNMyFarmZhongZhiViewController.m in Sources */,
+				A55061F0205DFAFE00899384 /* NYNMatchNoCell.m in Sources */,
 				9D0661B11F21EB6400354861 /* NYNMeDealDaiPingJiaTableViewCell.m in Sources */,
 				9DD76EAE1F1DED1000404382 /* NYNCollectionHuoDongViewController.m in Sources */,
 				9D2361C31EE7E27F00E28C97 /* FTCultivateTableViewCell.m in Sources */,
@@ -9719,6 +9729,7 @@
 				9D1EB5741F2F10CF00B57586 /* NYNProvinceModel.m in Sources */,
 				14709E011F9F2D98009D667F /* FarmChatViewController.m in Sources */,
 				9D64649D1EE57CBD00D11C9E /* FTFarmListTableViewCell.m in Sources */,
+				A5F5C309205D747E0070DDD7 /* NYNWhoCell.m in Sources */,
 				1479F2511FDFD9940035FA13 /* LocationViewController.m in Sources */,
 				146C84011FC667A5003F361F /* SaleOneTableViewCell.m in Sources */,
 				9D4124321F0637A700DC9827 /* NYNDIYChooseDetailTableViewCell.m in Sources */,
@@ -9749,6 +9760,7 @@
 				9D1E5CD31F25E57600205261 /* PersonalCenterChildBaseVC.m in Sources */,
 				9D2361CB1EE7E27F00E28C97 /* FTFoodTableViewCell.m in Sources */,
 				146700201F8F42B0006AB43B /* RCDLiveMessageCellNotificationModel.m in Sources */,
+				A5F5C30C205D77FA0070DDD7 /* NYNAcDeCell.m in Sources */,
 				1491DD6C203E6471004F120A /* LeaseTuTableViewCell.m in Sources */,
 				149B12361FB2DA3F0010B58F /* clarityView.m in Sources */,
 				9DB6555D1EEE8B02002718A5 /* NYNPayViewController.m in Sources */,
@@ -9764,7 +9776,6 @@
 				9D7E097D1EDEE6DB008CABE3 /* FTMyFarmTableViewCell.m in Sources */,
 				9D75016E1ED97AC000FF7EC6 /* MultilevelMenu.m in Sources */,
 				1467004F1F8F8FDC006AB43B /* MyMovieViewController.m in Sources */,
-				146F7D0C205A7BBF00905809 /* NYNMatchCell.m in Sources */,
 				9D7E09781EDEE6DB008CABE3 /* FTMeFunctionButton.m in Sources */,
 				9D4124251F05F81200DC9827 /* NYNDIYTableViewCell.m in Sources */,
 				1467003A1F8F63A9006AB43B /* RCDLiveTipMessageCell.m in Sources */,
@@ -9826,6 +9837,7 @@
 				148159DB20106C3C005CBC36 /* HJTabViewControllerPlugin_Base.m in Sources */,
 				9D583EF71EE15FEF003BF782 /* NYNSettingViewController.m in Sources */,
 				9D75016C1ED97AC000FF7EC6 /* MultilevelTableViewCell.m in Sources */,
+				A5F5C300205D604A0070DDD7 /* NYNCellHeadView.m in Sources */,
 				9D7304791EEFC266004D04BD /* NYNWantYangZhiViewController.m in Sources */,
 				9D7E09651EDEE6AC008CABE3 /* NYNMeViewController.m in Sources */,
 				9D7501681ED97AC000FF7EC6 /* CollectionHeader.m in Sources */,

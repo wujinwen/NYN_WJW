@@ -21,6 +21,11 @@
     // Configure the view for the selected state
 }
 
+- (void)setModel:(NYNActivityModel *)model{
+    self.juliLabel.text =[NSString stringWithFormat:@"距离%.0fkm",[model.distance floatValue]];
+    self.addressLabel.text = [NSString stringWithFormat:@"%@%@%@",model.farm[@"city"],model.farm[@"area"],model.farm[@"address"]];
+}
+
 - (IBAction)callAction:(id)sender {
     if (self.callBlock) {
         self.callBlock(@"");

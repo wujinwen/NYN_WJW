@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NYNActivityModel.h"
 
 typedef void(^CallBlock) (NSString *ss);
 
@@ -16,4 +17,6 @@ typedef void(^CallBlock) (NSString *ss);
 @property (weak, nonatomic) IBOutlet UILabel *juliLabel;
 
 @property (nonatomic,copy) CallBlock callBlock;
+@property (nonatomic,strong) NYNActivityModel *model;
+
 @end

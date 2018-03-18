@@ -28,7 +28,6 @@
 @property(nonatomic,copy)NSString * categoryId;
 @property(nonatomic,copy)NSString * distance;
 
-
 @property(nonatomic,copy)NSString * sn;//土地编号
 @property(nonatomic,copy)NSString * status;//土地状态(idle:闲置；rentOut:出租中)
 @property(nonatomic,copy)NSString *minRate;//土地最小租赁周期
@@ -37,4 +36,9 @@
 
 @property(nonatomic,copy)NSString *realAddress;//农场地址
 @property(nonatomic,copy)NSString *breedWay;//养殖方式
+
+@property (nonatomic, strong) NSString *currentDate;
+@property (nonatomic, strong) NSDictionary *farm;
+@property (nonatomic, strong) NSString *id;
+
 @end

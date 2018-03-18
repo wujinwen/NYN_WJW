@@ -71,8 +71,8 @@
     NSString *lat = locDic[@"lat"];
     NSString *lon = locDic[@"lon"];
     
-    NSString *province =  locDic[@"province"] ?: @"";
-    NSString *city =  locDic[@"city"] ?: @"";
+//    NSString *province =  locDic[@"province"] ?: @"";
+//    NSString *city =  locDic[@"city"] ?: @"";
     NSDictionary * dic = @{@"latitude":lat,@"longitude":lon,@"orderType":status,@"pageNo":[NSString stringWithFormat:@"%d",_pageNo],@"pageSize":@"10",@"orderBy":@"asc"};
     [NYNNetTool MatchQueryPageParams:dic isTestLogin:NO progress:^(NSProgress *progress) {
 
@@ -129,7 +129,7 @@
         _tableView.delegate=self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [[UIView alloc]init];
-        _tableView.rowHeight=155;
+        _tableView.rowHeight=185;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _tableView;

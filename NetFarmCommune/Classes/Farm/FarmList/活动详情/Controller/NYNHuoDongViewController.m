@@ -18,8 +18,15 @@
 #import "NYNYueXiaoTableViewCell.h"
 #import "NYNGouMaiTableViewCell.h"
 #import "NYNGouMaiView.h"
+#import "NYNActivityModel.h"
+#import "NYNMoneyCell.h"
+#import "NYNAdressCell.h"
+#import "NYNWhoCell.h"
+#import "NYNAcDeCell.h"
 
-@interface NYNHuoDongViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface NYNHuoDongViewController ()<UITableViewDelegate,UITableViewDataSource>{
+    NYNActivityModel *dataModel;
+}
 @property (nonatomic,strong) UITableView *huoDongTable;
 @property (nonatomic,strong) NYNGouMaiView *bottomView;
 
@@ -39,9 +46,10 @@
     NSString *lon =locDic[@"lon"] ?: @"";
     
     [NYNNetTool ActiveDeId:self.ID Params:@{@"longitude":lon,@"latitude":lat} isTestLogin:NO progress:^(NSProgress *Progress) {
-        
     } success:^(id success) {
         JZLog(@"%@", success);
+        dataModel = [NYNActivityModel mj_objectWithKeyValues:success[@"data"]];
+        [self.huoDongTable reloadData];
     } failure:^(NSError *failure) {
         
     }];
@@ -49,14 +57,11 @@
 
 - (void)createhuoDongTable{
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
     self.huoDongTable.delegate = self;
     self.huoDongTable.dataSource = self;
     self.huoDongTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.huoDongTable.showsVerticalScrollIndicator = NO;
     self.huoDongTable.showsHorizontalScrollIndicator = NO;
-    
-    
     [self.view addSubview:self.huoDongTable];
 }
 
@@ -66,118 +71,103 @@
 }
 
 #pragma tableview代理
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 4;
-}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 0) {
-        return 3;
-    }else if (section == 1) {
-        return 2;
-    }else if (section == 2) {
-        return 1;
-    }else{
-        return 0;
-    }
-    
+    return 6;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            NYNEarthDetailHeaderTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"activityCell"];
+            NYNEarthDetailHeaderTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"imgCell"];
             if (farmLiveTableViewCell == nil) {
                 farmLiveTableViewCell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([NYNEarthDetailHeaderTableViewCell class]) owner:self options:nil].firstObject;
             }
+            NSMutableArray *imgArr = [[NSMutableArray alloc]init];
+            if (dataModel != nil) {
+                if ([(NSArray *)dataModel.farm[@"images"] count] == 0) {
+                    [imgArr addObject:[NSString jsonImg:dataModel.images ]];
+                }
+                else{
+                    imgArr = (NSMutableArray *)dataModel.farm[@"images"];
+                }
+                [farmLiveTableViewCell setUrlImages:imgArr];
+            }
+           
             return farmLiveTableViewCell;
         }
         else if (indexPath.row == 1){
-            NYNEarthDataTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"activityCell"];
+            NYNEarthDataTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"deCell"];
             if (farmLiveTableViewCell == nil) {
                 farmLiveTableViewCell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([NYNEarthDataTableViewCell class]) owner:self options:nil].firstObject;
             }
-            return farmLiveTableViewCell;
-        }
-        else{
-            NYNEarthLocationViewTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"activityCell"];
-            if (farmLiveTableViewCell == nil) {
-                farmLiveTableViewCell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([NYNEarthLocationViewTableViewCell class]) owner:self options:nil].firstObject;
+            if (dataModel != nil) {
+                [farmLiveTableViewCell setModel:dataModel];
             }
             return farmLiveTableViewCell;
         }
-        
-        
-        
-    }else if (indexPath.section == 1){
-        if (indexPath.row == 0) {
-            NYNGouMaiTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"activityCell"];
+        else if (indexPath.row == 2) {
+            NYNAdressCell *farmLiveTableViewCell = [[NYNAdressCell alloc]initWithStyle:0 reuseIdentifier:@"addCell"];
+            
             if (farmLiveTableViewCell == nil) {
-                farmLiveTableViewCell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([NYNGouMaiTableViewCell class]) owner:self options:nil].firstObject;
+                farmLiveTableViewCell = [[NYNAdressCell alloc]initWithStyle:0 reuseIdentifier:@"addCell"];
             }
+            farmLiveTableViewCell.model = dataModel;
             return farmLiveTableViewCell;
         }
-        else{
-            NYNChooseTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"activityCell"];
+        else if (indexPath.row == 3) {
+            NYNMoneyCell *farmLiveTableViewCell = [[NYNMoneyCell alloc]initWithStyle:0 reuseIdentifier:@"moneyCell"];
+            
             if (farmLiveTableViewCell == nil) {
-                farmLiveTableViewCell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([NYNChooseTableViewCell class]) owner:self options:nil].firstObject;
+                farmLiveTableViewCell = [[NYNMoneyCell alloc]initWithStyle:0 reuseIdentifier:@"moneyCell"];
             }
-            farmLiveTableViewCell.titleLabe.text = @"卖家信息";
-            farmLiveTableViewCell.detailTextLabel.text = @"花果山农场";
+            farmLiveTableViewCell.model = dataModel;
             return farmLiveTableViewCell;
         }
-    }
-    //    else if (indexPath.section == 2){
-    //        NYNEarthDetailTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"activityCell"];
-    //        if (farmLiveTableViewCell == nil) {
-    //            farmLiveTableViewCell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([NYNEarthDetailTableViewCell class]) owner:self options:nil].firstObject;
-    //        }
-    //        return farmLiveTableViewCell;
-    //    }
-    else{
-        NYNEarthDetailTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"activityCell"];
-        if (farmLiveTableViewCell == nil) {
-            farmLiveTableViewCell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([NYNEarthDetailTableViewCell class]) owner:self options:nil].firstObject;
+        else if (indexPath.row == 4) {
+            NYNWhoCell *farmLiveTableViewCell = [[NYNWhoCell alloc]initWithStyle:0 reuseIdentifier:@"whoCell"];
+            
+            if (farmLiveTableViewCell == nil) {
+                farmLiveTableViewCell = [[NYNWhoCell alloc]initWithStyle:0 reuseIdentifier:@"whoCell"];
+            }
+            farmLiveTableViewCell.model = dataModel;
+            return farmLiveTableViewCell;
+
         }
-        return farmLiveTableViewCell;
-    }
-    
-    
+       else {
+           NYNAcDeCell *farmLiveTableViewCell = [[NYNAcDeCell alloc]initWithStyle:0 reuseIdentifier:@"acDeCell"];
+           
+           if (farmLiveTableViewCell == nil) {
+               farmLiveTableViewCell = [[NYNAcDeCell alloc]initWithStyle:0 reuseIdentifier:@"acDeCell"];
+           }
+           farmLiveTableViewCell.model = dataModel;
+           return farmLiveTableViewCell;        }
     
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             return JZHEIGHT(171);
         }
         else if (indexPath.row == 1){
-            return JZHEIGHT(100);
+            return JZHEIGHT(70);
+        } else if (indexPath.row == 2){
+            return 80;
+        }
+        else if (indexPath.row == 3){
+            return 50;
+        }
+        else if (indexPath.row == 4){
+            return 80;
         }
         else{
-            return JZHEIGHT(36);
+            return 200;
         }
-        
-    }else if (indexPath.section == 1){
-        if (indexPath.row == 0) {
-            return JZHEIGHT(40);
-        }
-        else{
-            return JZHEIGHT(41);
-        }
-    }
-    //    else if (indexPath.section == 2){
-    //        return JZHEIGHT(126);
-    //    }
-    else{
-        return JZHEIGHT(201);
-    }
     
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH,section == 0 ?  0.0001 : JZHEIGHT(5))];
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH,0.0001 )];
     
 //    if (section == 2) {
 //        
@@ -213,17 +203,8 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
         return 0.00001;
-    }else if(section == 1){
-        return JZHEIGHT(5);
-    }
-    else if(section == 2){
-        return JZHEIGHT(5);
-    }
-    else{
-        return JZHEIGHT(0.00001);
-    }
+
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
@@ -245,7 +226,7 @@
 {
     
     if (!_huoDongTable) {
-        _huoDongTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT - 64 - JZHEIGHT(45)-100) style:UITableViewStyleGrouped];
+        _huoDongTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT - 64 -JZHEIGHT(45)) style:UITableViewStyleGrouped];
     }
     return _huoDongTable;
 }

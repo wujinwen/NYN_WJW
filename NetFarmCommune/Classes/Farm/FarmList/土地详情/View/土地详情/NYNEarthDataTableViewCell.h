@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NYNActivityModel.h"
 
 @interface NYNEarthDataTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -14,4 +15,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *pricelabel;
 @property (weak, nonatomic) IBOutlet UILabel *kucunLabel;
 
+@property (strong, nonatomic) NYNActivityModel *model;
 @end

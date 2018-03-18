@@ -35,7 +35,7 @@
 #import "SaleEditViewController.h"
 #import "ZWPullMenuView.h"
 
-#import "MatchUIViewController.h"
+#import "NYNPlayDeController.h"
 #import "RestaurantUIViewController.h"
 #import "LodgeUIViewController.h"
 
@@ -425,14 +425,8 @@ static CGFloat const PersonalCenterVCTopViewHeight = 171;
             }
             else if ([model.categoryId isEqualToString:@"79"]){
                 //比赛
-                MatchUIViewController *threeVC = [[MatchUIViewController alloc]init];
-                threeVC.categoryId = model.ID;
-                threeVC.farmId = self.headerDataModel.farmId;
-                threeVC.pageNo = 1;
-                threeVC.pageSize = 100;
-                [threeVC getDataFarmIDString:model.farmId];
-                threeVC.delegatePersonalCenterChildBaseVC = self;
-                [ssarr addObject:threeVC];
+                NYNPlayDeController *threeVC = [[NYNPlayDeController alloc]init];
+                threeVC.ID = model.ID;
             }
         }
         

@@ -23,4 +23,11 @@
     // Configure the view for the selected state
 }
 
+-(void)setModel:(NYNActivityModel *)model{
+    self.nameLabel.text = model.name;
+    self.kucunLabel.text = [NSString stringWithFormat:@"比赛日期%@至%@",[MyControl timeWithTimeIntervalString:model.startDate],[MyControl timeWithTimeIntervalString:model.endDate]];
+    self.updateTimeLabel.text = [NSString stringWithFormat:@"人数%@/%@",model.stock,model.maxStock];
+    self.pricelabel.hidden = YES;
+}
+
 @end
