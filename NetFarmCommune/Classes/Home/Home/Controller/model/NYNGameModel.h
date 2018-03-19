@@ -36,4 +36,6 @@
 
 @property(nonatomic,copy)NSString *address;
 
+@property(nonatomic,copy)NSString *state;
+
 @end

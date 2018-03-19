@@ -74,7 +74,7 @@
     homeV.TiaoZhuan = ^(NSString *ss) {
         self.selectedIndex = 1;
     };
-    [self setupOneChildViewController:[[FTNavigationViewController alloc]initWithRootViewController:homeV] andTitle:@"主页" andImage:@"public_tab_home1" andSelectedImage:@"public_tab_home2"];
+    [self setupOneChildViewController:[[FTNavigationViewController alloc]initWithRootViewController:homeV] andTitle:@"首页" andImage:@"public_tab_home1" andSelectedImage:@"public_tab_home2"];
     
     [self setupOneChildViewController:[[FTNavigationViewController alloc]initWithRootViewController:[[NYNFarmViewController alloc]init]] andTitle:@"店铺" andImage:@"public_tab_farm1" andSelectedImage:@"public_tab_farm2"];
     

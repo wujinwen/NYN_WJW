@@ -334,6 +334,14 @@
 		14DE6B4E1F8B6F1800B5C2EE /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE6B4D1F8B6F1800B5C2EE /* FriendViewController.m */; };
 		14DE6B521F8B729500B5C2EE /* NYNFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE6B501F8B729500B5C2EE /* NYNFriendTableViewCell.m */; };
 		14DE6B531F8B729500B5C2EE /* NYNFriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14DE6B511F8B729500B5C2EE /* NYNFriendTableViewCell.xib */; };
+		14EE76A0205F561800009618 /* NYNLeaseDeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EE769F205F561800009618 /* NYNLeaseDeController.m */; };
+		14EE76A3205F5ABB00009618 /* NYNLeImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EE76A2205F5ABB00009618 /* NYNLeImgCell.m */; };
+		14EE76A6205F5FE200009618 /* NYNLeNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EE76A5205F5FE200009618 /* NYNLeNameCell.m */; };
+		14EE76A9205F618E00009618 /* NYNYCCommonCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EE76A8205F618E00009618 /* NYNYCCommonCtrl.m */; };
+		14EE76AC205F66EE00009618 /* NYNLeMJCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EE76AB205F66EE00009618 /* NYNLeMJCell.m */; };
+		14EE76AF205F671E00009618 /* NYNMonthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EE76AE205F671E00009618 /* NYNMonthCell.m */; };
+		14EE76B2205F673B00009618 /* NYNInstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EE76B1205F673B00009618 /* NYNInstCell.m */; };
+		14EE76B5205F698000009618 /* NYNAddresCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EE76B4205F698000009618 /* NYNAddresCell.m */; };
 		14FDA3601F7F81F200C99143 /* SetLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FDA35F1F7F81F200C99143 /* SetLiveView.m */; };
 		14FDA3621F7F83F000C99143 /* SetLiveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FDA3611F7F83F000C99143 /* SetLiveView.xib */; };
 		1F7FCB19EA76C4427B1B665B /* Pods_NetFarmCommune.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3637A8F9F854740F3F8663A /* Pods_NetFarmCommune.framework */; };
@@ -2091,6 +2099,22 @@
 		14DE6B4F1F8B729500B5C2EE /* NYNFriendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNFriendTableViewCell.h; sourceTree = "<group>"; };
 		14DE6B501F8B729500B5C2EE /* NYNFriendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYNFriendTableViewCell.m; sourceTree = "<group>"; };
 		14DE6B511F8B729500B5C2EE /* NYNFriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYNFriendTableViewCell.xib; sourceTree = "<group>"; };
+		14EE769E205F561800009618 /* NYNLeaseDeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNLeaseDeController.h; sourceTree = "<group>"; };
+		14EE769F205F561800009618 /* NYNLeaseDeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYNLeaseDeController.m; sourceTree = "<group>"; };
+		14EE76A1205F5ABB00009618 /* NYNLeImgCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNLeImgCell.h; sourceTree = "<group>"; };
+		14EE76A2205F5ABB00009618 /* NYNLeImgCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYNLeImgCell.m; sourceTree = "<group>"; };
+		14EE76A4205F5FE200009618 /* NYNLeNameCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNLeNameCell.h; sourceTree = "<group>"; };
+		14EE76A5205F5FE200009618 /* NYNLeNameCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYNLeNameCell.m; sourceTree = "<group>"; };
+		14EE76A7205F618E00009618 /* NYNYCCommonCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNYCCommonCtrl.h; sourceTree = "<group>"; };
+		14EE76A8205F618E00009618 /* NYNYCCommonCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYNYCCommonCtrl.m; sourceTree = "<group>"; };
+		14EE76AA205F66EE00009618 /* NYNLeMJCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNLeMJCell.h; sourceTree = "<group>"; };
+		14EE76AB205F66EE00009618 /* NYNLeMJCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYNLeMJCell.m; sourceTree = "<group>"; };
+		14EE76AD205F671E00009618 /* NYNMonthCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNMonthCell.h; sourceTree = "<group>"; };
+		14EE76AE205F671E00009618 /* NYNMonthCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYNMonthCell.m; sourceTree = "<group>"; };
+		14EE76B0205F673B00009618 /* NYNInstCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNInstCell.h; sourceTree = "<group>"; };
+		14EE76B1205F673B00009618 /* NYNInstCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYNInstCell.m; sourceTree = "<group>"; };
+		14EE76B3205F698000009618 /* NYNAddresCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYNAddresCell.h; sourceTree = "<group>"; };
+		14EE76B4205F698000009618 /* NYNAddresCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYNAddresCell.m; sourceTree = "<group>"; };
 		14FDA35E1F7F81F200C99143 /* SetLiveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetLiveView.h; sourceTree = "<group>"; };
 		14FDA35F1F7F81F200C99143 /* SetLiveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetLiveView.m; sourceTree = "<group>"; };
 		14FDA3611F7F83F000C99143 /* SetLiveView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetLiveView.xib; sourceTree = "<group>"; };
@@ -4750,6 +4774,8 @@
 				1473F3D12029ADF700DA3AF3 /* DMDropDownMenu.m */,
 				14BCA2102058F9CB009EEF8F /* NSString+NYN.h */,
 				14BCA2112058F9CB009EEF8F /* NSString+NYN.m */,
+				14EE76A7205F618E00009618 /* NYNYCCommonCtrl.h */,
+				14EE76A8205F618E00009618 /* NYNYCCommonCtrl.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -4770,6 +4796,27 @@
 				14DE6B471F8B6EEA00B5C2EE /* NYNGroupViewController.m */,
 			);
 			path = Group;
+			sourceTree = "<group>";
+		};
+		14EE769D205F521300009618 /* LeaseDe */ = {
+			isa = PBXGroup;
+			children = (
+				14EE769E205F561800009618 /* NYNLeaseDeController.h */,
+				14EE769F205F561800009618 /* NYNLeaseDeController.m */,
+				14EE76A1205F5ABB00009618 /* NYNLeImgCell.h */,
+				14EE76A2205F5ABB00009618 /* NYNLeImgCell.m */,
+				14EE76A4205F5FE200009618 /* NYNLeNameCell.h */,
+				14EE76A5205F5FE200009618 /* NYNLeNameCell.m */,
+				14EE76AA205F66EE00009618 /* NYNLeMJCell.h */,
+				14EE76AB205F66EE00009618 /* NYNLeMJCell.m */,
+				14EE76AD205F671E00009618 /* NYNMonthCell.h */,
+				14EE76AE205F671E00009618 /* NYNMonthCell.m */,
+				14EE76B0205F673B00009618 /* NYNInstCell.h */,
+				14EE76B1205F673B00009618 /* NYNInstCell.m */,
+				14EE76B3205F698000009618 /* NYNAddresCell.h */,
+				14EE76B4205F698000009618 /* NYNAddresCell.m */,
+			);
+			path = LeaseDe;
 			sourceTree = "<group>";
 		};
 		14FDA3591F7F742300C99143 /* View */ = {
@@ -5391,6 +5438,7 @@
 		9D583E7C1EE14D01003BF782 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				14EE769D205F521300009618 /* LeaseDe */,
 				147160FA2032B46700513D48 /* model */,
 				1479F24E1FDFD8690035FA13 /* 定位 */,
 				148EDBA61FDA8D2A009D9188 /* 比赛 */,
@@ -9385,6 +9433,7 @@
 				9D706C681EEA94DF004788E9 /* NYNSheXiangJianKongTableViewCell.m in Sources */,
 				9D706C711EEA94DF004788E9 /* NYNZuDiZhongZhiTableViewCell.m in Sources */,
 				9D1EB57D1F2F570400B57586 /* NYNDealModel.m in Sources */,
+				14EE76B2205F673B00009618 /* NYNInstCell.m in Sources */,
 				9D706C5D1EEA94DF004788E9 /* NYNEarthDataTableViewCell.m in Sources */,
 				9D06618E1F21E20800354861 /* NYNMeDealDaiFaHuoViewController.m in Sources */,
 				9D7304971EEFE5F9004D04BD /* NYNBoZhongRiQiTableViewCell.m in Sources */,
@@ -9542,6 +9591,7 @@
 				9D23F64B1F14D14E0035D77C /* NYNWalletTableViewCell.m in Sources */,
 				9D73049C1EEFE7B4004D04BD /* NYNZhongZhiZhouQiTableViewCell.m in Sources */,
 				9DB655591EEE84EF002718A5 /* NYNGouMaiBaoXianModel.m in Sources */,
+				14EE76AC205F66EE00009618 /* NYNLeMJCell.m in Sources */,
 				148159DD20106C3C005CBC36 /* HJTabViewControllerPlugin_HeaderScroll.m in Sources */,
 				9D1EB5801F2F59E600B57586 /* NYNDealListModel.m in Sources */,
 				147B3C2E200F4FFC00A43099 /* RootsTableViewCell.m in Sources */,
@@ -9553,12 +9603,14 @@
 				147B000B1FC2CBBB00954BA5 /* NYNLiveGiftMessege.m in Sources */,
 				9D82A3A91EFBCB8700C2EA4F /* NYNGuanJiaModel.m in Sources */,
 				14DE6B4B1F8B6EFF00B5C2EE /* MessegeViewController.m in Sources */,
+				14EE76A6205F5FE200009618 /* NYNLeNameCell.m in Sources */,
 				9D5FE42E1F1C9FD900CD9FE7 /* NYNMaiWangNongOneTableViewCell.m in Sources */,
 				9D7501611ED97AC000FF7EC6 /* MMCombinationFitlerView.m in Sources */,
 				A5F5C306205D674D0070DDD7 /* NYNAdressCell.m in Sources */,
 				149B122D1FB2AC840010B58F /* AttentionViewController.m in Sources */,
 				146F7D01205A6D6D00905809 /* NYNPlayDeController.m in Sources */,
 				9D78EBAB1F4BD21A00B0EB5D /* NYNMyFarmZuZhongThreeTableViewCell.m in Sources */,
+				14EE76A3205F5ABB00009618 /* NYNLeImgCell.m in Sources */,
 				9DB655521EEE803C002718A5 /* NYNBaoXianTableViewCell.m in Sources */,
 				14B6D24420280A2C00D55632 /* WuLiuOneTableViewCell.m in Sources */,
 				9D7501661ED97AC000FF7EC6 /* MMNormalCell.m in Sources */,
@@ -9584,6 +9636,7 @@
 				149B123A1FB2F7450010B58F /* LianmaiListView.m in Sources */,
 				9D2361C91EE7E27F00E28C97 /* FTFarmProduceTableViewCell.m in Sources */,
 				14FDA3601F7F81F200C99143 /* SetLiveView.m in Sources */,
+				14EE76A9205F618E00009618 /* NYNYCCommonCtrl.m in Sources */,
 				142E2F221F8DC5EE0035A39A /* RecommndViewController.m in Sources */,
 				1474984D1FA1D7C7009E1B38 /* GSPChatMessage.m in Sources */,
 				147A6299202AADD100D65927 /* PlanViewController.m in Sources */,
@@ -9599,6 +9652,7 @@
 				9DD76EDF1F1DF9FF00404382 /* NYNMeShouCangModel.m in Sources */,
 				9D78EBBF1F4C5F9E00B0EB5D /* NYNMyFarmNewHistoryViewController.m in Sources */,
 				146700351F8F5F98006AB43B /* RCDLiveInputBar.m in Sources */,
+				14EE76A0205F561800009618 /* NYNLeaseDeController.m in Sources */,
 				9D06617F1F21E02C00354861 /* NYNMeDealViewController.m in Sources */,
 				9D7E09441EDE5EF1008CABE3 /* UserInfoModel.m in Sources */,
 				9DD76EA91F1DED0000404382 /* NYNCollectionNongJiaLeViewController.m in Sources */,
@@ -9806,6 +9860,7 @@
 				148159BA20104345005CBC36 /* ShopCartViewController.m in Sources */,
 				9D2361B71EE7E27E00E28C97 /* FTFarmListViewController.m in Sources */,
 				9D623B7B1F44757900F4F379 /* NYNMyFarmTuDiZiLiaoTableViewCell.m in Sources */,
+				14EE76AF205F671E00009618 /* NYNMonthCell.m in Sources */,
 				9D78EBBA1F4C21A800B0EB5D /* NYNMyFarmXinRenWuViewController.m in Sources */,
 				9D583EB81EE14D01003BF782 /* FTFarmLiveTableViewCell.m in Sources */,
 				142D40671F8CB6F400E17A32 /* FindGrounpVController.m in Sources */,
@@ -9874,6 +9929,7 @@
 				9DD76EB81F1DED4700404382 /* NYNCollectyionTuDiViewController.m in Sources */,
 				1426E0091FF38B8E00000533 /* LeaseTableViewCell.m in Sources */,
 				9D7501511ED97AC000FF7EC6 /* FTMD5Tool.m in Sources */,
+				14EE76B5205F698000009618 /* NYNAddresCell.m in Sources */,
 				9D2361BD1EE7E27E00E28C97 /* FTWisdomFarmViewController.m in Sources */,
 				9DD76ED61F1DF1E100404382 /* NYNMeNongJiaLeTableViewCell.m in Sources */,
 				9D5894F91F0DE9AB006052AC /* NYNYangZhiFangAnViewController.m in Sources */,

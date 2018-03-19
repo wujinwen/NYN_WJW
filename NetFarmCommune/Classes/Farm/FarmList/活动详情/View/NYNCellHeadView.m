@@ -14,7 +14,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.greenLine = [[UIView alloc]init];
-        self.greenLine.backgroundColor = [UIColor greenColor];
+        self.greenLine.backgroundColor = SureColor;
         [self addSubview:self.greenLine];
         
         self.titleLab = [[UILabel alloc]init];

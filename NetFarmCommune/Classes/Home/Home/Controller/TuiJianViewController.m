@@ -477,6 +477,7 @@
             //  活动详情
             NYNHuoDongViewController * huodongVC = [[NYNHuoDongViewController alloc]init];
             huodongVC.ID = _activityArr[selectCount-500][@"id"];
+            huodongVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:huodongVC animated:YES];
         };
         return farmLiveTableViewCell;

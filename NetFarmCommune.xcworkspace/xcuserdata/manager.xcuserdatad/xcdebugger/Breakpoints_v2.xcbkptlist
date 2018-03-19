@@ -132,7 +132,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Classes/Farm/FarmList/%E6%99%BA%E6%85%A7%E5%86%9C%E5%9C%BA/PersonalCenter/View/FullScreenView.m"
-                  timestampString = "542889014.442359"
+                  timestampString = "543147864.352455"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "360"
@@ -147,7 +147,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Classes/Farm/FarmList/%E6%99%BA%E6%85%A7%E5%86%9C%E5%9C%BA/PersonalCenter/View/FullScreenView.m"
-                  timestampString = "542889014.445137"
+                  timestampString = "543147864.355412"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "362"
@@ -212,7 +212,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Classes/Farm/FarmList/%E5%9C%9F%E5%9C%B0%E8%AF%A6%E6%83%85/Controller/NYNChooseGuanJiaViewController.m"
-                  timestampString = "542889014.464992"
+                  timestampString = "543147864.374523"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -227,7 +227,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Classes/Farm/FarmList/%E5%9C%9F%E5%9C%B0%E8%AF%A6%E6%83%85/Controller/NYNChooseGuanJiaViewController.m"
-                  timestampString = "542889014.467694"
+                  timestampString = "543147864.377717"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
@@ -235,22 +235,6 @@
                   offsetFromSymbolStart = "56">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NetFarmCommune/Classes/Farm/FarmList/&#x571f;&#x5730;&#x8be6;&#x60c5;/Controller/NYNChooseGuanJiaViewController.m"
-            timestampString = "541158159.287325"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -324,7 +308,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Classes/Farm/Farm/Controller/NYNFarmViewController.m"
-                  timestampString = "542889014.499691"
+                  timestampString = "543147864.402958"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "702"
@@ -339,7 +323,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Classes/Farm/Farm/Controller/NYNFarmViewController.m"
-                  timestampString = "542889014.502984"
+                  timestampString = "543147864.405969"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "702"
@@ -354,7 +338,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Classes/Farm/Farm/Controller/NYNFarmViewController.m"
-                  timestampString = "542889014.505953"
+                  timestampString = "543147864.409253"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "702"
@@ -383,7 +367,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NetFarmCommune/Classes/Farm/FarmList/&#x571f;&#x5730;&#x8be6;&#x60c5;/Controller/NYNWantZhongZhiNewViewController.m"
@@ -435,7 +419,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Classes/Farm/FarmList/%E5%9C%9F%E5%9C%B0%E8%AF%A6%E6%83%85/Controller/NYNWantZhongZhiNewViewController.m"
-                  timestampString = "542889014.533035"
+                  timestampString = "543147864.428874"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "747"
@@ -450,7 +434,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Classes/Farm/FarmList/%E5%9C%9F%E5%9C%B0%E8%AF%A6%E6%83%85/Controller/NYNWantZhongZhiNewViewController.m"
-                  timestampString = "542889014.535798"
+                  timestampString = "543147864.432344"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "749"
@@ -531,7 +515,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Classes/Home/%20LiveList/Controller/NYNLiveRoomViewController.m"
-                  timestampString = "542889014.56098"
+                  timestampString = "543147864.456453"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "830"
@@ -546,7 +530,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Classes/Home/%20LiveList/Controller/NYNLiveRoomViewController.m"
-                  timestampString = "542889014.5636621"
+                  timestampString = "543147864.4597"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "831"
@@ -595,7 +579,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Classes/Home/%20LiveList/Controller/NYNLiveRoomViewController.m"
-                  timestampString = "542889014.5769891"
+                  timestampString = "543147864.472356"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "830"
@@ -610,7 +594,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Classes/Home/%20LiveList/Controller/NYNLiveRoomViewController.m"
-                  timestampString = "542889014.579775"
+                  timestampString = "543147864.475638"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "831"
@@ -675,7 +659,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Classes/Home/%20LiveList/Controller/NYNLiveRoomViewController.m"
-                  timestampString = "542889014.599355"
+                  timestampString = "543147864.493947"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "2469"
@@ -690,7 +674,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Classes/Home/%20LiveList/Controller/NYNLiveRoomViewController.m"
-                  timestampString = "542889014.602083"
+                  timestampString = "543147864.496883"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "2471"
@@ -968,8 +952,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "740"
             endingLineNumber = "740"
-            landmarkName = "-callOut"
-            landmarkType = "7">
+            landmarkName = "PersonalCenterVC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1075,11 +1059,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NetFarmCommune/Classes/Farm/FarmList/&#x667a;&#x6167;&#x519c;&#x573a;/Controller/FTExerciseViewController.m"
-            timestampString = "542796658.091977"
+            timestampString = "543147863.672264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1096,22 +1080,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
             endingLineNumber = "34"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NetFarmCommune/Classes/Farm/FarmList/&#x6bd4;&#x8d5b;/NYNPlayDeController.m"
-            timestampString = "542889013.649909"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1203,7 +1171,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Libs/NetTool/FTNetTool.m"
-                  timestampString = "542889014.82683"
+                  timestampString = "543147864.799472"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "106"
@@ -1218,7 +1186,7 @@
                   moduleName = "NetFarmCommune"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manager/Desktop/NYN_WJW/NetFarmCommune/Libs/NetTool/FTNetTool.m"
-                  timestampString = "542889014.830005"
+                  timestampString = "543147864.802601"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "106"
@@ -1327,7 +1295,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NetFarmCommune/Classes/Farm/Farm/Controller/NYNFarmViewController.m"
