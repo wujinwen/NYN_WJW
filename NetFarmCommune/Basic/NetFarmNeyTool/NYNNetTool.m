@@ -1327,8 +1327,18 @@
 
 //拍卖详情接口
 + (void)aleDeId:(NSString *)Id Params:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure{
-    [FTNetTool postNewUrl:[NSString stringWithFormat:@"%@%@",@"user/sale/query/info",Id] params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
+    [FTNetTool postNewUrl:[NSString stringWithFormat:@"%@%@",@"user/sale/query/info/",Id] params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
         
+    } success:^(id response) {
+        success(response);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+//租地详情接口
++ (void)activeLeaseDeParams:(id )params isTestLogin:(BOOL)isTestLogin progress:(void (^)(NSProgress *))progress  success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    [FTNetTool postNewUrl:[NSString stringWithFormat:@"%@",@"farming/land/customer/queryInfo"] params:params isTestLogin:isTestLogin progress:^(NSProgress *progress) {
         
     } success:^(id response) {
         success(response);

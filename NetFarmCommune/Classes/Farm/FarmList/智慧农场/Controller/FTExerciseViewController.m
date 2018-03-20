@@ -7,9 +7,10 @@
 //
 
 #import "FTExerciseViewController.h"
-#import "FTExerciseTableViewCell.h"
+#import "ActivityTableViewCell.h"
 #import "NYNNongChanPinDetailViewController.h"
 #import "NYNHuoDongViewController.h"
+#import "NYNActivityModel.h"
 
 @interface FTExerciseViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *ExerciseTable;
@@ -41,7 +42,7 @@
         if ([success[@"code"] integerValue] ==200 &&  [[NSArray arrayWithArray:success[@"data"]] count]>0) {
             NSArray *arr = [NSArray arrayWithArray:success[@"data"]];
             for (NSDictionary *d in arr) {
-                NYNCategoryPageModel *model = [NYNCategoryPageModel mj_objectWithKeyValues:d];
+                NYNActivityModel *model = [NYNActivityModel mj_objectWithKeyValues:d];
                 [self.dataArr addObject:model];
             }
             [self.ExerciseTable reloadData];
@@ -86,15 +87,18 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    FTExerciseTableViewCell *farmLiveTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"activityCell"];
-    if (farmLiveTableViewCell == nil) {
-        farmLiveTableViewCell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([FTExerciseTableViewCell class]) owner:self options:nil].firstObject;
+
+    ActivityTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (cell==nil) {
+        cell = [[NSBundle mainBundle]loadNibNamed:NSStringFromClass([ActivityTableViewCell class]) owner:self options:nil].firstObject;
+        
     }
-    NYNCategoryPageModel *model = self.dataArr[indexPath.row];
-    farmLiveTableViewCell.model = model;
-    return farmLiveTableViewCell;
     
+    NYNActivityModel *model = self.dataArr[indexPath.row];
+    cell.model=model;
     
+    cell.selectionStyle = UITableViewCellStyleDefault;
+    return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

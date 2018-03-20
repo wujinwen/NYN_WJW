@@ -35,6 +35,7 @@
 #import "GCDAsyncSocket.h"
 #import "NSString+NYN.h"
 #import <Masonry/Masonry.h>
+#import "NYNYCCommonCtrl.h"
 
 //版本号
 #define nowVesion @"1.0.0"
@@ -122,6 +123,8 @@
 #define JZRGBColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(g)/255.0 alpha:1.0]
 #define SelectedColor [UIColor colorWithHexString:@"#34cfc9" alpha:1]
 #define BackGroundColor [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1]
+
+#define SureColor [UIColor colorWithHexString:@"#9ECC5B" alpha:1]
 
 #define Color90b659 [UIColor colorWithHexString:@"90b659" alpha:1]
 #define Colorededed [UIColor colorWithHexString:@"ededed" alpha:1]

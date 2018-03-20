@@ -10,6 +10,7 @@
 #import "LeaseTableViewCell.h"
 #import "NYNFarmChooseButton.h"
 #import "NYNActivityModel.h"
+#import "NYNLeaseDeController.h"
 
 #import "LeaseTuTableViewCell.h"
 @interface LeaseViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -43,9 +44,9 @@
 
 -(void)configData{
     self.titles = @[@"综合排序",@"价格",@"面积",@"距离"];
-    self.uppics = @[@"",@"farm_icon_screen1",@"farm_icon_screen1",@"farm_icon_screen2"];
-    self.selectUppics = @[@"",@"farm_icon_screen3",@"farm_icon_screen3",@"farm_icon_scree6"];
-    self.selectDownpics = @[@"",@"farm_icon_screen4",@"farm_icon_screen4",@"farm_icon_scree6"];
+    self.uppics = @[@"",@"farm_icon_screen1",@"farm_icon_screen1",@"farm_icon_screen1"];
+    self.selectUppics = @[@"",@"farm_icon_screen3",@"farm_icon_screen3",@"farm_icon_screen3"];
+    self.selectDownpics = @[@"",@"farm_icon_screen4",@"farm_icon_screen4",@"farm_icon_screen4"];
 }
 - (void)clickBT:(NYNFarmChooseButton *)sender{
     if (sender.indexFB == 3) {
@@ -209,12 +210,20 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NYNLeaseDeController *vc = [[NYNLeaseDeController alloc]init];
+    vc.hidesBottomBarWhenPushed = YES;
+    NYNActivityModel *model = _leaseArray[indexPath.row];
+    vc.ID = model.id;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 -(UITableView *)leaseTableView{
     if (!_leaseTableView) {
-        _leaseTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 65, SCREENWIDTH, SCREENHEIGHT-64-49-(40+34+10)) style:UITableViewStylePlain];//SCREENHEIGHT - 64 - 50-40
+        _leaseTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 40+34, SCREENWIDTH, SCREENHEIGHT-64-49-(40+34+10)) style:UITableViewStylePlain];//SCREENHEIGHT - 64 - 50-40
         _leaseTableView.delegate=self;
         _leaseTableView.dataSource=self;
-        _leaseTableView.rowHeight=JZHEIGHT(104);
+        _leaseTableView.rowHeight= 110;
         _leaseTableView.tableFooterView=[[UIView alloc]init];
     }
     return _leaseTableView;

@@ -15,7 +15,9 @@
 #import "NYNGameModel.h"
 #import "NYNPlayDeController.h"
 
-@interface PlayViewController ()<UITableViewDelegate,UITableViewDataSource,PlayTitleViewClickDelagate>
+@interface PlayViewController ()<UITableViewDelegate,UITableViewDataSource,PlayTitleViewClickDelagate>{
+    NSString *going;
+}
 
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)PlayTitleView * playView;
@@ -29,6 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"比赛专栏";
+    going = @"signUp";
     self.view.backgroundColor = [UIColor colorWithRed:227.0/255.0 green:227.0/255.0 blue:227.0/255.0 alpha:0.8];
     
     _pageNo = 1;
@@ -49,13 +52,15 @@
 -(void)playSelectButtonClick:(NSInteger)tag{
     switch (tag) {
         case 0://报名中
-                [self getMatchData:@"signUp"];
+            going = @"signUp";
+            [self getMatchData:@"signUp"];
             break;
         case 1://比赛中
-                [self getMatchData:@"going"];
+            going = @"going";
+            [self getMatchData:@"going"];
             break;
         case 2://距离最近
-             [self getMatchData:@"position"];
+            [self getMatchData:@"position"];
             break;
         default:
             break;
@@ -81,6 +86,7 @@
             
             for (NSDictionary *dic in [NSArray arrayWithArray:success[@"data"]]) {
                 NYNGameModel *model = [NYNGameModel mj_objectWithKeyValues:dic];
+                model.state = going;
                 [self.totleArray addObject:model];
             }
         }else{
@@ -114,6 +120,7 @@
     NYNPlayDeController *vc = [[NYNPlayDeController alloc]init];
     NYNGameModel *model = _totleArray[indexPath.row];
     vc.ID = model.id;
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

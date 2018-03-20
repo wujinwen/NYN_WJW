@@ -18,18 +18,9 @@
         make.height.mas_offset(21);
     }];
     
-    
     self.stateLable.layer.borderWidth = 1;
-    self.stateLable.layer.borderColor = [UIColor greenColor].CGColor;
     self.stateLable.layer.cornerRadius = 3;
     self.stateLable.layer.masksToBounds = YES;
-    [self.stateLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.nameLabel.mas_right).offset(15);
-        make.top.mas_equalTo(self.contentView.mas_top).offset(10);
-        make.height.mas_offset(21);
-        make.width.mas_offset(70);
-    }];
-
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -45,6 +36,29 @@
     _peopleLabel.text =[NSString stringWithFormat:@"人数%@/%@",model.stock,model.maxStock];
     _jubanfangLabel.text = [NSString stringWithFormat:@"主办方：%@",model.farm[@"name"]];
     _distanceLabel.text = [NSString stringWithFormat:@"距离%@km",model.distance];
+
+    if ([model.state isEqualToString:@"signUp"]) {
+        self.stateLable.text = @"报名中";
+        self.stateLable.textColor = SureColor;
+        self.stateLable.layer.borderColor = SureColor.CGColor;
+        [self.stateLable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.nameLabel.mas_right).offset(15);
+            make.top.mas_equalTo(self.contentView.mas_top).offset(10);
+            make.height.mas_offset(21);
+            make.width.mas_offset(60);
+        }];
+        
+    }else if ([model.state isEqualToString:@"going"]){
+        self.stateLable.text = @"🔥火热进行中";
+        self.stateLable.textColor = [UIColor redColor];
+        self.stateLable.layer.borderColor = [UIColor redColor].CGColor;
+        [self.stateLable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.nameLabel.mas_right).offset(15);
+            make.top.mas_equalTo(self.contentView.mas_top).offset(10);
+            make.height.mas_offset(21);
+            make.width.mas_offset(100);
+        }];
+    }
 }
 
 @end
