@@ -71,5 +71,9 @@
     }];
     
 }
+- (void)setDataDit:(NSDictionary *)dataDit{
+    _name.text = @"土地地址";
+    _contenLab.text = dataDit[@"realAddress"];
+}
 
 @end

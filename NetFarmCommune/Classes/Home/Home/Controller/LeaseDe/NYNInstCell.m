@@ -51,4 +51,8 @@
     
 }
 
+- (void)setDataDit:(NSDictionary *)dataDit{
+    _contentLab.text = dataDit[@"intro"];
+}
+
 @end

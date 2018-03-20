@@ -30,4 +30,8 @@
     
 }
 
+-(void)setDataDit:(NSDictionary *)dataDit{
+    _bannerScrollView.imageURLStringsGroup = @[[NSString jsonImg:dataDit[@"images"]]];
+}
+
 @end

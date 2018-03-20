@@ -11,4 +11,5 @@
 
 @interface NYNLeImgCell : UITableViewCell<SDCycleScrollViewDelegate>
 @property (nonatomic,strong) SDCycleScrollView *bannerScrollView;
+@property (nonatomic, strong) NSDictionary *dataDit;
 @end

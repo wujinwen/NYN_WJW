@@ -11,4 +11,5 @@
 @interface NYNInstCell : UITableViewCell
 @property (nonatomic, strong) UILabel *name;
 @property (nonatomic, strong) UILabel *contentLab;
+@property (nonatomic, strong) NSDictionary *dataDit;
 @end

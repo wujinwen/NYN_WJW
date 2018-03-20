@@ -10,6 +10,9 @@
 
 @implementation NSString (NYN)
 + (NSString *)jsonImg:(NSString *)imgstr{
+    if (imgstr == nil) {
+        return @"";
+    }
     NSData *jsonData = [imgstr dataUsingEncoding:NSUTF8StringEncoding];
     NSError *err;
     NSArray *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];

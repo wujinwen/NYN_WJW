@@ -27,15 +27,13 @@
     self.title = @"自家菜地";
     [self.view addSubview:self.tableView];
     
-    NSDictionary * locDic =JZFetchMyDefault(SET_Location);
-    NSString *lat = locDic[@"lat"];
-    NSString *lon = locDic[@"lon"];
-    NSDictionary * dic = @{@"latitude":lat,@"longitude":lon};
-    [NYNNetTool activeLeaseDeId:self.ID Params:dic isTestLogin:NO progress:^(NSProgress *progress) {
+    NSDictionary * dic = @{@"landId":self.ID};
+    [NYNNetTool activeLeaseDeParams:dic isTestLogin:NO progress:^(NSProgress *progress) {
         
     } success:^(id success) {
         if ([[NSString stringWithFormat:@"%@",success[@"code"]] isEqualToString:@"200"]) {
             _dicData = success[@"data"];
+            self.title = _dicData[@"name"];
         }else{
 
         }
@@ -96,49 +94,55 @@
         if (!cell) {
             cell = [[NYNLeImgCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"leaseImgcell"];
         }
+        [cell setDataDit:_dicData];
         return cell;
     }else if (indexPath.section == 0 && indexPath.row ==1) {
-        NYNLeNameCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leaseNamecell"];
+        NYNLeNameCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NameCell"];
         if (!cell) {
-            cell = [[NYNLeNameCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"leaseNamecell"];
+            cell = [[NYNLeNameCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"NameCell"];
         }
+        [cell setDataDit:_dicData];
         return cell;
     }
     else if (indexPath.section == 0 && indexPath.row ==2) {
-        NYNAddresCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leaseImgcell"];
+        NYNAddresCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AddresCell"];
         if (!cell) {
-            cell = [[NYNAddresCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"leaseImgcell"];
+            cell = [[NYNAddresCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"AddresCell"];
         }
+         [cell setDataDit:_dicData];
         return cell;
     }
     else if (indexPath.section == 0 && indexPath.row ==3) {
-        NYNLeMJCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leaseImgcell"];
+        NYNLeMJCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MJCell"];
         if (!cell) {
-            cell = [[NYNLeMJCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"leaseImgcell"];
+            cell = [[NYNLeMJCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MJCell"];
         }
-        [cell setData:@[@"土地面积",@"20㎡"]];
+        NSString *str = [NSString stringWithFormat:@"%@㎡",_dicData[@"maxStock"]];
+        [cell setData:@[@"土地面积",str]];//㎡
         return cell;
     }
     else if (indexPath.section == 0 && indexPath.row ==4) {
-        NYNLeMJCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leaseImgcell"];
+        NYNLeMJCell *cell = [tableView dequeueReusableCellWithIdentifier:@"price"];
         if (!cell) {
-            cell = [[NYNLeMJCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"leaseImgcell"];
+            cell = [[NYNLeMJCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"price"];
         }
-        [cell setData:@[@"租赁价格",@"10.00元/月"]];
+        NSString *str = [NSString stringWithFormat:@"%.2f元/月",[_dicData[@"price"] floatValue]];
+        [cell setData:@[@"租赁价格",str]];
         return cell;
     }
     else if (indexPath.section == 0 && indexPath.row ==5) {
-        NYNMonthCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leaseImgcell"];
+        NYNMonthCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MonthCell"];
         if (!cell) {
-            cell = [[NYNMonthCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"leaseImgcell"];
+            cell = [[NYNMonthCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MonthCell"];
         }
         return cell;
     }
     else if (indexPath.section == 1 && indexPath.row ==0) {
-        NYNInstCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leaseImgcell"];
+        NYNInstCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InstCell"];
         if (!cell) {
-            cell = [[NYNInstCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"leaseImgcell"];
+            cell = [[NYNInstCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"InstCell"];
         }
+         [cell setDataDit:_dicData];
         return cell;
     }
     else {

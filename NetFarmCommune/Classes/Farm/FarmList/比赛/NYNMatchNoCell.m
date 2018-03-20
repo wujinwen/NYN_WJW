@@ -55,4 +55,29 @@
     self.rightLab.text = rightT;
 }
 
+- (void)letftext:(NSString *)text{
+    self.rightLab.text = text;
+    self.leftLab.hidden = YES;
+    self.rightLab.numberOfLines = 0;
+    self.rightLab.textAlignment = 0;
+    [self.rightLab mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_offset(10);
+        make.left.mas_equalTo(self.contentView.mas_left).offset(10);
+        make.right.mas_equalTo(self.contentView.mas_right).offset(-10);
+    }];
+}
+
+- (void)imgArr:(NSArray *)imgae{
+    self.leftLab.hidden = YES;
+    self.rightLab.hidden = YES;
+    UIImageView *img = [[UIImageView alloc]init];
+    [self.contentView addSubview:img];
+    [img sd_setImageWithURL:[NSURL URLWithString:imgae[0]] placeholderImage:[UIImage imageNamed:@"占位图"]];
+    [img mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(self.contentView.mas_centerY);
+        make.width.height.mas_offset((SCREENWIDTH - 40)/3);
+        make.left.mas_offset(10);
+    }];
+}
+
 @end

@@ -15,5 +15,7 @@
 
 - (void)letfTitle:(NSString *)title rightTitle:(NSString *)rightT;
 
+- (void)letftext:(NSString *)text;
+- (void)imgArr:(NSArray *)imgae;
 
 @end

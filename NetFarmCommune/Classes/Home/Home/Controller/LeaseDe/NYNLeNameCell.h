@@ -13,5 +13,6 @@
 @property (nonatomic, strong) UIImageView *headImg;
 @property (nonatomic, strong) UIImageView *message;
 @property (nonatomic, strong) UIImageView *phone;
+@property (nonatomic, strong) NSDictionary *dataDit;
 
 @end

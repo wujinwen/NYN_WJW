@@ -14,7 +14,6 @@
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self initaInterface];
-        
     }
     return self;
     
@@ -23,8 +22,11 @@
 -(void)initaInterface{
     _name = [NYNYCCommonCtrl commonLableWithFrame:CGRectZero text:@"测试sadugf" color:[UIColor grayColor] font:[UIFont systemFontOfSize:15.0f] textAlignment:NSTextAlignmentLeft];
     [self.contentView addSubview:_name];
-    _headImg = [NYNYCCommonCtrl commonImageViewWithFrame:CGRectZero image:[UIImage imageNamed:@"home_button_message2"]];
+    _headImg = [[UIImageView alloc]init];
+    _headImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.contentView addSubview:_headImg];
+    _headImg.layer.cornerRadius = 15;
+    _headImg.layer.masksToBounds = YES;
     
     _message = [NYNYCCommonCtrl commonImageViewWithFrame:CGRectZero image:[UIImage imageNamed:@"farm_icon_news"]];
     [self.contentView addSubview:_message];
@@ -44,7 +46,7 @@
     [_headImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.with.mas_offset(30);
         make.centerY.equalTo(self.contentView.mas_centerY);
-        make.left.mas_offset(10);
+        make.left.mas_equalTo(self.contentView.mas_left).offset(10);
     }];
     
     [_name mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -79,6 +81,11 @@
         make.top.equalTo(self.contentView.mas_bottom).offset(-1);
         make.left.right.offset(0);
     }];
+}
+
+- (void)setDataDit:(NSDictionary *)dataDit{
+    [_headImg sd_setImageWithURL:[NSURL URLWithString:dataDit[@"farm"][@"img"]] placeholderImage:[UIImage imageNamed:@"home_button_message2"]];
+    _name.text = dataDit[@"farm"][@"name"];
 }
 
 @end

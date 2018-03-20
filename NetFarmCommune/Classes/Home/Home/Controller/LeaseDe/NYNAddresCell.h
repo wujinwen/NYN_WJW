@@ -11,4 +11,5 @@
 @interface NYNAddresCell : UITableViewCell
 @property (nonatomic, strong) UILabel *name;
 @property (nonatomic, strong) UILabel *contenLab;
+@property (nonatomic, strong) NSDictionary *dataDit;
 @end

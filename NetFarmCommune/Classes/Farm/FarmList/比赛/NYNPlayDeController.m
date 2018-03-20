@@ -142,51 +142,51 @@
         return cell;
     }
     else if(indexPath.section ==2 && indexPath.row == 0){
-        NYNMatchNoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leaseImgcell"];
+        NYNMatchNoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"jiangli"];
         if (!cell) {
             cell = [[NYNMatchNoCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"leaseImgcell"];
         }
-        [cell letfTitle:@"比赛奖励" rightTitle:_dicData[@"awardsDesc"]];
+        [cell letfTitle:@"比赛奖励" rightTitle:_dicData[@"jiangli"]];
         return cell;
     }
     else if(indexPath.section ==2 && indexPath.row == 1){
-        NYNMatchNoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leaseImgcell"];
+        NYNMatchNoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"awardsDesc"];
         if (!cell) {
-            cell = [[NYNMatchNoCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"leaseImgcell"];
+            cell = [[NYNMatchNoCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"awardsDesc"];
         }
-        [cell letfTitle:@"" rightTitle:_dicData[@"awardsDesc"]];
+         [cell letftext:_dicData[@"awardsDesc"]];
         return cell;
     }
     else if(indexPath.section ==3 && indexPath.row == 0){
-        NYNMatchNoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leaseImgcell"];
+        NYNMatchNoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bisai"];
         if (!cell) {
-            cell = [[NYNMatchNoCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"leaseImgcell"];
+            cell = [[NYNMatchNoCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"bisai"];
         }
         [cell letfTitle:@"比赛详情" rightTitle:@""];
         return cell;
     }
     else if(indexPath.section ==3 && indexPath.row == 1){
-        NYNMatchNoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leaseImgcell"];
+        NYNMatchNoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"details"];
         if (!cell) {
-            cell = [[NYNMatchNoCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"leaseImgcell"];
+            cell = [[NYNMatchNoCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"details"];
         }
-        [cell letfTitle:@"" rightTitle:_dicData[@"details"]];
+        [cell letftext:_dicData[@"details"]];
         return cell;
     }
     else if(indexPath.section ==4 && indexPath.row == 0){
-        NYNMatchNoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leaseImgcell"];
+        NYNMatchNoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tupian"];
         if (!cell) {
-            cell = [[NYNMatchNoCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"leaseImgcell"];
+            cell = [[NYNMatchNoCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"tupian"];
         }
         [cell letfTitle:@"相关图片" rightTitle:@""];
         return cell;
     }
     else{
-        NYNMatchNoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leaseImgcell"];
+        NYNMatchNoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"images"];
         if (!cell) {
-            cell = [[NYNMatchNoCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"leaseImgcell"];
+            cell = [[NYNMatchNoCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"images"];
         }
-        [cell letfTitle:@"比赛名称" rightTitle:_dicData[@"images"]];
+        [cell imgArr:@[[NSString jsonImg:_dicData[@"images"]]]];
         return cell;
     }
 }
@@ -199,9 +199,15 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 3 && indexPath.row == 1) {
-        return 200;
+        return 150;
     }else if(indexPath.section ==4 && indexPath.row == 1){
-        return 200;
+        return 150;
+    }
+    else if(indexPath.section ==2 && indexPath.row == 1){
+        return 150;
+    }
+    else if(indexPath.section ==3 && indexPath.row == 1){
+        return 120;
     }else{
         return 50;
     }
